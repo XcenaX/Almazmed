@@ -581,9 +581,9 @@ def search(request):
     branches = Branch.objects.filter(city=current_city)
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
 
-    doctors = Doctor.objects.filter(Q(fullname__contains=q) | Q(direction_of_activity__name__contains=q))
-    news = New.objects.filter(title__contains=q)
-    services_types = ServiceType.objects.filter(name__contains=q)
+    doctors = Doctor.objects.filter(Q(fullname__contains=q) | Q(direction_of_activity__name__contains=q) & Q(branch__in=branches))
+    news = New.objects.filter(title__contains=q, branch__in=branches)
+    services_types = ServiceType.objects.filter(name__contains=q, branch__in=branches)
 
     result = []
     for doctor in doctors:
