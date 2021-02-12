@@ -41,13 +41,13 @@
                                 <hr />
                                 {%for item in result%}
                                     {%if item.type == "new"%}
-                                        <a href="{%url 'one_new' item.item.id%}">{{item.item.title}}</a>
+                                        <a href="{%url 'main:one_new' item.item.id%}">{{item.item.title}}</a>
                                         <ul class="path">
                                             <li><a href="/">Главная</a></li>
                                             <li><a href="{%url 'main:news'%}">Новости</a></li>
                                         </ul>
                                         <div class="text">
-                                            {{item.item.description|slice:"0:40"}}...
+                                            {{item.item.description|slice:"0:80"}}...
                                         </div>
                                         <hr />
                                     {%elif item.type == "doctor"%}
@@ -58,7 +58,7 @@
                                         </ul>                                        
                                         <hr />
                                     {%elif item.type == "service_type"%}
-                                        <a href="">{{item.item.name}}</a>
+                                        <a href="{%url 'main:sub_uslugi' item.item.id%}">{{item.item.name}}</a>
                                         <ul class="path">
                                             <li><a href="/">Главная</a></li>
                                             <li><a href="{%url 'main:uslugi'%}">Услуги и цены</a></li>                                        
