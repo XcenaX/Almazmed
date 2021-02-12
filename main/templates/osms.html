@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}" />
+	<link rel="stylesheet" href="{%static 'css/patients.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/about.css'%}" />
+	<script
+		src="https://kit.fontawesome.com/b79a50aa67.js"
+		crossorigin="anonymous"
+	></script>
+	<style>
+		
+	</style>
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<div class="main-section" style="margin-top: 30px;">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md hide-mobile">
+						<div class="sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:serviced_area'%}" >
+											<span>Обслуживаемая территория</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Запись на примем к врачу</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Вызов врача на дом</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:drug_supply'%}" >
+											<span>Лекарственное обеспечение</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://www.kdlolymp.kz/results/login">
+											<span>Результаты лабораторных исследований</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Личный кабинет</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:gobmp'%}" >
+											<span>ГОБМП</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<div class="opened active">
+											<span>ОСМС</span>
+										</div>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:question_answer'%}">
+											<span>Вопрос ответ</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:goverment_services'%}">
+											<span>Государственные услуги</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:public_service_register'%}">
+											<span>Реестр Государственных услуг</span>
+										</a>										
+									</div>									
+								</li>								
+							</ul>
+						</div>					
+					</div>
+					
+					<div class="col-md-9 col-sm-12 col-xs-12 content-md">
+                        <p><iframe title="Государственный фонд социального страхования" width="640" height="360" src="https://www.youtube.com/embed/HcBr6hZM2QE?feature=oembed" style="height: 360px;"></iframe></p>
+                        <p><iframe title="Социальные выплаты государственного фонда социального страхования" width="640" height="360" src="https://www.youtube.com/embed/07Q36yXo3WE?feature=oembed" style="height: 360px;"></iframe></p>
+                        <p><iframe title="ОСМС" width="640" height="360" src="https://www.youtube.com/embed/p9fQdNNY5KA?feature=oembed" style="height: 360px;"></iframe></p>
+                    </div>                                 
+				</div>							
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="js/main.js"></script>
+	<script src="js/uslugi.js"></script>
+{%endblock%}

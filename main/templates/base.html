@@ -1,0 +1,1143 @@
+{% load static %}
+
+{% block links %}
+
+    <head>
+        
+        <script src="{%static 'js/jquery.min.js'%}"></script>
+
+        <link rel="shortcut icon" href="{%static 'img/favicon.ico'%}" type="image/x-icon">
+        <link rel="stylesheet" href="{%static 'printjs/print.min.css'%}">
+        <link rel="stylesheet" href="{%static 'css/root.css'%}">
+        <script src="{%static 'js/alertify.js'%}"></script>
+        <link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}">
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{%static 'css/css.css'%}" />
+        <link rel="stylesheet" href="{%static 'css/mobilemenu.css'%}" />
+		<link rel="stylesheet" href="{%static 'styles/styles.css'%}" />
+
+		<link rel="stylesheet" href="{%static 'css/font-awesome.min.css'%}"/>
+		<script src="{%static 'js/b79a50aa67.js'%}"></script>
+		<link type="text/css" rel="stylesheet" href="{%static 'css/lightslider.css'%}" />
+        <script src="{%static 'js/lightslider.js'%}"></script>
+
+		<script
+			src="https://api-maps.yandex.ru/2.1/?apikey=260227c3-8264-409d-93c4-402ca20bd3ec&lang=ru_RU"
+			type="text/javascript"
+		></script>
+		<title>Almaz Medical Group</title>
+        <link rel="stylesheet" href="{%static 'bootstrap/css/bootstrap.min.css'%}" />
+        <style>
+            html{
+                max-width: 1920px;
+                margin: auto;
+                border: 1px solid #e3e7e8;
+                background-color: #f3f3f37d;
+            }
+            body{
+                height: auto !important;
+            }
+        </style>
+        {% block styles %}
+
+        {% endblock %}
+    </head>
+{% endblock %}
+
+{%block header%}
+    <header>
+        <div class="wrapper">
+            <ul class="top-header__list">
+                <li class="menu-icon" id="open_menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </li>
+                <li class="top-header__logo">
+                    <a href="{%url 'main:index'%}"> <img src="{%static 'img/logo.png'%}" /></a>
+                </li>
+                <li class="search-icon">
+                    <i class="fas fa-search"></i>
+                </li>
+                <li class="search-field">
+                    <form action="{%url 'main:search'%}" method="GET">
+                        <div class="search-input-div">
+                            <input
+                                class="search-input twosmallfont"
+                                type="text"
+                                placeholder="Поиск по сайту"
+                                autocomplete="off"
+                                maxlength="50"
+                                size="50"
+                                id="search-input"
+                                name="q"
+                            />
+                            <div class="search-button-div">
+                                <button class="search-button" style="border:none;">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </li>
+                <li class="right-div" style="padding-top:10px;">
+                    <div class="phone-block">
+                        <div class="phone-number">
+                            <i class="fas fa-phone-alt"></i>
+                            <a src="tel:+77262941076">+7 (7262) 94-10-76</a>
+                        </div>
+                        <div class="callback-block twosmallfont">
+                            <span>Заказать звонок</span>
+                        </div>
+                    </div>
+                    <div class="language-block" id="lang_block_mobile">
+                        <div id="google_translate_element"></div>
+                        <!-- <div class="language-dropdown">
+                            <a src="">Ru</a>
+                            <a class="language-list" src="">Kz</a>
+                        </div> -->
+                    </div>
+                    <button class="online-order-button button button-default" style="height: 40px !important;">
+                        <span>Запись онлайн</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- NAVBAR -->
+		<nav id="fixed-navbar" class="menu">
+			<div class="wrapper">
+				<div class="menu__list">
+					<div class="menu__item" onclick="openMenuPage('menu-page-button')">
+						<span class="menu-icon">
+							<div></div>
+							<div></div>
+							<div></div>
+						</span>
+					</div>
+					<div class="logo-block">
+						<img src="{%static 'img/logo.png'%}" alt="" />
+					</div>
+					<div class="menu__item" >
+						<a href="{%url 'main:uslugi'%}">Услуги и цены</a>
+						<ul style="margin-top: 0px;">
+							<li class="multi-dropdown">
+								Лабораторная диагностика
+								<ul>
+									<li>Гематология</li>
+									<li>Иммуногематологические исследования</li>
+									<li class="multi-dropdown">
+										Биохимические исследования крови
+										<ul>
+											<li>Гематология</li>
+											<li>Иммуногематологические исследования</li>
+											<li>Биохимические исследования крови</li>
+											<li>Витамины</li>
+										</ul>
+									</li>
+									<li>Витамины</li>
+								</ul>
+							</li>
+							<li>Диагностическое отделение</li>
+							<li>Консультативное отделение</li>
+							<li>Консультативное отделение</li>
+							<li>Отделение врачей общей практики</li>
+						</ul>
+					</div>
+					<a class="menu__item news-block" href="{%url 'main:news'%}">Новости</a>
+					<div class="menu__item" >
+                        <a href="{%url 'main:about'%}">О поликлинике</a>
+                        <ul style="margin-top: 0px;">
+							<li><a href="{%url 'main:about'%}">О поликлинике</a></li>
+                            <li><a href="{%url 'main:specialists_activity' leaders.id%}">Руководители</a></li>
+                            <li><a href="{%url 'main:director_blog'%}">Блог директора филиала</a></li>
+                            <li><a href="{%url 'main:lisences'%}">Лицензии</a></li>
+                            <li><a href="{%url 'main:partners'%}">Партнеры</a></li>
+                            <li><a href="{%url 'main:letters'%}">Благодарственные письма</a></li>
+						</ul>
+                    </div>
+					<a class="menu__item" href="{%url 'main:specialists'%}">Специалисты</a>
+					<div class="menu__item news" >
+                        <a href="{%url 'main:patients'%}">Пациенту</a>
+                        <ul style="margin-top: 0px;">
+							<li><a href="{%url 'main:serviced_area'%}">Обслуживаемая территория</a></li>
+                            <li><a href="https://lkp-zha.dmed.kz/">Запись на примем к врачу</a></li>
+                            <li><a href="https://lkp-zha.dmed.kz/">Вызов врача на дом</a></li>
+                            <li><a href="{%url 'main:drug_supply'%}">Лекарственное обеспечение</a></li>
+                            <li><a href="https://www.kdlolymp.kz/results/login">Результаты лабораторных исследований</a></li>
+                            <li><a href="https://lkp-zha.dmed.kz/">Личный кабинет</a></li>
+                            <li><a href="{%url 'main:gobmp'%}">ГОБМП</a></li>
+                            <li><a href="{%url 'main:osms'%}">ОСМС</a></li>
+                            <li><a href="{%url 'main:question_answer'%}">Вопрос ответ</a></li>
+                            <li><a href="{%url 'main:goverment_services'%}">Государственные услуги</a></li>
+                            <li><a href="{%url 'main:public_service_register'%}">Реестр Государственных услуг</a></li>
+						</ul>
+                    </div>
+                    <div class="menu__item filials" >
+                        <a href="{%url 'main:choose_city'%}">Изменить город</a>
+                    </div>
+                    <div class="menu__item triple-dots">
+						<i class="fas fa-ellipsis-h"></i>
+						<ul class="dropdown-submenu">
+							<li>Новости</li>
+							<li>Изменить город</li>
+						</ul>
+					</div>
+					<!-- <div class="menu__item language-block">
+						<div class="language-dropdown">
+							<a class="language-list" onclick="setLanguage('ru')">Ru</a>
+							<a class="language-list" onclick="setLanguage('kk')">Kz</a>
+						</div>
+					</div> -->
+					<div class="menu__item search-block">
+						<i class="fas fa-search search-icon"></i>
+					</div>
+				</div>
+			</div>
+        </nav>
+
+
+
+		<!-- MENU PAGE -->
+		<div id="menu-page" class="menu-page-section">
+			<div class="menu-page-wrapper wrapper">
+				<div class="close-button" onclick="openMenuPage('close-button')"></div>
+				<ul class="menu-page-grid">
+					<li class="menu-page-item">
+						<h2>
+							<a href="{%url 'main:uslugi'%}">Услуги и цены</a>
+						</h2>
+						<div class="menu-page-link menu-page-dropdown">
+							<a src="">Лабораторное диагностирование</a>
+							<i class="fas fa-caret-down"></i>
+							<ul class="dropdown-content">
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Иммуногематологические исследования</a>
+								</li>
+								<li class="dropdown-submenu">
+									<a src="">Общеклинические исследования</a>
+								</li>
+							</ul>
+						</div>
+						<div class="menu-page-link menu-page-dropdown">
+							<a src="">Диагностическое отделение</a>
+							<i class="fas fa-caret-down"></i>
+							<ul class="dropdown-content">
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Иммуногематологические исследования</a>
+								</li>
+								<li class="dropdown-submenu">
+									<a src="">Общеклинические исследования</a>
+									<ul class="dropdown-submenu-content">
+										<li>
+											<a src="">Гормоны (электрохемилюминисцентный метод) </a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="menu-page-item">
+						<h2>
+							<a href="{%url 'main:uslugi'%}">Услуги и цены</a>
+						</h2>
+						<div class="menu-page-link menu-page-dropdown">
+							<a src="">Лабораторное диагностирование</a>
+							<i class="fas fa-caret-down"></i>
+							<ul class="dropdown-content">
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Иммуногематологические исследования</a>
+								</li>
+								<li class="dropdown-submenu">
+									<a src="">Общеклинические исследования</a>
+								</li>
+							</ul>
+						</div>
+						<div class="menu-page-link menu-page-dropdown">
+							<a src="">Диагностическое отделение</a>
+							<i class="fas fa-caret-down"></i>
+							<ul class="dropdown-content">
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Иммуногематологические исследования</a>
+								</li>
+								<li class="dropdown-submenu">
+									<a src="">Общеклинические исследования</a>
+									<ul class="dropdown-submenu-content">
+										<li>
+											<a src="">Гормоны (электрохемилюминисцентный метод) </a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="menu-page-item">
+						<h2>
+							<a href="{%url 'main:uslugi'%}">Услуги и цены</a>
+						</h2>
+						<div class="menu-page-link menu-page-dropdown">
+							<a src="">Лабораторное диагностирование</a>
+							<i class="fas fa-caret-down"></i>
+							<ul class="dropdown-content">
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Иммуногематологические исследования</a>
+								</li>
+								<li class="dropdown-submenu">
+									<a src="">Общеклинические исследования</a>
+								</li>
+							</ul>
+						</div>
+						<div class="menu-page-link menu-page-dropdown">
+							<a src="">Диагностическое отделение</a>
+							<i class="fas fa-caret-down"></i>
+							<ul class="dropdown-content">
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Иммуногематологические исследования</a>
+								</li>
+								<li class="dropdown-submenu">
+									<a src="">Общеклинические исследования</a>
+									<ul class="dropdown-submenu-content">
+										<li>
+											<a src="">Гормоны (электрохемилюминисцентный метод) </a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="menu-page-item">
+						<h2>
+							<a href="{%url 'main:uslugi'%}">Услуги и цены</a>
+						</h2>
+						<div class="menu-page-link menu-page-dropdown">
+							<a src="">Лабораторное диагностирование</a>
+							<i class="fas fa-caret-down"></i>
+							<ul class="dropdown-content">
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Иммуногематологические исследования</a>
+								</li>
+								<li class="dropdown-submenu">
+									<a src="">Общеклинические исследования</a>
+								</li>
+							</ul>
+						</div>
+						<div class="menu-page-link menu-page-dropdown">
+							<a src="">Диагностическое отделение</a>
+							<i class="fas fa-caret-down"></i>
+							<ul class="dropdown-content">
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Иммуногематологические исследования</a>
+								</li>
+								<li class="dropdown-submenu">
+									<a src="">Общеклинические исследования</a>
+									<ul class="dropdown-submenu-content">
+										<li>
+											<a src="">Гормоны (электрохемилюминисцентный метод) </a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="menu-page-item">
+						<h2>
+							<a href="{%url 'main:uslugi'%}">Услуги и цены</a>
+						</h2>
+						<div class="menu-page-link menu-page-dropdown">
+							<a src="">Лабораторная диагностика</a>
+							<i class="fas fa-caret-down"></i>
+							<ul class="dropdown-content">
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Иммуногематологические исследования</a>
+								</li>
+								<li class="dropdown-submenu">
+									<a src="">Общеклинические исследования</a>
+								</li>
+							</ul>
+						</div>
+						<div class="menu-page-link menu-page-dropdown">
+							<a src="">Диагностическое отделение</a>
+							<i class="fas fa-caret-down"></i>
+							<ul class="dropdown-content">
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Гематология</a>
+								</li>
+								<li>
+									<a src="">Иммуногематологические исследования</a>
+								</li>
+								<li class="dropdown-submenu">
+									<a src="">Общеклинические исследования</a>
+									<ul class="dropdown-submenu-content">
+										<li>
+											<a src="">Гормоны (электрохемилюминисцентный метод) </a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+{%endblock%}
+<div id="mobilemenu" class="leftside">
+    <div class="mobilemenu-v1 scroller">
+        <div class="mobile-language">
+            <ul>
+                <li onclick="setLanguage('ru')">Ru</li>
+                <li onclick="setLanguage('kk')">Kz</li>
+            </ul>
+            <!-- <div id="google_translate_element"></div> -->
+        </div>
+        <div class="wrap" id="wrap" style="">
+            <div class="menu2 top">
+                <div class="main-section__container" style="display: block !important;">
+                    <div class="sidebar">
+                        <ul class="sidebar-menu" style="display: block !important;">
+                            <li class="sidebar-menu__item dropdown-link">
+                                <div class="sidebar-menu__link dropdown-link">
+                                    <a class="">
+                                        <span>Услуги</span>
+                                    </a>
+                                    <i class="fas fa-caret-down"></i>
+                                </div>
+                                <ul class="dropdown-link__content">
+                                    <li>
+                                        <div class="dropdown-link">
+                                            <a href="">Гематология</a>
+                                            <i class="fas fa-caret-down"></i>
+                                        </div>
+                                        <ul class="dropdown-link__content">
+                                            <li><a href="">Гематология</a></li>
+                                            <li>
+                                                <a href="">Иммуногематологические исследования</a>
+                                            </li>
+                                            <li><a href="">Биохимические исследования крови</a></li>
+                                            <li><a href="">Имунологические исследования</a></li>
+                                            <li>
+                                                <a href="">Диагностика аутоиммунных заболеваний</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="">Иммуногематологические исследования</a></li>
+                                    <li><a href="">Биохимические исследования крови</a></li>
+                                    <li><a href="">Имунологические исследования</a></li>
+                                    <li><a href="">Диагностика аутоиммунных заболеваний</a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-menu__item">
+                                <div class="sidebar-menu__link dropdown-link">
+                                    <a href="{%url 'main:news'%}" class="">
+                                        <span>Новости</span>
+                                    </a>
+                                    <i class="fas fa-caret-down"></i>
+                                </div>
+                                <ul class="dropdown-link__content">
+                                    <li><a href="">Гематология</a></li>
+                                    <li><a href="">Иммуногематологические исследования</a></li>
+                                    <li><a href="">Биохимические исследования крови</a></li>
+                                    <li><a href="">Имунологические исследования</a></li>
+                                    <li><a href="">Диагностика аутоиммунных заболеваний</a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-menu__item">
+                                <div class="sidebar-menu__link dropdown-link">
+                                    <a href="{%url 'main:about'%}" class="">
+                                        <span>О поликлинике</span>
+                                    </a>
+                                    <i class="fas fa-caret-down"></i>
+                                </div>
+                                <ul class="dropdown-link__content">
+                                    <li><a href="">Гематология</a></li>
+                                    <li><a href="">Иммуногематологические исследования</a></li>
+                                    <li><a href="">Биохимические исследования крови</a></li>
+                                    <li><a href="">Имунологические исследования</a></li>
+                                    <li><a href="">Диагностика аутоиммунных заболеваний</a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-menu__item">
+                                <div class="sidebar-menu__link dropdown-link">
+                                    <a href="{%url 'main:specialists'%}" class="">
+                                        <span>Специалисты</span>
+                                    </a>
+                                    <i class="fas fa-caret-down"></i>
+                                    <ul class="dropdown-link__content">
+                                        <li><a href="">Гематология</a></li>
+                                        <li><a href="">Иммуногематологические исследования</a></li>
+                                        <li><a href="">Биохимические исследования крови</a></li>
+                                        <li><a href="">Имунологические исследования</a></li>
+                                        <li><a href="">Диагностика аутоиммунных заболеваний</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="sidebar-menu__item">
+                                <div class="sidebar-menu__link dropdown-link">
+                                    <a href="{%url 'main:patients'%}" class="">
+                                        <span>Пациенту</span>
+                                    </a>
+                                    <i class="fas fa-caret-down"></i>
+                                    <ul class="dropdown-link__content">
+                                        <li><a href="">Гематология</a></li>
+                                        <li><a href="">Иммуногематологические исследования</a></li>
+                                        <li><a href="">Биохимические исследования крови</a></li>
+                                        <li><a href="">Имунологические исследования</a></li>
+                                        <li><a href="">Диагностика аутоиммунных заболеваний</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="sidebar-menu__item">
+                                <div class="sidebar-menu__link dropdown-link">
+                                    <a href="{%url 'main:choose_city'%}" class="">
+                                        <span>Изменить город</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="menu2 middle">
+                <ul>
+                    <li>
+                        <a href="tel:+77262941076" class="dark-color">
+                            <i class="svg svg-phone"></i>
+                            <span>+7 (7262) 94-10-76</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="contacts">
+                <div class="title">Будьте на связи</div>
+                <div class="address">
+                    <i class="svg svg-address"></i>
+                    г. Тараз, мкр Мынбулак (9), дом 7
+                </div>
+                <div class="email">
+                    <i class="svg svg-email"></i>
+                    <a href="mailto:office_taraz@almazmed.kz">office_taraz@almazmed.kz</a>
+                </div>
+            </div>
+            <div class="social-icons">
+                <!-- noindex -->
+                <ul>
+                    <li class="facebook">
+                        <a href="https://www.facebook.com/tarazpoliklinika4/" class="dark-color" target="_blank" rel="nofollow" title="Facebook">
+                            <i class="svg svg-social-fb"></i>
+                            Facebook
+                        </a>
+                    </li>
+                    <li class="vk">
+                        <a href="https://vk.com/tarazpoliklinika4" class="dark-color" target="_blank" rel="nofollow" title="Вконтакте">
+                            <i class="svg svg-social-vk"></i>
+                            Вконтакте
+                        </a>
+                    </li>
+                    <li class="instagram">
+                        <a href="https://www.instagram.com/tarazpoliklinika4/" class="dark-color" target="_blank" rel="nofollow" title="Instagram">
+                            <i class="svg svg-social-instagram"></i>
+                            Instagram
+                        </a>
+                    </li>
+                </ul>
+                <!-- /noindex -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mobilemenu-overlay" style="display: none;"></div>
+
+{%block root%}
+    {%if path%}
+        <section class="page-top maxwidth-theme">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb2" id="navigation">
+
+                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" id="">
+                                    <a href="/" title="Главная" itemprop="url"><span itemprop="title">Главная</span></a>
+                                </li>
+                                {%for element in path %}
+                                    {%for key,value in element.items%}
+                                        {%if path|last != element%}
+                                            <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" id="">
+                                                <a href="{{value}}" title="{{key}}" itemprop="url"><span itemprop="title">{{key}}</span></a>
+                                            </li>
+                                        {%endif%}
+                                    {%endfor%}
+                                {%endfor%}
+                                <li class="" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" id="">
+                                    <span itemprop="title">
+                                        {% with path|last as last %}
+                                            {%for key,value in last.items%}
+                                                {{key}}
+                                            {%endfor%}
+                                        {% endwith %}
+                                    </span>
+                                </li>
+
+                        </ul>
+                        <div class="page-top-main">
+                            <div class="print-link"><i class="svg svg-print"></i></div>
+                            <h1 id="pagetitle">
+                                {% with path|last as last %}
+                                    {%for key,value in last.items%}
+                                        {{key}}
+                                    {%endfor%}
+                                {% endwith %}
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    {%endif%}
+{%endblock%}
+
+{% block body%}
+
+{% endblock %}
+
+
+
+{% block footer %}
+
+    <!-- Место для футера -->
+    <footer>
+        <div class="top-footer">
+            <ul class="top-footer__list">
+                <li class="top-footer__item contact-block">
+                    <div class="contact-block__item phone-block">
+                        <div class="phone-number">
+                            <i class="fas fa-phone-alt"></i>
+                            <a src="tel:+77262941076">+7 (7262) 94-10-76</a>
+                        </div>
+                        <div class="callback-block twosmallfont">
+                            <span>Заказать звонок</span>
+                        </div>
+                    </div>
+                    <div class="contact-block__item">
+                        <i class="far fa-envelope"></i>
+                        <a src="mailto:office_taraz@almazmed.kz"
+                            >office_taraz@almazmed.kz</a
+                        >
+                    </div>
+                    <div class="contact-block__item">
+                        <i class="fas fa-map-marker-alt"></i
+                        ><span>г. Тараз, мкр Мынбулак (9), дом 7</span>
+                    </div>
+                </li>
+                <li class="top-footer__item social-block">
+                    <h4>Мы в социальных сетях</h4>
+                    <ul>
+                        <li class="vk">
+                            <a
+                                src="https://vk.com/tarazpoliklinika4"
+                                target="_blank"
+                                rel="nofollow"
+                                title="Вконтакте"
+                            >
+                                <i class="fab fa-vk"></i>
+                            </a>
+                        </li>
+                        <li class="facebook">
+                            <a
+                                src="https://www.facebook.com/tarazpoliklinika4/"
+                                target="_blank"
+                                rel="nofollow"
+                                title="Facebook"
+                            >
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="instagram">
+                            <a
+                                src="https://www.instagram.com/tarazpoliklinika4/"
+                                target="_blank"
+                                rel="nofollow"
+                                title="Instagram"
+                            >
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="top-footer__item print-block">
+                    <span><i class="fas fa-print"></i> Версия для печати</span>
+                </li>
+            </ul>
+        </div>
+        <div class="bottom-footer">
+            <div class="copyright">© 2020 Все права защищены.</div>
+            <div class="confidentiality-block">
+                <ul class="confidentiality-block__list">
+                    <li class="confidentiality-block__item">
+                        <a src="">Лицензии</a>
+                    </li>
+                    <li class="confidentiality-block__item">
+                        <a src="">Надзорные органы</a>
+                    </li>
+                    <li class="confidentiality-block__item">
+                        <a src="">Политика конфиденциальности</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="banner_warning">
+        Имеются противопоказания. Необходима консультация специалиста
+    </div>
+    <!-- Место для футера -->
+
+{% endblock %}
+
+{% block header_modals%}
+
+    <!-- CALLBACK MODAL -->
+    <div id="callback-modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="close-button"></div>
+            <div class="title">Обратный звонок</div>
+            <div class="description">Представьтесь, мы вам перезвоним.</div>
+
+            <form class="form" action=" ">
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="callback-modal__name"
+                        name="callback-modal__name"
+                        class="input-control"
+                        required
+                    />
+                    <label for="callback-modal__name"
+                        >Ваше имя<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="callback-modal__phone"
+                        name="callback-modal__phone"
+                        class="input-control"
+                        required
+                    />
+                    <label for="callback-modal__phone"
+                        >Телефон<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="license-block control control-checkbox">
+                    <label for="licenses_popup">
+                        <input
+                            type="checkbox"
+                            id="licenses_popup"
+                            name="licenses_popup"
+                            required=""
+                            value="Y"
+                            aria-required="true"
+                        />
+                        <div class="control_indicator"></div>
+                        Я согласен на
+                        <a class="inverted-colors" src="" target="_blank"
+                            >обработку персональных данных</a
+                        >
+                    </label>
+                </div>
+                <button type="submit" class="button-lg button button-default">
+                    Отправить
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- ONLINE ORDER MODAL -->
+    <div id="online-order-modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="close-button"></div>
+            <div class="title">Запись онлайн</div>
+            <div class="description">
+                Администратор клиники с радостью ответит на ваши вопросы и запишет к
+                нужному специалисту.
+            </div>
+
+            <form class="form" action=" ">
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="order-modal__name"
+                        class="input-control"
+                        required
+                    />
+                    <label for="order-modal__name"
+                        >Ваше имя<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="order-modal__phone"
+                        class="input-control"
+                        required
+                    />
+                    <label for="order-modal__phone"
+                        >Телефон<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="form-group">
+                    <select id="order-modal__type" class="input-control" required>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+                    <label for="order-modal__type"
+                        >Выбрать специализацию:<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="order-modal__date"
+                        class="input-control"
+                        required
+                    />
+                    <label for="order-modal__date"
+                        >Удобные дата и время<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="license-block control control-checkbox">
+                    <label for="order-licenses_popup">
+                        <input
+                            type="checkbox"
+                            id="order-licenses_popup"
+                            name="order-licenses_popup"
+                            required=""
+                            value="Y"
+                            aria-required="true"
+                        />
+                        <div class="control_indicator"></div>
+                        Я согласен на
+                        <a class="inverted-colors" src="" target="_blank"
+                            >обработку персональных данных</a
+                        >
+                    </label>
+                </div>
+                <button type="submit" class="button-lg button button-default">
+                    Отправить
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- RECEIPT ORDER MODAL -->
+    <div id="receipt-modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="close-button"></div>
+            <div class="title">Закать рецепт</div>
+            <div class="description"></div>
+
+            <form class="form" action=" ">
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="receipt-modal__fullname"
+                        class="input-control"
+                        required
+                    />
+                    <label for="receipt-modal__fullname"
+                        >ФИО<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="receipt-modal__phone"
+                        class="input-control"
+                        required
+                    />
+                    <label for="receipt-modal__phone"
+                        >Телефон<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="receipt-modal__address"
+                        class="input-control"
+                        required
+                    />
+                    <label for="receipt-modal__address"
+                        >Адрес проживания<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="receipt-modal__id"
+                        class="input-control"
+                        required
+                    />
+                    <label for="receipt-modal__id"
+                        >ИИН<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="receipt-modal__email"
+                        class="input-control"
+                        required
+                    />
+                    <label for="receipt-modal__email"
+                        >Email<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="receipt-modal__drug"
+                        class="input-control"
+                        required
+                    />
+                    <label for="receipt-modal__drug"
+                        >Необходимое лекарственное средство<span class="required-star"
+                            >*</span
+                        ></label
+                    >
+                </div>
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="receipt-modal__diagnos"
+                        class="input-control"
+                        required
+                    />
+                    <label for="receipt-modal__diagnos"
+                        >Диагноз<span class="required-star">*</span></label
+                    >
+                </div>
+                <div class="license-block control control-checkbox">
+                    <label for="receipt-licenses_popup">
+                        <input
+                            type="checkbox"
+                            id="receipt-licenses_popup"
+                            name="receipt-licenses_popup"
+                            required=""
+                            value="Y"
+                            aria-required="true"
+                        />
+                        <div class="control_indicator"></div>
+                        Я согласен на
+                        <a class="inverted-colors" src="" target="_blank"
+                            >обработку персональных данных</a
+                        >
+                    </label>
+                </div>
+                <button type="submit" class="button-lg button button-default">
+                    Отправить
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- Scroll to top button -->
+    <div onclick="goToTop()" id="go-up-button" title="Вернуться наверх">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <!-- Search modal -->
+    <div id="search-modal" class="modal">
+        <div class="search-modal-content">
+            <div class="wrapper">
+                <form action="" class="form">
+                    <div class="search-modal__input">
+                        <input
+                            type="text"
+                            name="search-modal__input"
+                            id="search-modal__input"
+                            class=""
+                            placeholder="Поиск по сайту"
+                        />
+                        <div class="search-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <button class="button button-default">Поиск по сайту</button>
+                    </div>
+                    <div class="close-button"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{%static 'js/mobilemenu.js'%}"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'kz'}, 'google_translate_element');
+        }
+
+    </script>
+    <script>
+        var timer = setInterval(function() {
+            lang_block = $(".goog-te-combo")[0];
+            if(lang_block.children.length < 100){
+                return
+            }
+
+            lang_block.onchange = function(){
+                var timer2 = setInterval(function() {
+                    lang_block = $(".goog-te-combo")[0];
+                    
+                    
+                    
+                    if(lang_block.children.length < 100){
+                        return
+                    }
+                    for(var i =0; i < lang_block.children.length;){
+                        console.log(lang_block.children[i].value);
+                        if(lang_block.children[i].value != "ru" && lang_block.children[i].value != "kk"){
+                            
+                            lang_block.children[i].remove();
+                        }else{
+                            i++;
+                        }
+                    }
+
+                    
+                    setSessionLang(lang_block.value);
+                    
+                    clearInterval(timer2);
+                })
+
+            }
+            lang_block.onchange();
+            div = document.createElement("div")
+            div.style.height = "18px";
+            div.style.bottom = "0px";
+            div.style.width = "100%";
+            div.style.position = "absolute";
+            div.style.background = "white";
+            a = $(".skiptranslate.goog-te-gadget")[0].appendChild(div);
+            //document.body.innerHTML = document.body.innerHTML.replace( "Технологии", ".");
+            clearInterval(timer);
+
+        }, 150);
+
+        function setLanguage(lang){
+            lang_block = $(".goog-te-combo")[0];
+            lang_block.value = lang;
+            lang_block.dispatchEvent(new Event('change'));
+        }
+
+        function setSessionLang(lang){
+            if("{{current_lang}}" != lang){
+                $.ajax({
+                type: "POST",
+                url: "{%url 'main:setlang'%}",
+                data: {
+                    "lang": lang,
+                },
+            });
+            console.log(lang);
+            }
+        }
+
+        
+
+        // var google_timer = setInterval(function() {
+        //     if(window.innerWidth < 744){
+        //         var lang_block_mobile = $("#lang_block_mobile");
+        //         if(lang_block_mobile.children.length == 0){
+
+        //         }
+        //     }
+        //     var google_block = $("#google_translate_element")[0]
+
+
+
+        // }, 1000);
+
+
+    </script>
+    {%if current_lang%}
+        <script>
+            $(document).ready(function(){
+                var timer = setInterval(function() {
+                lang_block = $(".goog-te-combo")[0];
+                if(lang_block.children.length < 100){
+                    return
+                }
+                setLanguage("{{current_lang}}");
+                lang_block.onchange();
+                clearInterval(timer);
+
+            }, 50);
+                
+            })
+        </script>
+        
+    {%endif%}
+{%endblock%}
+
+{%block scripts%}
+{%endblock%}

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}" />
+	<link rel="stylesheet" href="{%static 'css/lisences.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/about.css'%}" />
+	<script
+		src="https://kit.fontawesome.com/b79a50aa67.js"
+		crossorigin="anonymous"
+	></script>
+	<style>
+		p {
+			margin: 25px 0;
+		}
+	</style>
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<div class="main-section" style="margin-top: 30px;">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md hide-mobile">
+						<div class="sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:about'%}" >
+											<span>О поликлинике</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:specialists_activity' leaders.id%}">
+											<span>Руководители</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:director_blog'%}">
+											<span>Блог директора филиала</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<div class="opened active">
+											<span>Лицензии</span>
+                                        </div>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:partners'%}">
+											<span>Партнеры</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:letters'%}">
+											<span>Благодарственные письма</span>
+										</a>										
+									</div>									
+								</li>								
+							</ul>
+						</div>					
+					</div>
+					
+					<div class="col-md-9 col-sm-12 col-xs-12">
+						<div class="item-views licenses list table-type-block image_left licenses">
+							<div class="group-content">
+								<div id="bx_3218110189_11" class="tab-pane active">
+									<h4 style="margin-bottom:30px;font-size:25px">Лицензии</h4>						
+									<div class="row items">
+										{%for lisence in lisences%}
+										<div class="col-md-4 col-sm-4 col-xs-12">
+											<div class="item shadow1" id="bx_{{lisence.id}}">
+												<div class="image">
+													<div class="wrap">
+														<a href="{{lisence.preview.url}}" target="_blank" alt="Приложение к лицензии 1" title="Приложение к лицензии 1" class="img-inside fancybox">
+															<img src="{{lisence.preview.url}}" alt="Приложение к лицензии 1" title="Приложение к лицензии 1" class="img-responsive" />
+															<!-- <span class="zoom"></span> -->
+														</a>
+													</div>
+												</div>
+												<div class="text" style="text-align: center;">
+													<div class="title" style="height: 20px;">
+														Приложение к лицензии {{lisence.id}}
+													</div>
+									
+													<div class="link" style="text-align: center;">
+														<br />
+														<a href="{{lisence.lisence.url}}" download target="_blank">Скачать</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										{%endfor%}
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>							
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="js/main.js"></script>
+	<script src="js/uslugi.js"></script>
+{%endblock%}

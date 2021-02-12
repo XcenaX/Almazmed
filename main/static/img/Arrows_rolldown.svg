@@ -1,0 +1,12 @@
+<svg id="Arrows_rolldown.svg" xmlns="http://www.w3.org/2000/svg" width="24" height="6" viewBox="0 0 24 6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Rounded_Rectangle_688_copy_9" data-name="Rounded Rectangle 688 copy 9" class="cls-1" d="M1628,767h10v6h-10v-6Zm9.72,1.7-4.01,4.02a1.01,1.01,0,0,1-1.42,0l-4.01-3.987a0.992,0.992,0,0,1,0-1.407,1.012,1.012,0,0,1,1.42,0l3.3,3.281,3.3-3.314a1.01,1.01,0,0,1,1.42,0A0.992,0.992,0,0,1,1637.72,768.7Z" transform="translate(-1628 -767)"/>
+  <path id="Rounded_Rectangle_688_copy_10" data-name="Rounded Rectangle 688 copy 10" class="cls-1" d="M1651.72,768.7l-4.01,4.02a1.01,1.01,0,0,1-1.42,0l-4.01-3.987a0.992,0.992,0,0,1,0-1.407,1.012,1.012,0,0,1,1.42,0l3.3,3.281,3.3-3.314a1.01,1.01,0,0,1,1.42,0A0.992,0.992,0,0,1,1651.72,768.7Z" transform="translate(-1628 -767)"/>
+</svg>

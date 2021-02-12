@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/news.css'%}">
+	
+{% endblock %}
+
+
+
+{% block body %}
+<body>
+		
+
+	<!-- MAIN SECTION -->
+	<div class="main-section" id="html" style="margin-top: 56px;margin-bottom: 40px;">
+		<div class="wrapper">
+			<div class="row" style="margin-bottom: 40px;">
+				<div class="col-md-9">
+                    <img src="{{current_new.image.url}}" alt="" class="new-img">
+                    <div class="new-date"> <span>{{current_new.date|date:"d F Y"}}</span></div>
+                    <span class="new-content">{{current_new.description}}</span>
+				</div>
+            </div>
+            <a class="back-url back-block dark_link twosmallfont" href="{%url 'main:news'%}"><i class="fa2 fa-angle-left"></i><span>Вернуться</span></a>
+		</div>
+		
+	</div>
+
+	<div class="banner_warning">
+		Имеются противопоказания. Необходима консультация специалиста
+	</div>
+</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="{%static 'bootstrap/js/bootstrap.js'%}"></script>
+	<script src="{%static 'js/main.js'%}"></script>
+	
+	<script src="{%static 'js/uslugi.js'%}"></script>
+	
+{%endblock%}

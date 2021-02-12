@@ -1,0 +1,11 @@
+<svg id="Facebook_white_mask.svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="facebook_copy_21" data-name="facebook copy 21" class="cls-1" d="M397,56h20V76H397V56Zm12.988,5.981L410.3,60a15.934,15.934,0,0,0-2.4.019,2.25,2.25,0,0,0-1.427.784A2.462,2.462,0,0,0,406,62.4c0,0.688,0,2.592,0,2.592l-2-.014v2.007l2,0.008v6l2.012,0v-6l2.375,0,0.31-2.007h-2.684s0-2.285,0-2.509a0.561,0.561,0,0,1,.67-0.487C409.122,61.98,409.988,61.981,409.988,61.981Z" transform="translate(-397 -56)"/>
+</svg>

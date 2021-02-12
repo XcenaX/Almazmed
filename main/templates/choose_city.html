@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="{%static 'js/jquery.min.js'%}"></script>
+        
+    <link rel="shortcut icon" href="{%static 'img/favicon.ico'%}" type="image/x-icon">
+    <link rel="stylesheet" href="{%static 'printjs/print.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/root.css'%}">
+    <script src="{%static 'js/alertify.js'%}"></script>
+    <link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{%static 'css/css.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/mobilemenu.css'%}" />
+    <link rel="stylesheet" href="{%static 'styles/styles.css'%}" />
+    
+    <link rel="stylesheet" href="{%static 'css/font-awesome.min.css'%}"/>
+    <script src="{%static 'js/b79a50aa67.js'%}"></script>
+    <link type="text/css" rel="stylesheet" href="{%static 'css/lightslider.css'%}" />
+    <script src="{%static 'js/lightslider.js'%}"></script>
+    
+    <script
+        src="https://api-maps.yandex.ru/2.1/?apikey=260227c3-8264-409d-93c4-402ca20bd3ec&lang=ru_RU"
+        type="text/javascript"
+    ></script>
+    <title>Almaz Medical Group</title>
+    <link rel="stylesheet" href="{%static 'bootstrap/css/bootstrap.min.css'%}" />
+    <style>
+        body{
+            font-family: 'Open Sans', sans-serif;
+            background:#e2e2e2;
+        }
+
+    </style>
+</head>
+<body>
+    <svg class="hide-mobile" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="800px" height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="174.7899" y1="186.34" x2="330.1259" y2="186.34" gradientTransform="matrix(0.8538 0.5206 -0.5206 0.8538 147.9521 -79.1468)">
+            <stop  offset="0" style="stop-color:#FFC035"/>
+            <stop  offset="0.221" style="stop-color:#F9A639"/>
+            <stop  offset="1" style="stop-color:#E64F48"/>
+        </linearGradient>
+        <circle fill="url(#SVGID_1_)" cx="266.498" cy="211.378" r="77.668"/>
+        <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="290.551" y1="282.9592" x2="485.449" y2="282.9592">
+            <stop  offset="0" style="stop-color:#FFA33A"/>
+            <stop  offset="0.0992" style="stop-color:#E4A544"/>
+            <stop  offset="0.9624" style="stop-color:#00B59C"/>
+        </linearGradient>
+        <circle fill="url(#SVGID_2_)" cx="388" cy="282.959" r="97.449"/>
+        <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="180.3469" y1="362.2723" x2="249.7487" y2="362.2723">
+            <stop  offset="0" style="stop-color:#12B3D6"/>
+            <stop  offset="1" style="stop-color:#7853A8"/>
+        </linearGradient>
+        <circle fill="url(#SVGID_3_)" cx="215.048" cy="362.272" r="34.701"/>
+        <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="367.3469" y1="375.3673" x2="596.9388" y2="375.3673">
+            <stop  offset="0" style="stop-color:#12B3D6"/>
+            <stop  offset="1" style="stop-color:#7853A8"/>
+        </linearGradient>
+        <circle fill="url(#SVGID_4_)" cx="482.143" cy="375.367" r="114.796"/>
+        <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="365.4405" y1="172.8044" x2="492.4478" y2="172.8044" gradientTransform="matrix(0.8954 0.4453 -0.4453 0.8954 127.9825 -160.7537)">
+            <stop  offset="0" style="stop-color:#FFA33A"/>
+            <stop  offset="1" style="stop-color:#DF3D8E"/>
+        </linearGradient>
+        <circle fill="url(#SVGID_5_)" cx="435.095" cy="184.986" r="63.504"/>
+    </svg>
+    <div id="online-order-modal" class="modal" style="display: block;background-color: transparent;">
+        <!-- Modal content -->
+        <div class="modal-content" style="height: 410px;">
+            <div class="title">Ваш город</div>
+            <div class="description">
+                Выберите из списка город, в котором вы живёте
+            </div>
+    
+            <form class="form" action="{%url 'main:choose_city'%}" method="POST">{%csrf_token%}        
+                <div class="form-group">
+                    <select id="order-modal__type" name="city" class="input-control" required="" style="font-size: 1.5em;">
+                        {%for city in cities%}
+                            <option {%if city.id == current_city.id%} selected {%endif%} value="{{city.id}}">{{city.name}}</option>
+                        {%endfor%}
+                        
+                    </select>
+                </div>
+                <button type="submit" class="button-lg button button-default" style="float: right;">
+                    Выбрать
+                </button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/about.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/director_blog.css'%}" />
+	<script
+		src="https://kit.fontawesome.com/b79a50aa67.js"
+		crossorigin="anonymous"
+	></script>
+	<style>
+		p {
+			margin: 25px 0;
+		}
+	</style>
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<div class="main-section">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;margin-top: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md">
+						<div class="sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:about'%}">
+											<span>О поликлинике</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:specialists_activity' leaders.id%}" class="">
+											<span>Руководители</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<div class="opened active">
+											<span>Блог директора филиала</span>
+                                        </div>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:lisences'%}">
+											<span>Лицензии</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:partners'%}">
+											<span>Партнеры</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:letters'%}">
+											<span>Благодарственные письма</span>
+										</a>										
+									</div>									
+								</li>								
+							</ul>
+						</div>					
+					</div>
+					
+					<div class="col-md-9 col-sm-12 col-xs-12">
+						<table>
+                            <tbody>
+                                <tr>
+                                    <td valign="top" style="padding-right: 20px;">
+                                        <img width="200" src="{{director.image.url}}" /> <br />
+                                        <span style="font: 11px/20px PT Sans Caption, Arial, sans-serif;">
+                                            <b>{{director.fullname}}</b><br />
+                                            {{director.position.name}}
+                                        </span>
+                                    </td>
+                                    <td valign="top">
+                                        <h3>Добро пожаловать в блог директора филиала</h3>
+                                        <p>
+                                            Мы рады приветствовать вас на нашем сайте! С нами для вас работают кандидаты медицинских наук, врачи высшей и первой квалификационной категории.
+                                        </p>
+                                        <p>
+                                            Мы уделяем большое внимание качеству предоставляемых медицинских услуг, постоянно совершенствуем и повышаем квалификацию медицинского персонала.
+                                        </p>
+                                        <p>
+                                            По всем интересующим вас вопросам можете всегда обращаться к нам.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>     
+                        <table class="order-block ask-block">
+                            <tbody>
+                                <tr>
+                                    <td class="col-md-9 col-sm-8 col-xs-7 valign">
+                                        <div class="text">
+                                            <h5>Не нашли ответа на свой вопрос?</h5>
+                                            Свяжитесь с нами, и мы предоставим необходимую информацию.
+                                        </div>
+                                    </td>
+                                    <td class="col-md-3 col-sm-4 col-xs-5 valign">
+                                        <div class="btns">
+                                            <span class="btn btn-default btn-lg animate-load" data-event="jqm" data-param-id="39" data-name="question"><span>Задать вопрос</span></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>                                          
+					</div>
+				</div>							
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="js/main.js"></script>
+	<script src="js/uslugi.js"></script>
+{%endblock%}

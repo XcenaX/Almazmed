@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}" />
+	<link rel="stylesheet" href="{%static 'css/patients.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/about.css'%}" />
+	<script
+		src="https://kit.fontawesome.com/b79a50aa67.js"
+		crossorigin="anonymous"
+	></script>
+	<style>
+		
+	</style>
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<div class="main-section" style="margin-top: 30px;">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md hide-mobile">
+						<div class="sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:serviced_area'%}" >
+											<span>Обслуживаемая территория</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Запись на примем к врачу</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Вызов врача на дом</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="">
+											<span>Лекарственное обеспечение</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://www.kdlolymp.kz/results/login">
+											<span>Результаты лабораторных исследований</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Личный кабинет</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="">
+											<span>ГОБМП</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="">
+											<span>ОСМС</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="">
+											<span>Вопрос ответ</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="">
+											<span>Государственные услуги</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="">
+											<span>Реестр Государственных услуг</span>
+										</a>										
+									</div>									
+								</li>								
+							</ul>
+						</div>					
+					</div>
+					
+					<div class="col-md-9 col-sm-12 col-xs-12 content-md">
+                        <p style="text-align: center;">
+                            <img width="1245" src="{%static 'img/patients.jpg'%}" height="480" class="img-responsive" />
+                        </p>
+                        <p>
+                            <b>Клиника «Медицинский центр»</b> – это частный медицинский центр для всей семьи с 3 филиалами в Москве и МО. Основан в 2006 году и за 10 лет из кабинета терапевта превратился в клинику с тремя филиалами, командой единомышленников
+                            и современной лабораторией. Лечим взрослых и детей, занимаемся профилактикой болезней и учим быть здоровыми.
+                        </p>
+                        <p>
+                            Главная наша ценность – это команда. У нас работают опытные доктора – терапевты, узкие специалисты, диагносты. Вместе мы вылечили несколько сотен детских ангин и взрослых гастритов, помогли родиться 3 000 детей и провели 20 000 ЭКГ
+                            на дому.
+                        </p>
+                        <h3>Наши направления:<br /></h3>
+                        <ul>
+                            <li><b>Детское отделение.</b>Заботимся о здоровье ребенка от зачатия до совершеннолетия. В клинике принимают педиатры, детский офтальмолог и хирург-ортопед.</li>
+                            <li><b>Взрослое отделение.</b> Первичная консультация и терапия, а также лечение у узких специалистов - кардиолога и гастроэнтеролога.</li>
+                            <li><b>Ведение беременности.</b>Деликатный подход к важному событию: поддерживающая терапия, дородовое сопровождение, школа молодых родителей для будущих пап и мам.</li>
+                            <li><b>Диагностика.</b> Собственная лаборатория, которая позволит получить результаты анализов день-в-день, без ожидания в очередях.</li>
+                            <li><b>Выезд врача на дом.</b> Приедем в любую точку Москвы и МО. Осмотрим, выпишем лечение, возьмем нужные анализы и даже сделаем ЭКГ на дому!</li>
+                        </ul>
+                        <p>
+                            Мы верим, что крепкое здоровье – совместный труд доктора и пациента. Врачи «Медицинского центра» говорят на одном языке, объясняют каждое назначение и никогда не назначают лечение «на всякий случай» или потому, что так принято.
+                            <br />
+                        </p>
+                        <p>
+                            Записаться на прием или вызвать врача на дом можно по телефону или онлайн. Сохраните здоровье на долгие годы вместе с клиникой «Медицинский центр»!
+                        </p>
+                        <br />
+                    </div>                    
+				</div>							
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="js/main.js"></script>
+	<script src="js/uslugi.js"></script>
+{%endblock%}

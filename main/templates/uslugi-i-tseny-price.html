@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/accordion.css'%}">
+{% endblock %}
+
+{% block body %}
+	<body>
+		<!-- MAIN SECTION -->
+		<div class="main-section">
+			<div class="wrapper">
+				<div class="main-section__container">
+					<div class="sidebar">
+						<ul class="sidebar-menu">
+							<li class="sidebar-menu__item dropdown-link">
+								<div class="sidebar-menu__link dropdown-link">
+									<a src="" class="">
+										<span>Консультативное отделение</span>
+									</a>
+									<i class="fas fa-caret-down"></i>
+								</div>
+								<ul class="dropdown-link__content">
+									<li>
+										<div class="dropdown-link">
+											<a src="">Гематология</a>
+											<i class="fas fa-caret-down"></i>
+										</div>
+										<ul class="dropdown-link__content">
+											<li><a src="">Гематология</a></li>
+											<li>
+												<a src="">Иммуногематологические исследования</a>
+											</li>
+											<li><a src="">Биохимические исследования крови</a></li>
+											<li><a src="">Имунологические исследования</a></li>
+											<li>
+												<a src="">Диагностика аутоиммунных заболеваний</a>
+											</li>
+										</ul>
+									</li>
+									<li><a src="">Иммуногематологические исследования</a></li>
+									<li><a src="">Биохимические исследования крови</a></li>
+									<li><a src="">Имунологические исследования</a></li>
+									<li><a src="">Диагностика аутоиммунных заболеваний</a></li>
+								</ul>
+							</li>
+							<li class="sidebar-menu__item">
+								<div class="sidebar-menu__link dropdown-link">
+									<a src="" class="">
+										<span>Консультативное отделение</span>
+									</a>
+									<i class="fas fa-caret-down"></i>
+								</div>
+								<ul class="dropdown-link__content">
+									<li><a src="">Гематология</a></li>
+									<li><a src="">Иммуногематологические исследования</a></li>
+									<li><a src="">Биохимические исследования крови</a></li>
+									<li><a src="">Имунологические исследования</a></li>
+									<li><a src="">Диагностика аутоиммунных заболеваний</a></li>
+								</ul>
+							</li>
+							<li class="sidebar-menu__item">
+								<div class="sidebar-menu__link dropdown-link">
+									<a src="" class="">
+										<span>Консультативное отделение</span>
+									</a>
+									<i class="fas fa-caret-down"></i>
+								</div>
+								<ul class="dropdown-link__content">
+									<li><a src="">Гематология</a></li>
+									<li><a src="">Иммуногематологические исследования</a></li>
+									<li><a src="">Биохимические исследования крови</a></li>
+									<li><a src="">Имунологические исследования</a></li>
+									<li><a src="">Диагностика аутоиммунных заболеваний</a></li>
+								</ul>
+							</li>
+							<li class="sidebar-menu__item">
+								<div class="sidebar-menu__link dropdown-link">
+									<a src="" class="">
+										<span>Консультативное отделение</span>
+									</a>
+									<i class="fas fa-caret-down"></i>
+									<ul class="dropdown-link__content">
+										<li><a src="">Гематология</a></li>
+										<li><a src="">Иммуногематологические исследования</a></li>
+										<li><a src="">Биохимические исследования крови</a></li>
+										<li><a src="">Имунологические исследования</a></li>
+										<li><a src="">Диагностика аутоиммунных заболеваний</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="article">
+						<div class="accordion__list">
+							<div class="accordion__item">
+								<div class="accordion__item-top">
+									<div class="accordion__item-title text-hover">
+										Клинический анализ крови с лейкоцитарной формулой* (ОАК)
+									</div>
+									<div class="left">
+										<div class="price">800 тг</div>
+										<i class="fas fa-chevron-down hover-icon"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="banner_warning">
+			Имеются противопоказания. Необходима консультация специалиста
+		</div>
+		<!-- SCRIPTS -->
+		<script src="js/main.js"></script>
+		<script src="js/uslugi.js"></script>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="{%static 'bootstrap/js/bootstrap.js'%}"></script>
+	<script src="{%static 'js/main.js'%}"></script>
+	
+	<script src="{%static 'js/uslugi.js'%}"></script>
+	
+{%endblock%}

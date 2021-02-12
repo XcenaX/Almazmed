@@ -1,0 +1,400 @@
+.tabs {
+    margin-bottom: 25px;
+}
+.tabs .nav-tabs {
+    margin: 0 -3px;
+}
+.tabs .nav-tabs {
+    border-bottom: none;
+}
+ol:first-child, ol:last-child, ul:first-child, ul:last-child {
+    margin-top: 0;
+}
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+}
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+}
+.breadcrumb, .carousel-indicators, .dropdown-menu, .media-list, .nav, .pager {
+    list-style: none;
+}
+.tabs .nav-tabs>li {
+    margin: 0 3px;
+}
+
+.flex-direction-nav li, .pagination>li, .tabs .nav-tabs>li {
+    padding-left: 0;
+    margin-bottom: 0;
+    position: static;
+}
+.nav-tabs>li {
+    float: left;
+    margin-bottom: -1px;
+}
+.nav:after {
+    clear: both;
+}
+
+.nav:after, .nav:before {
+    content: " ";
+    display: table;
+}
+
+.tabs .nav.nav-tabs li.active a {
+    color: #333;
+}
+
+.tabs .nav-tabs a:active, .tabs .nav-tabs a:focus, .tabs .nav-tabs a:hover, .tabs .nav.nav-tabs li.active a, .tabs .nav.nav-tabs li.active a:active, .tabs .nav.nav-tabs li.active a:focus, .tabs .nav.nav-tabs li.active a:hover {
+    background: #fff;
+}
+.tabs .nav-tabs li.active a {
+    color: #0dbc91;
+}
+.nav.nav-tabs>li.active>a, .nav.nav-tabs>li.active>a:focus, .nav.nav-tabs>li.active>a:hover {
+    border-color: #e5ebed;
+}
+.tabs .nav.nav-tabs a {
+    background: #f7f9fa;
+    border: 1px solid #ecf2f4;
+    color: #888;
+    padding: 18px 25px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 1em;
+    line-height: 1.1em;
+    text-transform: none;
+    margin: 0;
+}
+.tabs .nav.nav-tabs li.active a:before {
+    top: -1px;
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.tabs .nav-tabs li.active a:before, .tabs .nav.nav-tabs li.active a:before {
+    position: absolute;
+    left: 0;
+    height: 2px;
+    right: 0;
+    content: "";
+}
+.tabs .nav-tabs li.active a:before {
+    background: #0dbc91;
+}
+.tabs .nav-tabs li.active a:before {
+    top: 0;
+    display: block;
+    width: 100%;
+    background: #ddd;
+}
+.tabs .tab-content {
+    padding: 39px 0 0;
+}
+
+.tab-content>.active {
+    display: block;
+}
+
+.accordion-head:hover .btn {
+    background-color: #0dbc91;
+    border-color: #0dbc91;
+}
+.accordion-head:hover .btn.arrow-open:before {
+    background-position: -14px 0;
+    transition: all 0s ease-in-out;
+    -moz-transition: all 0s ease-in-out;
+    -ms-transition: all 0s ease-in-out;
+    -o-transition: all 0s ease-in-out;
+    -webkit-transition: all 0s ease-in-out;
+    transition-delay: 60ms;
+    -moz-transition-delay: 60ms;
+    -ms-transition-delay: 60ms;
+    -o-transition-delay: 60ms;
+    -webkit-transition-delay: 60ms;
+}
+.item-views.accordion .item {
+    border: 1px solid #ecf2f4;
+    margin-bottom: -1px;
+}
+
+.accordion .item {
+    border: 1px solid #ecf2f4;
+    margin: 0 0 -1px!important;
+}
+.item-views, .item-views .item {
+    position: relative;
+}
+.accordion-type-1 .item, .accordion-type-2 .item {
+    border-color: #ecf2f4;
+    border-radius: 3px;
+    background: 0 0!important;
+}
+.accordion-type-1 .item .accordion-head, .accordion-type-2 .item .accordion-head {
+    margin-bottom: 0!important;
+}
+.accordion-type-1 .item .accordion-body, .accordion-type-1 .item .accordion-head, .accordion-type-1 .item .panel-collapse, .accordion-type-2 .item .accordion-body, .accordion-type-2 .item .accordion-head, .accordion-type-2 .item .panel-collapse {
+    border: none!important;
+}
+html[xmlns] .clearfix {
+    display: block;
+}
+.accordion-head.accordion-open {
+    border-bottom: none;
+}
+.accordion-head {
+    cursor: pointer;
+    padding: 27px 30px 28px 35px;
+    font-size: 1.0667em;
+    line-height: 1.5625em;
+    font-weight: 700;
+    z-index: 1;
+    color: #333;
+    overflow: hidden;
+}
+.accordion-body, .accordion-head {
+    position: relative;
+}
+.clearfix {
+    display: inline-block;
+}
+.accordion-type-1 .item .accordion-body, .accordion-type-1 .item .accordion-head, .accordion-type-1 .item .panel-collapse, .accordion-type-2 .item .accordion-body, .accordion-type-2 .item .accordion-head, .accordion-type-2 .item .panel-collapse {
+    border: none!important;
+}
+.item-views .item .btn {
+    white-space: normal;
+    margin-bottom: 0;
+    max-width: 100%;
+}
+
+.accordion-head .btn.arrow-open {
+    position: absolute;
+    right: 30px;
+    top: 24px;
+}
+body .btn.white {
+    color: #0dbc91 !important;
+    border: 1px solid rgba(13,188,145,0.3);
+}
+.btn.arrow-open {
+    position: relative;
+    border-radius: 100%;
+    padding: 14px 15px 16px;
+}
+.btn.white {
+    background: rgba(255,255,255,.3);
+}
+body .btn-default {
+    background-color: #0dbc91;
+    border-color: #0dbc91;
+    color: #ffffff;
+}
+.btn {
+    padding: 10px 17px 11px;
+    font-size: .867em;
+    font-weight: 400;
+    line-height: 1.2em;
+    border-radius: 19px;
+    transition: background-color .3s ease;
+    -moz-transition: background-color .3s ease;
+    -ms-transition: background-color .3s ease;
+    -o-transition: background-color .3s ease;
+    -webkit-transition: background-color .3s ease;
+}
+.pull-right {
+    float: right;
+}
+.pull-right {
+    float: right!important;
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+.btn, .btn-danger.active, .btn-danger:active, .btn-default.active, .btn-default:active, .btn-info.active, .btn-info:active, .btn-success.active, .btn-success:active, .btn-warning.active, .btn-warning:active, .btn.active, .btn:active, .dropdown-menu>.disabled>a:focus, .dropdown-menu>.disabled>a:hover, .form-control, .open .dropdown-toggle.btn-danger, .open .dropdown-toggle.btn-default, .open .dropdown-toggle.btn-info, .open .dropdown-toggle.btn-success, .open .dropdown-toggle.btn-warning {
+    background-image: none;
+}
+.accordion .item .arrow-open.open:before {
+    margin-top: -3px;
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transform: rotate(
+180deg
+);
+    transform: rotate(
+180deg
+);
+    animation-name: rotationUp;
+}
+.accordion-head:not(:hover) .btn.arrow-open:before {
+    transition: all 0s ease-in-out;
+    -moz-transition: all 0s ease-in-out;
+    -ms-transition: all 0s ease-in-out;
+    -o-transition: all 0s ease-in-out;
+    -webkit-transition: all 0s ease-in-out;
+    transition-delay: 90ms;
+    -moz-transition-delay: 90ms;
+    -ms-transition-delay: 90ms;
+    -o-transition-delay: 90ms;
+    -webkit-transition-delay: 90ms;
+}
+.accordion .item .arrow-open.open:before, .side-menu li.opened>a .arrow:after {
+    -webkit-animation-name: rotationUp;
+    -moz-animation-name: rotationUp;
+    -o-animation-name: rotationUp;
+}
+.accordion .item .arrow-open:before {
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-animation-name: rotationDown;
+    -moz-animation-name: rotationDown;
+    -o-animation-name: rotationDown;
+    animation-name: rotationDown;
+}
+.btn.arrow-open.opened:before {
+    transform: rotate(180deg);
+    -webkit-animation-name: rotationUp;
+    -moz-animation-name: rotationUp;
+    -o-animation-name: rotationUp;
+    animation-name: rotationUp;
+}
+.btn.arrow-open.open:before {
+    transform: rotate(180deg);
+}
+.btn.arrow-open.open:before, .btn.arrow-open.opened:before {
+    margin-top: -3px;
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+body .btn.arrow-open:before {
+    background-color: #0dbc91;
+}
+.btn.arrow-open:before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10px;
+    height: 6px;
+    margin: -2px 0 0 -5px;
+    background: url("/static/img/Arrows_rolldown.svg") no-repeat;
+    transition: all 0s ease-in-out;
+    -moz-transition: all 0s ease-in-out;
+    -ms-transition: all 0s ease-in-out;
+    -o-transition: all 0s ease-in-out;
+    -webkit-transition: all 0s ease-in-out;
+    transition-delay: .18s;
+    -moz-transition-delay: .18s;
+    -ms-transition-delay: .18s;
+    -o-transition-delay: .18s;
+    -webkit-transition-delay: .18s;
+    -webkit-animation-duration: .2s;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-duration: .2s;
+    -moz-animation-timing-function: linear;
+    -o-animation-duration: .2s;
+    -o-animation-timing-function: linear;
+    animation-duration: .2s;
+    animation-timing-function: linear;
+}
+.item-views .item .title {
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.accordion-head .title {
+    position: relative;
+    margin: 0 62px 0 0!important;
+}
+.accordion-head.accordion-open .title:before {
+    background: #0dbc91;
+}
+.accordion-head.accordion-open .title:before {
+    content: "";
+    position: absolute;
+    left: -45px;
+    top: 7px;
+    height: 11px;
+    border-radius: 3px;
+    width: 13px;
+}
+.btn-group-vertical>.btn-group:after, .btn-toolbar:after, .clearfix:after, .container:after, .dropdown-menu>li>a, .form-horizontal .form-group:after, .modal-footer:after, .navbar-collapse:after, .navbar-header:after, .navbar:after, .pager:after, .panel-body:after, .row:after {
+    clear: both;
+}
+.panel-collapse .accordion-body .text {
+    margin: -6px 0 0;
+}
+.previewtext ol, ul {
+    margin: 25px 0;
+    padding-left: 0;
+}
+
+.previewtext ul li {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.previewtext ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #0dbc91;
+}
+
+.previewtext ol {
+    margin-left: 20px;
+}
+
+.btn.arrow-open:before, .btn.arrow:before, .rolldown .btn.arrow-open.sm:before, .url-block:not(.next-url) i:before, span.zoom:before {
+    content: "";
+}
+
+.clearfix:after, .clearfix:before {
+    content: " ";
+    display: table;
+}
+
+.panel-collapse .accordion-body {
+    padding: 0 30px 30px 35px;
+    position: relative;
+    z-index: 2;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+

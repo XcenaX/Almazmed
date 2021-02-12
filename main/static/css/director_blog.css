@@ -1,0 +1,103 @@
+.order-block.ask-block {
+    margin: 39px 0 0;
+    color: #333;
+}
+
+.order-block {
+    padding: 35px 24px;
+    background: #f9fbfb;
+    border: 1px solid #ecf2f4;
+    clear: both;
+    margin: 35px 0 51px;
+    width: 100%;
+}
+
+.order-block.ask-block td {
+    padding: 35px 0;
+}
+
+table td[class*=col-], table th[class*=col-] {
+    float: none;
+    display: table-cell;
+}
+
+.order-block td, .valign {
+    vertical-align: middle;
+}
+
+.order-block.ask-block .text {
+    padding: 0 0 0 109px;
+}
+
+.order-block .text {
+    padding: 0 0 0 60px;
+    min-height: 54px;
+    text-align: left;
+    position: relative;
+    color: #333;
+}
+
+.order-block.ask-block .text:before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 40px;
+    width: 40px;
+    height: 40px;
+    background: url("/static/img/Ask_medium.svg") no-repeat;
+}
+.order-block .text:before {
+    content: "";
+    background: url("/static/img/Service_icon.svg") no-repeat;
+    display: block;
+    width: 42px;
+    height: 40px;
+    position: absolute;
+    top: 5px;
+    left: 0;
+}
+
+.order-block .text h1, .order-block .text h2, .order-block .text h3, .order-block .text h4, .order-block .text h5, .order-block .text h6 {
+    color: #333;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+blockquote:last-child, h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child, p:last-child {
+    margin-bottom: 0;
+}
+
+blockquote:first-child, h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, p:first-child {
+    margin-top: 0;
+}
+
+
+
+.btn.btn-lg {
+    font-size: 1em;
+}
+
+.order-block .btn {
+    margin: 0;
+}
+body .btn-default {
+    background-color: #0dbc91;
+    border-color: #0dbc91;
+    color: #ffffff;
+}
+.rolldown, [data-event=jqm], select, span.zoom {
+    cursor: pointer;
+}
+.btn-lg {
+    padding: 14px 25px;
+    font-weight: 700;
+    border-radius: 24px;
+}
+
+.btn>* {
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    -o-transition: background-color .3s;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+}

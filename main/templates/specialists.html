@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+    <link rel="stylesheet" href="{%static 'css/specialists.css'%}">
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<!-- MAIN SECTION -->
+		<div class="main-section">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md">
+						<div class="sidebar">
+							<ul class="sidebar-menu">
+								{%for activity in activities%}
+								<li class="sidebar-menu__item dropdown-link {%if activity.id == current_activity.id%}opened{%endif%}">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:specialists_activity' activity.id%}" class="">
+											<span>{{activity.name}}</span>
+										</a>										
+									</div>									
+								</li>
+								{%endfor%}
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="" class="">
+											<span>График работы специалистов и отделений</span>
+										</a>										
+									</div>									
+								</li>
+							</ul>
+						</div>					
+					</div>
+					
+					<div class="col-md-9 col-sm-12 col-xs-12">
+						{%for doctor in doctors%}									
+							<div class="spec-title">{{doctor.activity.name}}</div>
+							{%if doctor.activity.description%}
+								<div class="spec-description">{{doctor.activity.description}}</div>
+							{%endif%}
+							<div class="row" style="margin-bottom: 42px;">
+								{%for element in doctor.doctors%}									
+									
+										<div class="col-md-4 col-sm-12 col-xs-12">
+											<div class="shadow1 {%if element.is_working%}has-address{%else%}spec-wrap{%endif%}">
+												<div class="spec-img-wrap">
+													<a href="{%url 'main:specialist' element.id%}">
+														<img src="{%if element.image%}{{element.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%}" alt="" class="spec-img">
+													</a>
+													
+												</div>
+												<div class="spec-body">
+													<div class="spec-name">
+														<a href="{%url 'main:specialist' element.id%}">{{element.fullname}}</a>
+													</div>
+													<div class="spec-profession">
+														<span>{{element.position.name}}</span>
+													</div>
+												</div>
+												{%if element.is_working%}
+													<div class="bottom-block">
+														<div class="wrap">
+															<div class="button text-right no_address">
+																<span class="btn btn-default animate-load" data-event="jqm" data-param-id="18" data-name="record_online" data-autoload-specialist="15">Запись онлайн</span>
+															</div>
+														</div>
+													</div>
+												{%endif%}
+											</div>
+										</div>
+									
+								{%endfor%}
+							</div>							
+						{%endfor%}
+						{%with doctors|first as current_doctors%}
+							{%if current_activity and current_doctors.doctors|length == 0 %}
+								<div style="text-align: center;font-size: 25px;font-weight: 700;">Специалистов нет!</div>
+							{%endif%}
+						{%endwith%}
+					</div>
+				</div>							
+			</div>
+		</div>
+
+		<div class="banner_warning">
+			Имеются противопоказания. Необходима консультация специалиста
+		</div>
+
+		<!-- SCRIPTS -->
+		
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="{%static 'bootstrap/js/bootstrap.js'%}"></script>
+	<script src="{%static 'js/main.js'%}"></script>
+	
+	<script src="{%static 'js/uslugi.js'%}"></script>
+	
+{%endblock%}

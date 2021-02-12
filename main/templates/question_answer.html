@@ -1,0 +1,590 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/director_blog.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/question_answer.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/about.css'%}" />
+	<script
+		src="https://kit.fontawesome.com/b79a50aa67.js"
+		crossorigin="anonymous"
+	></script>
+	<style>
+		
+	</style>
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<div class="main-section" style="margin-top: 30px;">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md hide-mobile">
+						<div class="sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:serviced_area'%}" >
+											<span>Обслуживаемая территория</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Запись на примем к врачу</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Вызов врача на дом</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:drug_supply'%}">
+											<span>Лекарственное обеспечение</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://www.kdlolymp.kz/results/login">
+											<span>Результаты лабораторных исследований</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Личный кабинет</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:gobmp'%}">
+											<span>ГОБМП</span>
+                                        </a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+                                        <a href="{%url 'main:osms'%}">
+											<span>ОСМС</span>
+                                        </a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<div class="opened active">
+											<span>Вопрос ответ</span>
+                                        </div>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:goverment_services'%}">
+											<span>Государственные услуги</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:public_service_register'%}">
+											<span>Реестр Государственных услуг</span>
+										</a>										
+									</div>									
+								</li>								
+							</ul>
+						</div>					
+					</div>
+					
+					<div class="col-md-9 col-sm-12 col-xs-12 content-md">
+                        <div class="text_before_items"></div>
+                    
+                        <div class="item-views accordion accordion-type-block with_tabs image_left faq">
+                            <div class="tabs">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a data-toggle="tab" href="#bx_3218110189_7">Пациентам</a></li>
+                                </ul>
+                    
+                                <div class="tab-content">
+                                    <div id="bx_3218110189_7" class="tab-pane active">
+                                        <div class="accordion-type-1">
+                                            <div class="item shadow1 wti" id="bx_3218110189_864">
+                                                <div class="accordion-head clearfix accordion-open" data-trigger="opener" data-toggle="collapse" data-parent="#accordion7" href="#accordion864_7">
+                                                    <span onclick="open_close(this,'accordion1')" class="btn btn-default white arrow-open pull-right"></span>
+                                                    <div class="title"><span>Что нужно делать в период ОРВИ и Гриппа? Нужна ли вакцинация? И когда ее стоит делать? </span></div>
+                                                </div>
+                                                <div id="accordion1" class="panel-collapse in" style="height: auto;display: none;">
+                                                    <div class="accordion-body">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="text">
+                                                                    <div class="previewtext">
+                                                                        <div>
+                                                                            <p>
+                                                                                Острые респираторные вирусные инфекции (ОРВИ) и грипп – распространенные болезни человека, вызываемые вирусами и бактериями, к которым относятся воспалительные процессы дыхательных
+                                                                                путей.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                ОРВИ и грипп прогрессируют, начиная с осенних холодов, и продолжаются до весны. Поэтому они имеют сезонный характер.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                ОРВИ и грипп предаются при кашле и чихании воздушно-капельным путем. И время от момента заражения и до проявления первых признаков заболевания может быть очень коротким – всего
+                                                                                несколько часов.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Дети, особенно раннего возраста, в связи с анатомическим и физиологическими особенностями наиболее подвержены заражению ОРВИ и гриппом, потому что у них дыхательные пути короче,
+                                                                                слизистые оболочки тоньше, иммунитет ниже и круг общения шире, чем у взрослых. Поэтому в школах и детских учреждениях вероятность заражения ОРВИ и гриппом намного выше.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                <b>Симптомы ОРВИ и гриппа:</b>
+                                                                            </p>
+                                                                            <p></p>
+                                                                            <ul>
+                                                                                <li>
+                                                                                    повышение температуры тела;
+                                                                                </li>
+                                                                                <li>
+                                                                                    головная боль;
+                                                                                </li>
+                                                                                <li>
+                                                                                    боль в горле;
+                                                                                </li>
+                                                                                <li>
+                                                                                    насморк;
+                                                                                </li>
+                                                                                <li>
+                                                                                    кашель и чихание.
+                                                                                </li>
+                                                                            </ul>
+                                                                            <p>
+                                                                                Если Вы или Ваш ребенок заболели гриппом, больного необходимо отделить от остальных членов семьи и срочно вызвать медицинского работника.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Запомните, ОРВИ и грипп не прощают небрежности, их последствия коварны, они приводят к таким болезням, как:
+                                                                            </p>
+                                                                            <ul>
+                                                                                <li>
+                                                                                    пневмония;
+                                                                                </li>
+                                                                                <li>
+                                                                                    гайморит;
+                                                                                </li>
+                                                                                <li>
+                                                                                    менингит;
+                                                                                </li>
+                                                                                <li>
+                                                                                    синусит;
+                                                                                </li>
+                                                                                <li>
+                                                                                    бронхит;
+                                                                                </li>
+                                                                                <li>
+                                                                                    отит и другие.
+                                                                                </li>
+                                                                            </ul>
+                                                                            <p>
+                                                                                А так же Вы можете заразить ОРВИ и гриппом своих близких и сотрудников.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                <b>Профилактика ОРВИ и гриппа:</b>
+                                                                            </p>
+                                                                            <ol>
+                                                                                <li>
+                                                                                    1. Вакцинация от гриппа до начала эпидемии;
+                                                                                </li>
+                                                                                <li>
+                                                                                    2. Часто проветривайте помещение;
+                                                                                </li>
+                                                                                <li>
+                                                                                    3. Употребляйте лук, чеснок, черную смородину, лимон, малину, шиповник;
+                                                                                </li>
+                                                                                <li>
+                                                                                    4. Систематически закаливайте свой организм;
+                                                                                </li>
+                                                                                <li>
+                                                                                    5. Рациональное питание, насыщенная витаминами пища;
+                                                                                </li>
+                                                                                <li>
+                                                                                    6. При первых признаках гриппа изолируйте больного, соблюдайте личную гигиену, носите медицинскую маску;&nbsp;
+                                                                                </li>
+                                                                                <li>
+                                                                                    7. Смазывайте слизистую носа оксолиновой мазью каждые 2 часа.&nbsp;
+                                                                                </li>
+                                                                            </ol>
+                                                                            <p>
+                                                                                Наиболее важная мера профилактики гриппа – вакцинация. Ее проводят намного раньше ожидаемой эпидемии, обычно в октябре-ноябре. Срок защитного действия – один год, поэтому ее
+                                                                                необходимо повторять ежегодно.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Вакцинация наиболее показана следующим группам населения (однако в любом случае перед ее проведением нужно проконсультироваться с вашим лечащим врачом):
+                                                                            </p>
+                                                                            <ul>
+                                                                                <li>
+                                                                                    лицам пожилого возраста (старше 60 лет);
+                                                                                </li>
+                                                                                <li>
+                                                                                    пациентам с хроническими бронхолегочными заболеваниями (особенно с хронической обструктивной болезнью легких);
+                                                                                </li>
+                                                                                <li>
+                                                                                    детям дошкольного и школьного возраста;&nbsp;
+                                                                                </li>
+                                                                                <li>пациентам с ослабленным иммунитетом (с сахарным диабетом, ВИЧ-инфекцией, удаленной селезенкой или получающим глюкокортикоиды и цитостатики);</li>
+                                                                                <li>
+                                                                                    пациентам с хронической сердечной недостаточностью, хроническими заболеваниями почек;
+                                                                                </li>
+                                                                                <li>
+                                                                                    пациентам, часто болеющим ОРВИ;
+                                                                                </li>
+                                                                                <li>
+                                                                                    лицам с высокой вероятностью заражения (воинские контингенты, медицинский персонал, работники сферы бытового обслуживания, &nbsp;транспорта, образовательных учреждений).
+                                                                                </li>
+                                                                            </ul>
+                                                                            <p>
+                                                                                В период эпидемии гриппа вводить вакцину уже поздно.
+                                                                            </p>
+                                                                        </div>
+                    
+                                                                        <div></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="accordion-type-1">
+                                            <div class="item shadow1 wti" id="bx_3218110189_865">
+                                                <div class="accordion-head clearfix accordion-open" data-trigger="opener" data-toggle="collapse" data-parent="#accordion7" href="#accordion865_7">
+                                                    <span onclick="open_close(this,'accordion2')" class="btn btn-default white arrow-open pull-right"></span>
+                                                    <div class="title"><span>Когда вставать на учет по беременности?</span></div>
+                                                </div>
+                                                <div id="accordion2" class="panel-collapse in" style="height: auto;display: none;">
+                                                    <div class="accordion-body">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="text">
+                                                                    <div class="previewtext">
+                                                                        <div>
+                                                                            <p>
+                                                                                Встать на учет по беременности необходимо в сроке до 12 недель. Ранняя явка в консультацию позволяет своевременно выявить и пролечить возможные осложнения беременности, что
+                                                                                обеспечит рождение здорового малыша. Кроме того, ранняя постановка на учет позволяет максимально точно определить срок беременности и родов.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Маленький и приятный сюрприз – при постановке на учет до 12 недель беременности позволяет будущей маме получить единовременное денежное пособие от государства. Но и торопиться
+                                                                                вставать на учет очень рано (до 5-6 недель) не стоит. Именно в этих сроках чаще всего происходит самопроизвольное прерывание беременности или развивается замершая беременность.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Очень обидно, сдав все необходимые анализы и посетив два десятка врачей, узнать, что вся проделанная работа прошла впустую. Поэтому, оптимальный срок, когда пора «сдаваться» врачу
+                                                                                – это 9-12 недель.
+                                                                            </p>
+                                                                        </div>
+                    
+                                                                        <div></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="accordion-type-1">
+                                            <div class="item shadow1 wti" id="bx_3218110189_866">
+                                                <div class="accordion-head accordion-close clearfix" data-trigger="opener" data-toggle="collapse" data-parent="#accordion7" href="#accordion866_7">
+                                                    <span onclick="open_close(this,'accordion3')" class="btn btn-default white arrow-open pull-right"></span>
+                                                    <div class="title"><span>Добрый день. Нужна консультация по поводу 4 кс. Предыдущие 3 были кс, можно ли в 4 раз идти. Хотелось бы запланировать... заранее спасибо.</span></div>
+                                                </div>
+                                                <div id="accordion3" class="panel-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="text">
+                                                                    <div class="previewtext">
+                                                                        <div>
+                                                                            <p>
+                                                                                Здравствуйте! Действительно, если предыдущие 3 родов были путем операции "Кесарево сечение", 4-е то же будут проведены таким же образом. Однако, чтобы минимизировать
+                                                                                послеоперационные осложнения и ускорить реабилитацию, необходимо подготовиться к беременности заранее. На приеме у гинеколога будет выполнен осмотр, оценка состояния шейки матки,
+                                                                                взяты необходимые перед беременностью анализы и исследования! Кроме того, рекомендуется оценить толщину рубца на матки после перенесенной операции с помощью ультразвукового
+                                                                                исследования органов малого таза (УЗИ)!
+                                                                            </p>
+                                                                        </div>
+                    
+                                                                        <div></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="accordion-type-1">
+                                            <div class="item shadow1 wti" id="bx_3218110189_867">
+                                                <div class="accordion-head accordion-close clearfix" data-trigger="opener" data-toggle="collapse" data-parent="#accordion7" href="#accordion867_7">
+                                                    <span onclick="open_close(this,'accordion4')" class="btn btn-default white arrow-open pull-right"></span>
+                                                    <div class="title"><span>Зачем нужно прикрепляться к поликлинике? </span></div>
+                                                </div>
+                                                <div id="accordion4" class="panel-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="text">
+                                                                    <div class="previewtext">
+                                                                        <div>
+                                                                            <p>
+                                                                                Поликлиника – это медицинская организация, которая оказывает первичную медицинскую помощь.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                <b>Какие услуги пациент может получить в поликлинике?</b>
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Это приемы участковых врачей и узких специалистов, назначения медикаментозного лечения и процедуры, диагностика и медицинские осмотры, патронаж детей и ведение беременных, вызовы
+                                                                                врача на дом и направление на лечение в стационар через портал «Бюро госпитализации».
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Другими словами, поликлиника – это «входные ворота» для получения какой-либо медицинской помощи, поэтому так важно определиться с выбором первичной медорганизации и проверить, где
+                                                                                Вы на самом деле прикреплены. Ведь у нас часть населения фактически проживает в одном городе, районе, а прописана по другому адресу. В таких случаях возникают трудности с
+                                                                                медобслуживанием.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Пользуясь правом свободного выбора пациентом врача и поликлиники, наши граждане могут выбрать первичнуюмедорганизацию как по прописке, так и по месту жительства в пределах одного
+                                                                                города или поселка.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Однако при выборе поликлиники для временного или постоянного обслуживания не стоит забывать о близости ее расположения к вашему дому.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Чем ближе поликлиника, тем быстрее доберетесь не только Вы, но и Ваш лечащий врач при вызове на дом.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                <b>Как оформить и проверить прикрепленность к поликлинике?</b>
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Итак, Вы выбрали поликлинику.Как к ней прикрепиться?
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Это сделать очень просто. Вы можете пойти в поликлинику сами, обратиться в регистратуру, написать заявление в произвольной форме на имя главного врача медорганизации и предоставить
+                                                                                копию удостоверения личности (паспорт, свидетельство о рождении). В течение 30 минут оформляется Ваше прикреплениек поликлинике. Ваши данные заносятся в портал «Регистр
+                                                                                прикрепленного населения» и Вы официально появляетесь в поле медицинского обслуживания.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Второй способ прикрепления к поликлинике удобен для продвинутых пользователей Интернет. Следует подать запрос через портал «Электронного правительства» (Egov.kz) в форме
+                                                                                электронного документа с указанием данных, удостоверенных ЭЦП гражданина. В поликлинике ответственный работник получает электронный запрос из соответствующих информационных систем
+                                                                                и оформляет Ваш талон о прикреплении также в электронном виде.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Чтобы избежать «сюрпризов» с несовпадением места жительства и поликлиникой, к которой Вас прикрепили автоматически, зная свой ИИН, можно всегда проверить информацию через портал
+                                                                                Egov в разделе «Выбери поликлинику».
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Следует знать, что человек может прикрепиться только к одной поликлинике, быть зарегистрированным параллельно в нескольких поликлиниках невозможно. При прикреплении граждан к
+                                                                                организации первичной медико-санитарной помощи при непосредственном их обращении, открепление от ранее прикрепленной организации первичной медико-санитарной помощи осуществляется
+                                                                                автоматически через базу данных портала «Регистр прикрепленного населения».
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                При свободном выборе гражданином врача и поликлиники открепление и прикрепление от поликлиники осуществляется не чаще одного раза в год.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Прикрепление лиц, не имеющих возможности по состоянию здоровья самостоятельно явиться в поликлинику, может проводиться по их письменному обращению в адрес клиники.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                При обращении в экстренных случаях вы можете обслужиться в любой поликлинике,не прикрепляясь к ней, при следующем обращении нужно будет прикрепиться к поликлинике, предъявив
+                                                                                указанные документы.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Если человек по состоянию здоровья и характеру заболевания не может прийти на прием в поликлинику, медицинская помощь оказывается на дому. Вызов врача на дом осуществляется при
+                                                                                непосредственном обращении по телефону или онлайн через портал «электронного правительства» без наличия электронной цифровой подписи. После обращения сотрудник регистратуры
+                                                                                сообщает время визита врача. Визит врача на дом производится в день обращения.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Каждая поликлиника несет ответственность за здоровье своего прикрепленного населения!
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                <b>Ваша поликлиника – это «входные ворота» в ОСМС!</b>
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Ваше прикрепление к поликлинике очень важно для участия в системе обязательного социального медицинского страхования (ОСМС). Ведь именно через поликлинику открывается доступ в
+                                                                                систему здравоохранения, и в частности для будущих застрахованных граждан - к пакету медицинских услуг в рамках пакета страховой медицины.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                В ходе прикрепительной кампании каждый житель страны должен проверить не только факт своей принадлежности к первичной медорганизации, но и заявить о своей категории. Кто Вы –
+                                                                                наемный работник, индивидуальный предприниматель, самозанятый гражданин, не имеющий официальных доходов или нигде не зарегистрированный безработный?
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Все это важно выяснить сейчас, чтобы завтра не возникло трудностей с получением статуса застрахованного и получением необходимой медицинской помощи.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Всю информацию об условиях участия в системе обязательного медстрахования, размерах взносов и схеме оплаты Вы можете получить в своей поликлинике, обратившись в регистратуру или к
+                                                                                медработникам в специальный кабинет.
+                                                                            </p>
+                                                                            <p>
+                                                                                <br />
+                                                                            </p>
+                                                                            <p>
+                                                                                Получите консультацию о медстраховании в ближайшей поликлинике!
+                                                                            </p>
+                                                                        </div>
+                    
+                                                                        <div></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="order-block ask-block">
+                            <tbody>
+                                <tr>
+                                    <td class="col-md-9 col-sm-8 col-xs-7 valign">
+                                        <div class="text">
+                                            <h5>Не нашли ответа на свой вопрос?</h5>
+                                            Свяжитесь с нами, и мы предоставим необходимую информацию.
+                                        </div>
+                                    </td>
+                                    <td class="col-md-3 col-sm-4 col-xs-5 valign">
+                                        <div class="btns">
+                                            <span class="btn btn-default btn-lg animate-load" data-event="jqm" data-param-id="14" data-name="question"><span>Задать вопрос</span></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                                                    
+				</div>							
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="js/main.js"></script>
+	<script src="js/uslugi.js"></script>
+    <script>
+        function open_close(obj, id){
+           obj.classList.toggle("opened");
+           obj.classList.toggle("open");
+           accordion = $("#" + id)[0];
+           if(accordion.style.display == "block"){
+                accordion.style.display = "none";
+           }else{
+                accordion.style.display = "block";
+           }
+
+        }
+    </script>
+{%endblock%}

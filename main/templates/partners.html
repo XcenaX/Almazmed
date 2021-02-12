@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}" />
+	<link rel="stylesheet" href="{%static 'css/partners.css'%}" />
+	<script
+		src="https://kit.fontawesome.com/b79a50aa67.js"
+		crossorigin="anonymous"
+	></script>
+	<style>
+		p {
+			margin: 25px 0;
+		}
+	</style>
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<div class="main-section" style="margin-top: 30px;">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md hide-mobile">
+						<div class="sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:about'%}" >
+											<span>О поликлинике</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:specialists_activity' leaders.id%}">
+											<span>Руководители</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:director_blog'%}">
+											<span>Блог директора филиала</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:lisences'%}">
+											<span>Лицензии</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<div class="opened active">
+											<span>Партнеры</span>
+                                        </div>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:letters'%}">
+											<span>Благодарственные письма</span>
+										</a>										
+									</div>									
+								</li>								
+							</ul>
+						</div>					
+					</div>
+					
+					<div class="col-md-9 col-sm-12 col-xs-12">
+						<div class="item-views list image_left partners">
+                            <div class="group-content">
+                                <div id="bx_3218110189_17" class="tab-pane">
+                                    <h4 style="margin-bottom: 30px;font-size: 25px;">Партнеры</h4>
+                        
+                                    <div class="row sid-17 items">
+                                        {%for partner in partners%}
+                                            <div class="col-md-4 col-sm-6">
+                                                <div class="item item-border shadow1" id="bx_{{partner.id}}" style="height: 310px;">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="image">
+                                                                <a href="https://{{partner.site}}" class="blink">
+                                                                    <img src="{{partner.image.url}}" alt="{{partner.name}}" title="{{partner.name}}" class="img-responsive" />
+                                                                </a>
+                                                            </div>
+                                                            <div class="text">
+                                                                <div class="title" style="height: 40px;">
+                                                                    <span> {{partner.name}} </span>
+                                                                </div>
+                            
+                                                                <div class="properties">
+                                                                    <div class="property twosmallfont">
+                                                                        <div class="title-prop">Сайт</div>
+                                                                        <!--noindex-->
+                                                                        <div class="value">
+                                                                            <a href="http://{{partner.site}}" rel="nofollow" target="_blank"> {{partner.site}} </a>
+                                                                        </div>
+                                                                        <!--/noindex-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                        {%endfor%}                                    
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="pagination_nav"></div>
+                        </div>
+                            
+					</div>
+				</div>							
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="js/main.js"></script>
+	<script src="js/uslugi.js"></script>
+{%endblock%}

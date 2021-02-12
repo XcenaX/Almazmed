@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}" />
+	<link rel="stylesheet" href="{%static 'css/serviced_area.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/about.css'%}" />
+	<script
+		src="https://kit.fontawesome.com/b79a50aa67.js"
+		crossorigin="anonymous"
+	></script>
+	<style>
+		body {
+            font: 15px/25px "PT Sans Caption", Arial, sans-serif;
+        }
+        td {
+            line-height: 2em;
+        }
+	</style>
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<div class="main-section" style="margin-top: 30px;">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md hide-mobile">
+						<div class="sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<div class="opened active" >
+											<span>Обслуживаемая территория</span>
+                                        </div>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Запись на примем к врачу</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Вызов врача на дом</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:drug_supply'%}">
+											<span>Лекарственное обеспечение</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://www.kdlolymp.kz/results/login">
+											<span>Результаты лабораторных исследований</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Личный кабинет</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:gobmp'%}">
+											<span>ГОБМП</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:osms'%}">
+											<span>ОСМС</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:question_answer'%}">
+											<span>Вопрос ответ</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:goverment_services'%}">
+											<span>Государственные услуги</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:public_service_register'%}">
+											<span>Реестр Государственных услуг</span>
+										</a>										
+									</div>									
+								</li>								
+							</ul>
+						</div>					
+					</div>
+					
+					<div class="col-md-9 col-sm-12 col-xs-12 content-md">
+                        <table class="table-bordered">
+                            <tbody>
+                                <tr class="title-green">
+                                    <td>
+                                        № участка
+                                    </td>
+                                    <td>
+                                        Наименование участка
+                                    </td>
+                                    <td>
+                                        Мкрорайон/ район
+                                    </td>
+                                    <td>
+                                        № улицы, дома
+                                    </td>
+                                    <td>
+                                        Участковый врач
+                                    </td>
+                                    <td>
+                                        Участковая медсестра
+                                    </td>
+                                    <td>
+                                        Корпус, № кабинета
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        3
+                                    </td>
+                                    <td>
+                                        4
+                                    </td>
+                                    <td>
+                                        5
+                                    </td>
+                                    <td>
+                                        6
+                                    </td>
+                                    <td>
+                                        7
+                                    </td>
+                                </tr>
+                                
+                                    {%for site in sites%}
+                                        {%for area in site.microdistricts.all%}
+                                            {%for hospital_building in area.hospital_buildings.all%}
+                                                {%for cabinet in hospital_building.cabinets.all%}                                                    
+                                                    <tr>
+                                                        <td>
+                                                            {{ iterator.inc }}
+                                                        </td>
+                                                        <td>
+                                                            {{site.name}}
+                                                        </td>
+                                                        <td>
+                                                            {{area.name}}
+                                                        </td>
+                                                        <td>
+                                                            {%for house in cabinet.houses.all%}
+                                                                {{house.name}},
+                                                            {%endfor%}
+                                                        </td>
+                                                        <td>
+                                                            {{cabinet.district_doctor}}
+                                                        </td>
+                                                        <td>
+                                                            {{cabinet.nurse}}
+                                                        </td>
+                                                        <td>
+                                                            {{hospital_building.number}} корпус №{{cabinet.number}}
+                                                        </td>
+                                                    </tr>                                                                                                      
+                                                {%endfor%}
+                                            {%endfor%}
+                                        {%endfor%}
+                                    {%endfor%}
+                                
+                            </tbody>
+                        </table>
+                        
+                    </div>                    
+				</div>							
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="js/main.js"></script>
+	<script src="js/uslugi.js"></script>
+{%endblock%}

@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+    
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<!-- MAIN SECTION -->
+		<div class="main-section">
+			<div class="wrapper">
+				<div class="main-section__container">
+					<div class="sidebar">
+						<ul class="sidebar-menu">
+							{%for type in services_types%}
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:sub_uslugi' type.id%}" class="">
+											<span>{{type.name}}</span>
+										</a>									
+									</div>								
+								</li>
+							{%endfor%}
+						</ul>
+					</div>
+					
+					<div class="article">
+						<ul class="panel__list" style="margin-top: 0px;">
+							<!-- <li class="panel__item">
+								<div class="panel__item-top">
+									<a href="">Лабораторная диагностика</a>
+									<i class="fas fa-arrow-right hover-icon"></i>
+								</div>
+								<div class="panel__item-submenu">
+									<div class="panel__item-submenu-list">
+										<div>
+											<a href="" class="inverted-colors">Ссылка</a>
+											<a href="" class="inverted-colors">Ссылка</a>
+											<a href="" class="inverted-colors">Ссылка</a>
+											<a href="" class="inverted-colors">Ссылка</a>
+										</div>
+										<div>
+											<a href="" class="inverted-colors">Ссылка</a>
+											<a href="" class="inverted-colors">Ссылка</a>
+											<a href="" class="inverted-colors">Ссылка</a>
+											<a href="" class="inverted-colors">Ссылка</a>
+										</div>
+									</div>
+									<div class="submenu-icon">
+										<i class="fas fa-chevron-down"></i>
+										<span>Развернуть отдел</span>
+										<span class="close-span">Свернуть отдел</span>
+									</div>
+								</div>
+							</li> -->
+							{%if service_type%}
+								{%for type in service_type.services_types.all%}
+									<li class="panel__item">
+										<div class="panel__item-top">
+											<a href="{%url 'main:sub_uslugi' type.id%}">{{type.name}}</a>
+											<i class="fas fa-arrow-right hover-icon"></i>
+										</div>
+									</li>		
+								{%endfor%}					
+								{%for type in service_type.services.all%}
+									<li class="panel__item">
+										<div class="panel__item-top" style="position: relative;">
+											<a>{{type.name}}</a>
+											<div class="price" style="position: absolute;right: 7%;">{{type.price}} тг</div>
+											<i class="fas fa-arrow-right hover-icon"></i>
+										</div>
+									</li>
+								{%endfor%}
+							{%else%}
+								{%for type in services_types%}
+									<li class="panel__item">
+										<div class="panel__item-top">
+											<a href="{%url 'main:sub_uslugi' type.id%}">{{type.name}}</a>
+											<i class="fas fa-arrow-right hover-icon"></i>
+										</div>
+									</li>		
+								{%endfor%}
+							{%endif%}
+						</ul>
+					</div>					
+				</div>
+			</div>
+		</div>
+
+		<div class="banner_warning">
+			Имеются противопоказания. Необходима консультация специалиста
+		</div>
+
+		<!-- SCRIPTS -->
+		<script src="js/main.js"></script>
+		<script src="js/uslugi.js"></script>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="{%static 'bootstrap/js/bootstrap.js'%}"></script>
+	<script src="{%static 'js/main.js'%}"></script>
+	
+	<script src="{%static 'js/uslugi.js'%}"></script>
+	
+{%endblock%}

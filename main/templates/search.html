@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}" />
+	<link rel="stylesheet" href="{%static 'css/partners.css'%}" />
+	<script
+		src="https://kit.fontawesome.com/b79a50aa67.js"
+		crossorigin="anonymous"
+	></script>
+	<style>
+		p {
+			margin: 25px 0;
+		}
+        .search-page a {
+            color: #0dbc91 !important;
+        }
+	</style>
+    <link rel="stylesheet" href="{%static 'css/pagination.css'%}">
+    <link rel="stylesheet" href="{%static 'css/search.css'%}">
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<div class="main-section" style="margin-top: 30px;">
+			<div class="wrapper">
+                <div class="row">
+                    <div class="maxwidth-theme">
+                        <div class="col-md-12 col-sm-12 col-xs-12 content-md">
+                            <div class="search-page">
+                                <div class="searchinput">
+                                    <form action="" method="get">
+                                        <input class="q" type="text" name="q" value="{{q}}" size="40" />
+                                        <button class="btn btn-search" type="submit" name="s" value="Искать"><i class="svg svg-search svg-black"></i></button>
+                                        <input type="hidden" name="how" value="r" />
+                                    </form>
+                                </div>
+                                <br />
+                                <hr />
+                                {%for item in result%}
+                                    {%if item.type == "new"%}
+                                        <a href="{%url 'one_new' item.item.id%}">{{item.item.title}}</a>
+                                        <ul class="path">
+                                            <li><a href="/">Главная</a></li>
+                                            <li><a href="{%url 'main:news'%}">Новости</a></li>
+                                        </ul>
+                                        <div class="text">
+                                            {{item.item.description|slice:"0:40"}}...
+                                        </div>
+                                        <hr />
+                                    {%elif item.type == "doctor"%}
+                                        <a href="{%url 'main:specialist' item.item.id%}">{{item.item.fullname}}</a>
+                                        <ul class="path">
+                                            <li><a href="/">Главная</a></li>
+                                            <li><a href="{%url 'main:specialists'%}">Специалисты</a></li>
+                                        </ul>                                        
+                                        <hr />
+                                    {%elif item.type == "service_type"%}
+                                        <a href="">{{item.item.name}}</a>
+                                        <ul class="path">
+                                            <li><a href="/">Главная</a></li>
+                                            <li><a href="{%url 'main:uslugi'%}">Услуги и цены</a></li>                                        
+                                            <li><a href="">{{item.item.name}}</a></li>
+                                        </ul>                                        
+                                        <hr />
+                                    {%endif%}
+
+                                {%endfor%}
+                                    
+                                {% if result and pages|length > 1%}
+                                    <div class="navigation">
+                                        <ul>
+                                            {% for page in pages%}
+                                                {% if page == result.number %}
+                                                    <li class="page-current">
+                                                        <span>{{page}}</span>
+                                                    </li>
+                                                {% else %}
+                                                    <li class="page-nav">
+                                                        <a href="?q={{q}}&page={{page}}"> {{page}} </a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {%endif%}
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                    
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="js/main.js"></script>
+	<script src="js/uslugi.js"></script>
+{%endblock%}

@@ -1,0 +1,425 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+    <link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}">
+{% endblock %}
+
+
+
+{% block body %}
+	<body style="top:-25px !important">
+		<!-- MAIN BANNER -->
+		<div class="main-carousel-section">
+			<ul id="main-carousel" class="cS-hidden">
+				<li style="background: url('{%static 'img/main-slider1.png'%}');background-size: cover !important;">
+					<div class="main-carousel-item wrapper">
+						<div class="title"> Расписание приема врачей </div>
+						<div class="description">График работы специалистов отделений</div>
+						<div class="buttons">
+							<a src="" class="button button-default button-lg">Подробнее</a>
+						</div>
+					</div>
+				</li>
+				<li style="background: url('{%static 'img/main-slider2.png'%}');background-size: cover !important;">
+					<div class="main-carousel-item wrapper">
+						<div class="title">Запись на прием</div>
+						<div class="description">
+							Оставьте заявку и ваш контактный телефон. С вами обязательно
+							свяжутся в течении рабочего дня
+						</div>
+						<div class="buttons">
+							<a class="button button-default button-lg"> Запись на прием </a>
+						</div>
+					</div>
+				</li>
+				<li style="background: url('{%static 'img/main-slider3.png'%}');background-size: cover !important;">
+					<div class="main-carousel-item wrapper">
+						<div class="title">Вызов врача на дом</div>
+						<div class="description">
+							Если по состоянию здоровья Вы не можете обратиться на прием в
+							поликлинику. Вы можете вызвать врача на дом на нашем сайте,
+							заполнив форму
+						</div>
+						<div class="buttons">
+							<a class="button button-default button-lg"> Вызов врача </a>
+							<button
+								class="button button-default button-lg online-order-button"
+							>
+								Запись онлайн
+							</button>
+						</div>
+					</div>
+				</li>
+				<li style="background: url('{%static 'img/main-slider4.png'%}');background-size: cover !important;">
+					<div class="main-carousel-item wrapper">
+						<div class="title">Заказать обратный звонок</div>
+						<div class="description">
+							Вы можете связаться с нами заказав обратный звонок. Укажите
+							контактные данные и наши специалисты перезвонят Вам и ответят на
+							Ваши вопросы.
+						</div>
+						<div class="buttons">
+							<button class="button button-default button-lg callback-button">
+								Заказать звонок
+							</button>
+						</div>
+					</div>
+				</li>
+				<li style="background: url({%static 'img/main-slider5.png'%});background-size: cover !important;">
+					<div class="main-carousel-item wrapper">
+						<div class="title">Заказать рецепт</div>
+						<div class="description">
+							Вы можете воспользоваться данной услугой на сайте, не ожидая
+							приема врача или медицинской сестры
+						</div>
+						<div class="buttons">
+							<button class="button button-default button-lg order-receipt">
+								Заказать рецепт
+							</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!-- UNITS CARDS -->
+		<div class="units-cards">
+			<div class="wrapper">
+				<ul class="units-cards__list">
+					<li class="units-cards__item">
+						<div class="units-cards__title">
+							<a src="">Лабораторная диагностика</a>
+						</div>
+						<ul class="units-list">
+							<li>
+								<a src=""> Диагностические профили </a>
+							</li>
+							<li>
+								<a src=""> Гематология </a>
+							</li>
+							<li>
+								<a src=""> На базе лаборатории Synlab и Limbach </a>
+							</li>
+							<li>
+								<a src=""> Аллергодиагностика </a>
+							</li>
+							<li>
+								<a src=""> Иммуногематологические исследования</a>
+							</li>
+
+							<li>
+								<a src=""> Биохимические исследования крови</a>
+							</li>
+
+							<li>
+								<a src=""> Биохимические исследование мочи</a>
+							</li>
+
+							<li>
+								<a src=""> Биохимические исследование кала</a>
+							</li>
+
+							<li>
+								<a src=""> Витамины </a>
+							</li>
+
+							<li>
+								<a src=""> Общеклинические исследования</a>
+							</li>
+
+							<li>
+								<a src=""> Имунологические исследования </a>
+							</li>
+
+							<li>
+								<a src=""> Диагностика аутоиммунных заболеваний </a>
+							</li>
+
+							<li>
+								<a src=""> Диагностика целиакии </a>
+							</li>
+
+							<li>
+								<a src=""> Диагностика бесплодия </a>
+							</li>
+
+							<li>
+								<a src=""> Онкомаркеры </a>
+							</li>
+
+							<li>
+								<a src=""> Маркеры обмена костной ткани </a>
+							</li>
+
+							<li>
+								<a src=""> Маркеры сепсиса </a>
+							</li>
+
+							<li>
+								<a src="">
+									Кардиоспецифичные белки и маркеры риска сердечно-сосудистых
+									заболеваний
+								</a>
+							</li>
+
+							<li>
+								<a src=""> Лекарственный мониторинг </a>
+							</li>
+
+							<li>
+								<a src=""> Пренатальный скрининг </a>
+							</li>
+
+							<li>
+								<a src=""> Серологические маркеры инфекционных заболеваний </a>
+							</li>
+
+							<li>
+								<a src=""> Сифилис </a>
+							</li>
+
+							<li>
+								<a src=""> Цитология </a>
+							</li>
+
+							<li>
+								<a src=""> Риф-диагностика* </a>
+							</li>
+
+							<li>
+								<a src=""> Коагулогические исследования* </a>
+							</li>
+
+							<li>
+								<a src=""> Серологические маркеры инфекции (ИФА) </a>
+							</li>
+
+							<li>
+								<a src="">
+									ПЦР в режиме реального времени (Rotor-Gene™ 6000)
+								</a>
+							</li>
+
+							<li>
+								<a src="">
+									ПЦР в режиме реального времени (COBAS TaqMan® 48)
+								</a>
+							</li>
+
+							<li>
+								<a src=""> ПЦР в режиме реального времени (QIAsymphony) </a>
+							</li>
+
+							<li>
+								<a src=""> Транспортные услуги в черте города </a>
+							</li>
+
+							<li>
+								<a src=""> Услуги по забору биоматериала </a>
+							</li>
+
+							<li>
+								<a src="">
+									Микробиологические исследования на автоматическом анализаторе
+									WalkAway-40 Siemens (Германия)
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="units-cards__item">
+						<div class="units-cards__title">
+							<a src="">Диагностическое отделение</a>
+						</div>
+						<ul class="units-list">
+							<li><a src="">Флюорография и рентген</a></li>
+							<li><a src="">Ультразвуковые исследования</a></li>
+							<li><a src="">Функциональная диагностика</a></li>
+							<li><a src="">Эндоскопия</a></li>
+						</ul>
+					</li>
+					<li class="units-cards__item">
+						<div class="units-cards__title">
+							<a src="">Консультативное отделение</a>
+						</div>
+						<ul class="units-list">
+							<li><a src="">Нефролог</a></li>
+							<li><a src="">Кардиолог</a></li>
+							<li><a src="">Маммолог</a></li>
+							<li><a src="">Невропатолог</a></li>
+							<li><a src="">Эндокринолог</a></li>
+							<li><a src="">Профпатолог</a></li>
+							<li><a src="">Инфекционист</a></li>
+							<li><a src="">Дерматолог</a></li>
+							<li><a src="">Ревматолог</a></li>
+							<li><a src="">Хирург</a></li>
+							<li>
+								<a src="">Процедуры и манипуляции хирурга, травматолога</a>
+							</li>
+							<li><a src="">Уролог</a></li>
+							<li><a src="">Процедуры и манипуляции уролога</a></li>
+							<li><a src="">Окулист</a></li>
+							<li><a src="">Процедуры и манипуляции окулиста</a></li>
+							<li><a src="">Онколог</a></li>
+							<li><a src="">Отоларинголог</a></li>
+							<li><a src="">Процедуры и манипуляции оториноларинголога</a></li>
+							<li><a src="">Генетик</a></li>
+							<li><a src="">Стоматолог</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- EMPLOYERS SECTION -->
+		<div class="employers-section">
+			<div class="employers-wrapper wrapper">
+				<div class="employers__view-all">
+					<a class="inverted-colors" href="{%url 'main:specialists'%}">Все специалисты центра</a>
+				</div>
+
+				<div class="employers__list">
+					<ul id="employers-carousel" class="cS-hidden" style="height:auto !important; ">
+						{%for doctor in doctors%}
+							<li>
+								<div class="employers__item">
+									<div class="employer-image" style="width: 75%;">
+										<img src="{%if doctor.image%}{{doctor.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%}" style="width: 100%;"/>
+									</div>
+									<a href="{%url 'main:specialist' doctor.id%}" class="employer-name"
+										>{{doctor.fullname}}</a
+									>
+									<p class="employer-category">{{doctor.position.name}}</p>
+									<div>
+										<button class="online-order-button button button-default">
+											Запись онлайн
+										</button>
+									</div>
+								</div>
+							</li>
+						{%endfor%}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- NEWS SECTION -->
+		<div class="news-section">
+			<div class="news-section__wrapper wrapper">
+				<div class="news-section__view-all">
+					<h1>Новости</h1>
+					<a class="inverted-colors" href="{%url 'main:news'%}">Все новости</a>
+				</div>
+				<div class="row">
+					{%for new in news%}
+						<div class="col-xs-4 col-12">
+							<div class="news-section__item">
+								<img src="{{new.image.url}}" alt="" />
+								<div class="news-text">
+									<p class="news-category twosmallfont">Новости</p>
+									<div class="new-section__title">
+										<a src="">{{new.title}}</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					{%endfor%}
+				</div>				
+			</div>
+		</div>
+
+		<!-- CLINICS ADDRESSES -->
+		<div class="address-section">
+			<div class="wrapper">
+				<div class="address__view-all">
+					<div class="address__view-all-left">
+						<h1>Адреса клиник</h1>
+						<div class="switch-types">
+							<span class="switch-label">Списком</span>
+							<label class="switch">
+								<input
+									id="switch"
+									type="checkbox"
+									checked="true"
+									onchange="switchAddressType()"
+								/>
+								<span class="slider round"></span>
+							</label>
+							<span class="switch-label">На карте</span>
+						</div>
+					</div>
+					<a src="" class="inverted-colors">Все филиалы</a>
+				</div>
+
+				<div class="address-section__cards-list">
+					{%for branch in branches%}
+						<div class="address-section__card">
+							<h2>г. {{branch.city.name}}, {{branch.address}}</h2>
+							<div>
+								<div class="tag">Телефон</div>
+								{%for phone in branch.phones.all%}
+									<p>{{phone.phone}} {{phone.name}}</p>
+								{%endfor%}
+							</div>
+						</div>
+					{%endfor%}
+				</div>
+				
+				<div class="address-section__map">
+					<div class="ymap" id="map"></div>
+				</div>
+			</div>
+		</div>
+		<!-- Partners section -->
+		<div class="partners-section">
+			<div class="wrapper">
+				<ul id="partners-carousel" class="cS-hidden">
+					{%for partner in partners%}
+						<li>
+							<a href="https://{{partner.site}}" class="partner__item">
+								<img src="{{partner.image.url}}" alt="{{partner.name}}" />
+								<div class="partner__src">{{partner.name}}</div>
+							</a>
+						</li>		
+					{%endfor%}			
+				</ul>
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="{%static 'bootstrap/js/bootstrap.js'%}"></script>
+	<script src="{%static 'js/main.js'%}"></script>
+	
+	<script src="{%static 'js/uslugi.js'%}"></script>
+	<script type="text/javascript">
+		ymaps.ready(init);
+
+		function init() {
+			var myMap = new ymaps.Map("map", {
+				center: [{%with branches|first as first_branch%}{{first_branch.latitude}}, {{first_branch.longitude}}{%endwith%}],
+				zoom: 20,
+				controls: ["zoomControl", "fullscreenControl"],
+			});
+			//52.297973,76.9410264
+			{%for branch in branches%}
+			myMap.geoObjects.add(new ymaps.Placemark(
+				[{{branch.latitude}}, {{branch.longitude}}],
+				{
+					balloonContentHeader: "<h4>г. {{branch.city.name}}, {{branch.address}}</h4>",
+					balloonContentBody:
+						"<div class='tag' style='margin-bottom: 5px;'>Телефон</div>" +
+						{%for branch_phone in branch.phones.all%}
+							"<p>{{branch_phone.phone}} {{branch_phone.name}}</p>" +						
+						{%endfor%}
+						"",
+					balloonContentFooter: "<a src=''>Подробнее</a>",
+					hintContent: "Нажмите, чтобы посмотреть информацию.",
+				}
+			));
+			{%endfor%}
+			
+			//myMap.geoObjects.add(placemarkPavlodar);
+		}
+	</script>
+{%endblock%}

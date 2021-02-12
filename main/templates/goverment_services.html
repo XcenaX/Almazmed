@@ -1,0 +1,534 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/director_blog.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/government_services.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/about.css'%}" />
+	<script
+		src="https://kit.fontawesome.com/b79a50aa67.js"
+		crossorigin="anonymous"
+	></script>
+	<style>
+		p a {
+            color: #0dbc91 !important;
+        }
+	</style>
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<div class="main-section" style="margin-top: 30px;">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md hide-mobile">
+						<div class="sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:serviced_area'%}" >
+											<span>Обслуживаемая территория</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Запись на примем к врачу</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Вызов врача на дом</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:drug_supply'%}">
+											<span>Лекарственное обеспечение</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://www.kdlolymp.kz/results/login">
+											<span>Результаты лабораторных исследований</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Личный кабинет</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:gobmp'%}">
+											<span>ГОБМП</span>
+                                        </a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+                                        <a href="{%url 'main:osms'%}">
+											<span>ОСМС</span>
+                                        </a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:question_answer'%}">
+											<span>Вопрос ответ</span>
+                                        </a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<div class="opened active">
+											<span>Государственные услуги</span>
+                                        </div>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:public_service_register'%}">
+											<span>Реестр Государственных услуг</span>
+										</a>										
+									</div>									
+								</li>								
+							</ul>
+						</div>					
+					</div>
+					
+                    <div class="col-md-9 col-sm-12 col-xs-12 content-md">
+                        <p>
+                            Об утверждении реестра государственных услуг Приказ и.о. Министра цифрового развития, инноваций и аэрокосмической промышленности Республики Казахстан от 31 января 2020 года № 39/НҚ.
+                        </p>
+                        <ol>
+                            <li>Утвердить:</li>
+                        </ol>
+                        <p>Правила государственной услуги <a href="http://adilet.zan.kz/rus/docs/V1500010964">«Выдача листа о временной нетрудоспособности»</a> согласно приложению 10 к настоящему приказу;<br /></p>
+                        <p>Правила государственной услуги <a href="http://adilet.zan.kz/rus/docs/V1500010964">«Выдача справки о временной нетрудоспособности»</a> согласно приложению 11 к настоящему приказу;<br /></p>
+                        <p>Правила государственной услуги <a href="http://adilet.zan.kz/rus/docs/V2000020809">«Выдача лицензии на медицинскую деятельность»</a><br /></p>
+                        <p>
+                            Правила государственной услуги
+                            <a href="http://adilet.zan.kz/rus/docs/V2000020662">«Регистрация согласия или отзыва согласия на прижизненное добровольное пожертвование тканей (части ткани) и (или) органов (части органов) после смерти в целях трансплантации»</a>
+                            согласно приложению 12 к настоящему приказу;<br />
+                        </p>
+                        <p>Правила государственной услуги <a href="http://adilet.zan.kz/rus/docs/V1500012204">«Выдача заключения о нуждаемости в санаторно-курортном лечении»</a><br /></p>
+                        <p>Правила государственной услуги <a href="http://adilet.zan.kz/rus/docs/V18U0004465">«Прохождение предварительных обязательных медицинских осмотров»</a><br /></p>
+                        <p>Правила государственной услуги <a href="http://adilet.zan.kz/rus/docs/V2000021557">«Выдача справки о допуске к управлению транспортным средством»</a><br /></p>
+                    
+                        <p>
+                            Реестр государственных услуг
+                        </p>
+                        <p>В соответствии с подпунктом 2-1 <a href="http://adilet.zan.kz/rus/docs/Z1300000088#z17">статьи 8 </a> Закона Республики Казахстан от 15 апреля 2013 года "О государственных услугах"</p>
+                        <ol>
+                            <li>Утвердить:</li>
+                        </ol>
+                        <p>1. Утвердить прилагаемый <a href="http://adilet.zan.kz/rus/docs/V2000019982#z14"> Реестр </a> государственных услуг;<br /></p>
+                        <p>2. Комитету государственных услуг Министерства цифрового развития, инноваций и аэрокосмической промышленности Республики Казахстан обеспечить;<br /></p>
+                        <p>1) государственную регистрацию настоящего приказа в Министерстве юстиции Республики Казахстан;<br /></p>
+                        <p>2) размещение настоящего приказа на интернет-ресурсе Министерства цифрового развития, инноваций и аэрокосмической промышленности Республики Казахстан;<br /></p>
+                        <p>
+                            3) в течение десяти рабочих дней после государственной регистрации настоящего приказа представление в Юридический департамент Министерства цифрового развития, инноваций и аэрокосмической промышленности Республики Казахстан сведений
+                            об исполнении мероприятий, предусмотренных подпунктами 1) и 2) настоящего пункта;<br />
+                        </p>
+                        <p>3. Контроль за исполнением настоящего приказа возложить на курирующего вице-министра цифрового развития, инноваций и аэрокосмической промышленности Республики Казахстан;<br /></p>
+                        <p>4. Настоящий приказ вводится в действие по истечении десяти календарных дней после дня его первого официального опубликования;<br /></p>
+                    
+                        <div class="item-views list sections blocks prices-elements">
+                            <div class="items row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="item shadow1 item-border clearfix wti" id="bx_3218110189_312" style="height: 82px;">
+                                        <div class="info">
+                                            <div class="top-row clearfix" data-trigger="opener">
+                                                <div class="buttons pull-right">
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white arrow-open pull-right closed" onclick="open_close(this,'1')"></span>
+                                                    </div>
+                    
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right closed" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                                <div class="title">
+                                                    <span class="dark-color">Вызов врача на дом</span>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="button">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right closed" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hidden-block" id="1" style="display: none;">
+                                                <div class="wrap">
+                                                    <div class="previewtext">
+                                                        <h5>Способ связи</h5>
+                                                        <ul>
+                                                            <li>При непосредственном обращении в поликлинику</li>
+                                                            <li>По телефону поликлиники <a href="tel:+77262556708">{{phone}}</a></li>
+                                                            <li>При подачи заявки на сайте <a href="http://egov.kz" target="_blank">www.egov</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="item shadow1 item-border clearfix wti" id="bx_3218110189_324" style="height: 82px;">
+                                        <div class="info">
+                                            <div class="top-row clearfix" data-trigger="opener">
+                                                <div class="buttons pull-right">
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white arrow-open pull-right" onclick="open_close(this,'2')"></span>
+                                                    </div>
+                    
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                                <div class="title">
+                                                    <span class="dark-color">Запись на прием к врачу</span>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="button">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hidden-block" id="2">
+                                                <div class="wrap">
+                                                    <div class="previewtext">
+                                                        <h5>Способ связи</h5>
+                                                        <ul>
+                                                            <li>При непосредственном обращении в поликлинику</li>
+                                                            <li>По телефону поликлиники <a href="tel:+77262556708">{{phone}}</a></li>
+                                                            <li>При подачи заявки на сайте <a href="http://egov.kz" target="_blank">www.egov</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="item shadow1 item-border clearfix wti" id="bx_3218110189_325" style="height: 101px;">
+                                        <div class="info">
+                                            <div class="top-row clearfix" data-trigger="opener">
+                                                <div class="buttons pull-right">
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white arrow-open pull-right" onclick="open_close(this,'3')"></span>
+                                                    </div>
+                    
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                                <div class="title">
+                                                    <span class="dark-color">Прикрепление к медицинской организации, оказывающей первичную медико-санитарную помощь</span>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="button">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hidden-block" id="3">
+                                                <div class="wrap">
+                                                    <div class="previewtext">
+                                                        <h5>Способ связи</h5>
+                                                        <ul>
+                                                            <li>При непосредственном обращении в поликлинику</li>
+                                                            <li>По телефону поликлиники <a href="tel:+77262556708">{{phone}}</a></li>
+                                                            <li>При подачи заявки на сайте <a href="http://egov.kz" target="_blank">www.egov</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="item shadow1 item-border clearfix wti" id="bx_3218110189_326" style="height: 82px;">
+                                        <div class="info">
+                                            <div class="top-row clearfix" data-trigger="opener">
+                                                <div class="buttons pull-right">
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white arrow-open pull-right" onclick="open_close(this,'4')"></span>
+                                                    </div>
+                    
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                                <div class="title">
+                                                    <span class="dark-color">Выдача выписки из медицинской карты стационарного больного</span>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="button">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hidden-block" id="4">
+                                                <div class="wrap">
+                                                    <div class="previewtext">
+                                                        <h5>Способ связи</h5>
+                                                        <ul>
+                                                            <li>При непосредственном обращении в поликлинику</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="item shadow1 item-border clearfix wti" id="bx_3218110189_327" style="height: 101px;">
+                                        <div class="info">
+                                            <div class="top-row clearfix" data-trigger="opener">
+                                                <div class="buttons pull-right">
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white arrow-open pull-right" onclick="open_close(this,'5')"></span>
+                                                    </div>
+                    
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                                <div class="title">
+                                                    <span class="dark-color">Выдача справки с медицинской организации, оказывающей первичную медико-санитарную помощь по формам №035-2/у и 079/у</span>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="button">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hidden-block" id="5">
+                                                <div class="wrap">
+                                                    <div class="previewtext">
+                                                        <h5>Способ связи</h5>
+                                                        <ul>
+                                                            <li>При непосредственном обращении в поликлинику</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="item shadow1 item-border clearfix wti" id="bx_3218110189_328" style="height: 101px;">
+                                        <div class="info">
+                                            <div class="top-row clearfix" data-trigger="opener">
+                                                <div class="buttons pull-right">
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white arrow-open pull-right" onclick="open_close(this,'6')"></span>
+                                                    </div>
+                    
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                                <div class="title">
+                                                    <span class="dark-color">Выдача листа о временной нетрудоспособности с медицинской организации, оказывающей первичную медико-санитарную помощь</span>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="button">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hidden-block" id="6">
+                                                <div class="wrap">
+                                                    <div class="previewtext">
+                                                        <h5>Способ связи</h5>
+                                                        <ul>
+                                                            <li>При непосредственном обращении в поликлинику</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="item shadow1 item-border clearfix wti" id="bx_3218110189_329" style="height: 101px;">
+                                        <div class="info">
+                                            <div class="top-row clearfix" data-trigger="opener">
+                                                <div class="buttons pull-right">
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white arrow-open pull-right" onclick="open_close(this,'7')"></span>
+                                                    </div>
+                    
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                                <div class="title">
+                                                    <span class="dark-color">Выдача справки о временной нетрудоспособности с медицинской организации, оказывающей первичную медико-санитарную помощь</span>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="button">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hidden-block" id="7">
+                                                <div class="wrap">
+                                                    <div class="previewtext">
+                                                        <h5>Способ связи</h5>
+                                                        <ul>
+                                                            <li>При непосредственном обращении в поликлинику</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="item shadow1 item-border clearfix wti" id="bx_3218110189_330" style="height: 101px;">
+                                        <div class="info">
+                                            <div class="top-row clearfix" data-trigger="opener">
+                                                <div class="buttons pull-right">
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white arrow-open pull-right" onclick="open_close(this,'8')"></span>
+                                                    </div>
+                    
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                                <div class="title">
+                                                    <span class="dark-color">Добровольное анонимное и обязательное конфиденциальное медицинское обследование на наличие ВИЧ-инфекции</span>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="button">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hidden-block" id="8">
+                                                <div class="wrap">
+                                                    <div class="previewtext">
+                                                        <h5>Способ связи</h5>
+                                                        <ul>
+                                                            <li>При непосредственном обращении в поликлинику</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="item shadow1 item-border clearfix wti" id="bx_3218110189_331" style="height: 125px;">
+                                        <div class="info">
+                                            <div class="top-row clearfix" data-trigger="opener">
+                                                <div class="buttons pull-right">
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white arrow-open pull-right" onclick="open_close(this,'9')"></span>
+                                                    </div>
+                    
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                                <div class="title">
+                                                    <span class="dark-color">Регистрация согласия или отзыва согласия на прижизненное добровольное пожертвование тканей (части ткани) и (или) органов (части органов) после смерти в целях трансплантации</span>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="button">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hidden-block" id="9">
+                                                <div class="wrap">
+                                                    <div class="previewtext">
+                                                        <h5>Способ связи</h5>
+                                                        <ul>
+                                                            <li>При непосредственном обращении в поликлинику</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="item shadow1 item-border clearfix wti" id="bx_3218110189_332" style="height: 101px;">
+                                        <div class="info">
+                                            <div class="top-row clearfix" data-trigger="opener">
+                                                <div class="buttons pull-right">
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white arrow-open pull-right" onclick="open_close(this,'10')"></span>
+                                                    </div>
+                    
+                                                    <div class="button pull-right">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                                <div class="title">
+                                                    <span class="dark-color">Прохождение предварительных обязательных медицинских осмотров" медицинская справка по форме № 086/у</span>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="button">
+                                                        <span class="btn btn-default white animate-load btn-xs record pull-right" data-event="jqm" data-param-id="18" data-name="record_online">Запись онлайн</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="hidden-block" id="10">
+                                                <div class="wrap">
+                                                    <div class="previewtext">
+                                                        <h5>Способ связи</h5>
+                                                        <ul>
+                                                            <li>При непосредственном обращении в поликлинику</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="pagination_nav"></div>
+                        </div>
+                    </div>                                              
+				</div>							
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="js/main.js"></script>
+	<script src="js/uslugi.js"></script>
+    <script>
+        function open_close(obj, id){
+           obj.classList.toggle("opened");
+           obj.classList.toggle("open");
+           accordion = $("#" + id)[0];
+           if(accordion.style.display == "block"){
+                accordion.style.display = "none";
+           }else{
+                accordion.style.display = "block";
+           }
+
+        }
+    </script>
+{%endblock%}

@@ -1,0 +1,129 @@
+
+
+.spec-wrap, .has-address{
+    width: 100%;
+    height: 470px;
+    text-align: center;
+    border: 1px solid #d0d5d7;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+.spec-wrap:hover .spec-body{
+    margin-top: -26px;
+}
+
+.has-address:hover .spec-body{
+    margin-top: -64px;
+}
+
+.spec-wrap:hover .bottom-block, .has-address:hover .bottom-block{
+    display: block;
+}
+
+.spec-img-wrap{
+    width: 100%;
+    padding-bottom: 100%;
+    height: 0px;
+}
+
+.spec-img{
+    width: 100%;
+    background-size: cover;
+}
+
+.spec-body{
+    width: 100%;
+    padding-left: 41px;
+    padding-right: 41px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: 18px;
+    -webkit-transition: margin-top .2s ease;
+    position: relative;
+    background-color: white;
+    margin-top: -7px;
+}
+
+.spec-name{
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.3889em;
+}
+
+.spec-profession{
+    margin: 11px 0 0;
+    color: #999;
+    font-size: .867em;
+    line-height: 1.3846em;
+}
+.remove-margin-mobile{
+    display: block;
+}
+
+.spec-title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-family: "PT Sans Caption", Arial, sans-serif;
+}
+
+.spec-wrap .bottom-block, .has-address .bottom-block {
+    
+    display: none;
+}
+
+
+.item-views.table-type-block.staff-items .item .bottom-block>.wrap {
+    display: table;
+    width: 100%;
+}
+
+.item-views.table-type-block.staff-items.list .item .button {
+    display: block;
+    width: auto;
+    text-align: center;
+}
+
+.item-views.table-type-block.staff-items .item .address, .item-views.table-type-block.staff-items .item .button {
+    padding: 0 16px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+}
+
+.no_address  .btn-default {
+    background-color: #0dbc91;
+    border-color: #0dbc91;
+    color: #ffffff;
+}
+
+.no_address .btn {
+    padding: 10px 17px 11px;
+    font-size: .867em;
+    font-weight: 400;
+    line-height: 1.2em;
+    border-radius: 19px;
+    transition: background-color .3s ease;
+    -moz-transition: background-color .3s ease;
+    -ms-transition: background-color .3s ease;
+    -o-transition: background-color .3s ease;
+    -webkit-transition: background-color .3s ease;
+}
+
+.spec-description {
+    margin-bottom: 42px;
+    font-size: 15px;
+}
+
+@media(max-width:700px){
+    .remove-margin-mobile{
+        margin: 20px;
+    }
+    .has-address{
+        height: 550px;
+    }
+}

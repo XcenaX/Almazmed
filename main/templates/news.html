@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/news.css'%}">
+	
+{% endblock %}
+
+
+
+{% block body %}
+<body>
+		
+
+	<!-- MAIN SECTION -->
+	<div class="main-section" id="html">
+		<div class="wrapper">
+			<div class="row" style="margin-bottom: 59px;">
+				<div class="col-md-9">
+					<div class="news-top">
+						<div class="news-top-block">
+							<div class="news-top-block-text">
+								<a href="{%url 'main:news'%}">За все время</a>
+							</div>								
+						</div>
+						<div class="news-top-block">
+							<div class="news-top-block-text">
+								<a href="?year=2020">2020</a>
+							</div>								
+						</div>
+						<div class="news-top-block">
+							<div class="news-top-block-text">
+								<a href="?year=2019">2019</a>
+							</div>								
+						</div>
+						<div class="news-top-block">
+							<div class="news-top-block-text">
+								<a href="?year=2018">2018</a>
+							</div>								
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							{%for new in news%}
+								<div class="news-block shadow1 clearfix">
+									<div class="news-block-image">
+										<a href="{%url 'main:one_new' new.id%}">
+											<img src="{{new.image.url}}" alt="" class="img-responsive">
+										</a>
+									</div>
+									<div class="news-block-text-block">
+										<div class="text-block-top">
+											<a href="{%url 'main:one_new' new.id%}">{{new.title}}</a>
+										</div>
+										<div class="text-block-under">
+											{{new.date|date:"d F Y"}}
+										</div>
+									</div>
+								</div>
+							{%endfor%}
+						</div>
+					</div>
+					{%if not news%}
+						<div class="nothing">
+							Ничего не найдено!
+						</div>
+					{%endif%}
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="banner_warning">
+		Имеются противопоказания. Необходима консультация специалиста
+	</div>
+</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="{%static 'bootstrap/js/bootstrap.js'%}"></script>
+	<script src="{%static 'js/main.js'%}"></script>
+	
+	<script src="{%static 'js/uslugi.js'%}"></script>
+	
+{%endblock%}

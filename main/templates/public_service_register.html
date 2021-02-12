@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/director_blog.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/government_services.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/about.css'%}" />
+	<script
+		src="https://kit.fontawesome.com/b79a50aa67.js"
+		crossorigin="anonymous"
+	></script>
+	<style>
+		p a {
+            color: #0dbc91 !important;
+        }
+        ol {
+            margin-left: 20px !important;
+        }
+        p {
+            margin: 25px 0;
+        }
+        ol li, ul li {
+            display: table;
+        }
+	</style>
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<div class="main-section" style="margin-top: 30px;">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md hide-mobile">
+						<div class="sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:serviced_area'%}" >
+											<span>Обслуживаемая территория</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Запись на примем к врачу</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Вызов врача на дом</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:drug_supply'%}">
+											<span>Лекарственное обеспечение</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://www.kdlolymp.kz/results/login">
+											<span>Результаты лабораторных исследований</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="https://lkp-zha.dmed.kz/">
+											<span>Личный кабинет</span>
+										</a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:gobmp'%}">
+											<span>ГОБМП</span>
+                                        </a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+                                        <a href="{%url 'main:osms'%}">
+											<span>ОСМС</span>
+                                        </a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:question_answer'%}">
+											<span>Вопрос ответ</span>
+                                        </a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:goverment_services'%}">
+											<span>Государственные услуги</span>
+                                        </a>										
+									</div>									
+                                </li>
+                                <li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<div class="opened active">
+											<span>Реестр Государственных услуг</span>
+                                        </div>										
+									</div>									
+								</li>								
+							</ul>
+						</div>					
+					</div>
+					<div class="col-md-9 col-sm-12 col-xs-12 content-md">
+                        <p>
+                            Об утверждении стандартов государственных услуг в области здравоохранения
+                        </p>
+                        <p>
+                            Приказ Министра здравоохранения и социального развития Республики Казахстан от 27 апреля 2015 года № 272. Зарегистрирован в Министерстве юстиции Республики Казахстан 11 июня 2015 года № 11304.
+                        </p>
+                        <p>В соответствии с подпунктом 2-1) <a href="http://adilet.zan.kz/rus/docs/Z1300000088#z17">статьи 8 </a> Закона Республики Казахстан от 15 апреля 2013 года "О государственных услугах"</p>
+                        <p>ПРИКАЗЫВАЮ:<br /></p>
+                        <ol>
+                            <li>Утвердить:</li>
+                        </ol>
+                        <p>1. Утвердить прилагаемый <a href="http://adilet.zan.kz/rus/docs/V2000019982#z14"> Реестр </a> государственных услуг;<br /></p>
+                        <p>2. Комитету государственных услуг Министерства цифрового развития, инноваций и аэрокосмической промышленности Республики Казахстан обеспечить;<br /></p>
+                        <p>1) государственную регистрацию настоящего приказа в Министерстве юстиции Республики Казахстан;<br /></p>
+                        <p>2) размещение настоящего приказа на интернет-ресурсе Министерства цифрового развития, инноваций и аэрокосмической промышленности Республики Казахстан;<br /></p>
+                        <p>
+                            3) в течение десяти рабочих дней после государственной регистрации настоящего приказа представление в Юридический департамент Министерства цифрового развития, инноваций и аэрокосмической промышленности Республики Казахстан сведений
+                            об исполнении мероприятий, предусмотренных подпунктами 1) и 2) настоящего пункта;<br />
+                        </p>
+                        <p>3. Контроль за исполнением настоящего приказа возложить на курирующего вице-министра цифрового развития, инноваций и аэрокосмической промышленности Республики Казахстан;<br /></p>
+                        <p>4. Настоящий приказ вводится в действие по истечении десяти календарных дней после дня его первого официального опубликования;<br /></p>
+                    </div>                    
+                                                                 
+				</div>							
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="js/main.js"></script>
+	<script src="js/uslugi.js"></script>
+    
+{%endblock%}

@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+	<link rel="stylesheet" href="{%static 'css/usugi-styles.css'%}" />
+	<link rel="stylesheet" href="{%static 'css/letters.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/about.css'%}" />
+	<script
+		src="https://kit.fontawesome.com/b79a50aa67.js"
+		crossorigin="anonymous"
+	></script>
+	<style>
+		p {
+			margin: 25px 0;
+		}
+	</style>
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<div class="main-section" style="margin-top: 30px;">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md hide-mobile">
+						<div class="sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:about'%}" >
+											<span>О поликлинике</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:specialists_activity' leaders.id%}">
+											<span>Руководители</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:director_blog'%}">
+											<span>Блог директора филиала</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:lisences'%}">
+											<span>Лицензии</span>
+                                        </a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:partners'%}">
+											<span>Партнеры</span>
+										</a>										
+									</div>									
+								</li>
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<div class="opened active">
+											<span>Благодарственные письма</span>
+                                        </div>										
+									</div>									
+								</li>								
+							</ul>
+						</div>					
+					</div>
+					
+					<div class="col-md-9 col-sm-12 col-xs-12">
+                        <div class="text_before_items">
+                            <p>Мы стремимся оказывать качественные услуги с высоким уровнем сервиса. Мы благодарны&nbsp;нашим пациентам за оказанное доверие и положительные отзывы о совместной работе.</p>
+                        </div>
+                        <div class="item-views list list-reviews table-type-block linked image_left reviews">
+                            <div class="group-content">
+                                <div class="row sid- items">
+                                    {%for letter in letters%}
+                                        <div class="col-md-12">
+                                            <div class="item shadow1" id="bx_3218110189_868">
+                                                <div class="wrap">
+                                                    <div class="title">
+                                                        <span>{{letter.person}}</span>
+                                                    </div>
+                            
+                                                    <div class="preview-text">
+                                                        <p>
+                                                            {{letter.text}}
+                                                        </p>
+                                                    </div>
+                            
+                                                    <div class="preview-text">
+                                                        <a href="{{letter.letter.url}}" download target="_blank">Скачать полный отзыв</a><br />                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>            
+                                    {%endfor%}                        
+                                </div>
+                            </div>
+                        </div>                        
+					</div>
+				</div>							
+			</div>
+		</div>
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="js/main.js"></script>
+	<script src="js/uslugi.js"></script>
+{%endblock%}
