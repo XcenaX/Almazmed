@@ -145,6 +145,7 @@ def index(request):
         "partners": partners,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def about(request):
@@ -162,6 +163,7 @@ def about(request):
         "current_branch": current_branch,
         "cities": cities,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def specialists(request):
@@ -182,6 +184,7 @@ def specialists(request):
         "cities": cities,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def specialists_activity(request, id):
@@ -210,6 +213,7 @@ def specialists_activity(request, id):
         "cities": cities,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def specialist(request, id):
@@ -234,6 +238,7 @@ def specialist(request, id):
         "cities": cities,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def sub_uslugi(request, id):
@@ -253,6 +258,7 @@ def sub_uslugi(request, id):
         "service_type": service_type,
         "services_types": services_types,
         "path": [{"Услуги и цены": "/uslugi"}, {service_type.name: request.META.get('PATH_INFO', None)}],
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def uslugi(request):
@@ -270,6 +276,7 @@ def uslugi(request):
         "leaders": leaders,  
         "current_lang": session_parameter(request,"lang"),
         "services_types": services_types,
+        
     })
 
 @csrf_exempt
@@ -303,6 +310,7 @@ def news(request):
         "current_city": current_city,
         "current_lang": session_parameter(request,"lang"),
         "leaders": leaders,
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def one_new(request, id):
@@ -320,6 +328,7 @@ def one_new(request, id):
         "current_city": current_city,
         "current_lang": session_parameter(request,"lang"),
         "leaders": leaders,
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 
@@ -339,6 +348,7 @@ def director_blog(request):
         "current_city": current_city,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 
@@ -357,6 +367,7 @@ def lisences(request):
         "leaders": leaders,
         "lisences": all_lisences,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def partners(request):
@@ -374,6 +385,7 @@ def partners(request):
         "leaders": leaders,
         "partners": all_partners,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def letters(request):
@@ -391,6 +403,7 @@ def letters(request):
         "leaders": leaders,
         "letters": all_letters,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def patients(request):
@@ -407,6 +420,7 @@ def patients(request):
         "current_city": current_city,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 
@@ -430,6 +444,7 @@ def serviced_area(request):
         "sites": sites,
         "iterator": iterator,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def drug_supply(request):
@@ -446,6 +461,7 @@ def drug_supply(request):
         "current_city": current_city,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def gobmp(request):
@@ -462,6 +478,7 @@ def gobmp(request):
         "current_city": current_city,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def osms(request):
@@ -478,6 +495,7 @@ def osms(request):
         "current_city": current_city,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def question_answer(request):
@@ -493,6 +511,7 @@ def question_answer(request):
         "current_city": current_city,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def goverment_services(request):
@@ -511,6 +530,7 @@ def goverment_services(request):
         "leaders": leaders,
         "phone": phone,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def public_service_register(request):
@@ -526,6 +546,7 @@ def public_service_register(request):
         "current_city": current_city,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
 def choose_city(request):
@@ -584,6 +605,7 @@ def search(request):
         "current_lang": session_parameter(request,"lang"),
         "q": q,
         "path": [{"Поиск": request.META.get('PATH_INFO', None)}],
+        "services_types": ServiceType.objects.filter(is_top=True),
     })
 
     

@@ -310,7 +310,7 @@
 				</div>
 				<div class="row">
 					{%for new in news%}
-						<div class="col-xs-4 col-12">
+						<div class="col-md-4 col-sm-12 col-xs-12">
 							<div class="news-section__item">
 								<img src="{{new.image.url}}" alt="" />
 								<div class="news-text">
@@ -388,7 +388,6 @@
 
 {% block scripts%}
 	<!-- SCRIPTS -->
-	<script src="{%static 'bootstrap/js/bootstrap.js'%}"></script>
 	<script src="{%static 'js/main.js'%}"></script>
 	
 	<script src="{%static 'js/uslugi.js'%}"></script>

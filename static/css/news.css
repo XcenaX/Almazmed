@@ -109,3 +109,12 @@
     z-index: 2;
 }
 
+@media(max-width:500px){
+    .news-block-text-block {
+        padding-left: 0px;
+        clear: both;
+    }
+    .news-top-block{
+        font-size: 13px;
+    }
+}

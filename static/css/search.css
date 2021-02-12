@@ -86,6 +86,7 @@ button, select {
 }
 .svg-search.svg-black {
     background-image: url("/static/img/Search_black.svg");
+    background-size: contain;
 }
 .svg-black {
     background: 0 0;
@@ -102,9 +103,7 @@ button, select {
     background-repeat: no-repeat;
     background-position: center center;
 }
-.svg-basket, .svg-burger.mask, .svg-search {
-    background-color: #333;
-}
+
 .form .form-group, .form .form-group .input, .svg {
     position: relative;
 }
