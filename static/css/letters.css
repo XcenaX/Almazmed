@@ -1,0 +1,94 @@
+.reviews.item-views.table-type-block.item-views.list-reviews .item {
+    margin: 0 0 -1px;
+}
+
+.table-type-block.item-views.list .items .item {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.item-views.table-type-block .item {
+    margin: 0;
+    border-radius: 3px;
+    border: 1px solid #ecf2f4 !important;
+    background: #FFF;
+}
+.reviews.item-views .item {
+    padding: 36px 40px 30px 79px;
+    border: none;
+    background: #FFF;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.item-views.list .item {
+    margin-bottom: 0;
+}
+.item-views, .item-views .item {
+    position: relative;
+}
+.reviews.item-views.table-type-block .item .title {
+    margin-bottom: 18px;
+    font-size: 1.2em;
+    font-weight: 700;
+    line-height: 1.3889em;
+}
+
+.reviews.item-views.linked .item .title {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    line-height: 1.5556em;
+}
+.item-views.table-type-block .item .title {
+    margin: 0 0 9px;
+    font-size: 1.0667em;
+    font-weight: 700;
+    line-height: 1.5625em;
+}
+.reviews.item-views .item .title {
+    position: relative;
+    margin: 0 0 17px;
+    font-size: 1.2em;
+    font-weight: 700;
+    line-height: 1.3889em;
+    color: #333;
+}
+.reviews.item-views .item .title {
+    margin-bottom: 5px;
+}
+.item-views.list .item .title {
+    font-weight: 700;
+}
+.item-views .item .title {
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.reviews.item-views.linked .item .title:before {
+    top: 5px;
+}
+
+.reviews.item-views .item .title:before {
+    background-color: #0dbc91 !important;
+}
+.reviews.item-views .item .title:before {
+    content: "";
+    position: absolute;
+    left: -48px;
+    top: 4px;
+    width: 22px;
+    height: 16px;
+    background: url("/static/img/Quote_review_mask.svg") no-repeat;
+}
+.reviews.item-views .item .preview-text {
+    margin: 0 0 23px;
+}   
+.review-detail .reviews.item-views .item .title, .reviews.item-views .item .preview-text p {
+    margin: 0;
+}
+
+.item-views .item p {
+    margin-bottom: 20px;
+}
+
+.preview-text a {
+    color: #0dbc91 !important;
+}

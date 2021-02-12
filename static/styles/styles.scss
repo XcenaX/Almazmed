@@ -84,7 +84,7 @@ input {
 
 .button {
 	display: inline-block;
-	padding: 10px 17px 11px;
+	padding: 8px 17px 11px;
 	font-size: 0.867em;
 	font-weight: 400;
 	border-radius: 19px;
@@ -494,7 +494,9 @@ header {
 		}
 		.search-field,
 		.right-div {
-			display: none;
+			display: block;
+			visibility: hidden;
+			position: absolute;
 		}
 	}
 }
@@ -874,7 +876,7 @@ header {
 
 // MAIN CAROUSEL SECTION
 #main-carousel li {
-	background-size: 100% auto !important;
+	background-size: cover !important;
 	background-repeat: no-repeat !important;
 	background-position: center center !important;
 }
@@ -924,7 +926,7 @@ header {
 			margin: 15px 0 0;
 		}
 		.button {
-			padding: 10px 17px 11px;
+			padding: 8px 17px 11px;
 			font-size: 0.867em;
 			font-weight: 400;
 			border-radius: 19px;

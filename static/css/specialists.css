@@ -5,6 +5,8 @@
     height: 470px;
     text-align: center;
     border: 1px solid #d0d5d7;
+    margin-bottom: 16px;
+    margin-top: 16px;
 }
 
 .spec-wrap:hover .spec-body{

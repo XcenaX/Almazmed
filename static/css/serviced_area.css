@@ -1,0 +1,27 @@
+.table-bordered {
+    font-size: 16px;
+}
+
+.table-bordered, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid #ddd;
+}
+table {
+    max-width: 100%;
+}
+pre code, table {
+    background-color: transparent;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.table-bordered .title-green {
+    color: #0dbc91;
+    font-weight: bold;
+    text-align: center;
+}
+.table-bordered td {
+    background: #fafcfc;
+    border: 1px solid #ddd !important;
+    padding: 0px 5px;
+}   

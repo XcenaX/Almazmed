@@ -1,0 +1,122 @@
+.item-views.table-type-block.licenses .item {
+    padding: 40px;
+}
+
+.item-views.table-type-block .item {
+    margin: 0;
+    border-radius: 3px;
+    border: 1px solid #ecf2f4;
+    background: #FFF;
+}
+.item-views.list .item {
+    margin-bottom: 0;
+}
+.item-views, .item-views .item {
+    position: relative;
+}
+
+.item-views.table-type-block .item .image:not(.wpi) {
+    margin: -1px -1px 0;
+}
+
+.item-views.table-type-block.licenses .item .image {
+    margin: 0 auto 20px!important;
+    width: 144px;
+    height: 200px;
+    line-height: 197px;
+}
+.item-views.table-type-block .item .image {
+    position: relative;
+    overflow: hidden;
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.item-views.table-type-block.licenses .item .image a {
+    display: inline;
+}
+
+.item-views .item .image .img-inside {
+    border: 0;
+    display: block;
+    padding: 0;
+    position: relative;
+}
+
+.item-views.table-type-block.licenses .item .image img {
+    width: auto;
+    max-height: 100%;
+}
+
+.item-views.table-type-block .item .image img {
+    width: 100%;
+}
+.item-views.list .item .image img {
+    max-width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.item-views.licenses .item .image .zoom {
+    top: 50%;
+    left: 50%;
+    margin: -19px 0 0 -19px;
+    right: auto;
+    bottom: auto;
+}
+
+.item span.zoom {
+    opacity: 0;
+}
+
+
+
+span.zoom {
+    border-radius: 100%;
+    color: #fff;
+    display: block;
+    height: 38px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 38px;
+    transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    background-color: #FFF;
+    background-image: url('/static/img/Enlarge.svg') no-repeat;
+}
+.rolldown, [data-event=jqm], select, span.zoom {
+    cursor: pointer;
+}
+
+
+
+.detail .galery .item:hover span.zoom, .items .item:hover span.zoom {
+    opacity: 1;
+}
+
+span.zoom:hover {
+    background-color: #0dbc91;
+}
+
+span.zoom:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+    width: 16px;
+    height: 16px;
+    background: url("/static/img/Enlarge.svg") no-repeat;
+}

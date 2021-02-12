@@ -1,0 +1,74 @@
+.item-views.list.partners .item {
+    padding: 35px 40px;
+    margin: 16px 0;
+}
+.item-views.list .item {
+    margin-bottom: 0;
+}
+.item-views, .item-views .item {
+    position: relative;
+}
+.item-border {
+    position: relative;
+    border: 1px solid #ecf2f4;
+    border-radius: 3px;
+}
+
+.item-views.list.partners .item .image {
+    margin: 5px auto 35px;
+    max-width: 159px;
+    height: 100px;
+    line-height: 97px;
+    text-align: center;
+}
+.item-views.list .item .image img {
+    max-width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.item-views.list.partners .item .title {
+    margin: 0;
+    font-size: 1.067em;
+    line-height: 1.25em;
+}
+
+.item-views.list .item .title {
+    font-weight: 700;
+}
+.item-views .item .title {
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.item-views .item .title a {
+    color: #333;
+}
+.item-views.list.partners .item .properties {
+    margin: 20px 0 0;
+}
+.item-views.list.partners .item .properties .property:first-of-type {
+    margin-top: 0;
+}
+
+.item-views.list.partners .item .properties .property {
+    margin: 11px 0 0;
+}
+.twosmallfont {
+    font-size: .867em;
+    line-height: 1.3846em;
+}
+.item-views.list.partners .item .properties .property .title-prop {
+    margin: 0 0 2px;
+    color: #999;
+}
+
+.item-views.list.partners .item .properties .property .value {
+    color: #333;
+}

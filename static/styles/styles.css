@@ -24,6 +24,60 @@
   display: block;
 }
 
+.back-block{    
+  padding: 0 0 0 54px;    
+  position: relative;
+  margin-bottom: 42px;
+}
+
+.back-block i {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 100%;
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  transition: background-color .3s ease;
+  -moz-transition: background-color .3s ease;
+  -ms-transition: background-color .3s ease;
+  -o-transition: background-color .3s ease;
+  -webkit-transition: background-color .3s ease;
+}
+
+.fa2 {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.back-block i:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -5px 0 0 -6px;
+  width: 12px;
+  height: 10px;
+  border-radius: 100%;
+  background: url("/static/img/Arrow_mask_and_white.svg") -28px 0 no-repeat;
+  content: "";
+}
+
+.back-block:hover i {
+  background-color: #0dbc91;
+  
+}
+
+.back-block:not(.next-url):hover i:before {
+  background-position: -14px 0;
+}
+
 .nothing {
   /* font-family: "PT Sans Caption"; */
   margin: 20px auto;
@@ -36,8 +90,28 @@ html {
   scroll-behavior: smooth;
 }
 
+.skiptranslate iframe {
+  visibility: hidden !important;
+}
+
+.skiptranslate.goog-te-gadget span {
+  display: none;
+}
+
+div#\:0\.targetLanguage {
+  width: 100px;
+}
+
+select.goog-te-combo, select.goog-te-combo:focus {
+  width: 100%;
+  padding: 5px 5px 4px 5px;
+  cursor: pointer;
+  border: 2px solid #0dbc91;
+}
+
+
 body {
-  
+  top: -25px !important;
   font-size: 14px;
 }
 
@@ -86,7 +160,7 @@ input {
 
 .button {
   display: inline-block;
-  padding: 10px 17px 11px;
+  padding: 8px 17px 11px;
   font-size: 0.867em;
   font-weight: 400;
   border-radius: 19px;
@@ -1212,7 +1286,7 @@ a.button:hover {
 }
 
 #main-carousel li {
-  background-size: 100% auto !important;
+  background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
 }
@@ -1274,7 +1348,7 @@ a.button:hover {
     margin: 15px 0 0;
   }
   .main-carousel-item .button {
-    padding: 10px 17px 11px;
+    padding: 8px 17px 11px;
     font-size: 0.867em;
     font-weight: 400;
     border-radius: 19px;

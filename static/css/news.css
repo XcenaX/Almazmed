@@ -65,3 +65,47 @@
     vertical-align: middle;
     display: inline-block;
 }
+
+.new-date {
+    margin: 0 0 26px;
+    top: -7px;
+    display: block;
+}
+
+.new-date:after {
+    content: "";
+    position: absolute;
+    font-size: .9333em;
+    line-height: 1em;
+    top: 8px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #ecf2f4;
+}
+
+.new-img{
+    float: left;
+    padding-right: 25px;
+    text-align: left;
+    max-width: 325px;
+    background: #FFF;
+    position: relative;
+    z-index: 2;
+}
+
+.new-content{
+    margin-bottom: 36px;
+    font: 15px/25px "PT Sans Caption", Arial, sans-serif;
+}
+
+.new-date span {
+    margin: 0;
+    padding: 0 40px 0 0;
+    font-weight: 700;
+    color: #999;
+    background: #FFF;
+    position: relative;
+    z-index: 2;
+}
+
