@@ -168,6 +168,7 @@ def about(request):
         "cities": cities,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
+        "branches": branches,
     })
 
 def specialists(request):
@@ -189,6 +190,7 @@ def specialists(request):
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
+        "branches": branches,
     })
 
 def specialists_activity(request, id):
@@ -217,6 +219,7 @@ def specialists_activity(request, id):
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
+        "branches": branches,
     })
 
 def specialist(request, id):
@@ -242,6 +245,7 @@ def specialist(request, id):
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
+        "branches": branches,
     })
 
 def sub_uslugi(request, id):
@@ -263,6 +267,7 @@ def sub_uslugi(request, id):
         "services_types": services_types,
         "path": [{"Услуги и цены": "/uslugi"}, {service_type.name: request.META.get('PATH_INFO', None)}],
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
+        "branches": branches,
     })
 
 def uslugi(request):
@@ -281,7 +286,7 @@ def uslugi(request):
         "leaders": leaders,  
         "current_lang": session_parameter(request,"lang"),
         "services_types": services_types,
-        
+        "branches": branches,
     })
 
 @csrf_exempt
