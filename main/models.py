@@ -33,6 +33,8 @@ class Branch(models.Model):
     description = models.TextField(default="")
     def __str__(self):
         return self.address
+    def get_tel(self):
+        return self.phones.all()[0].phone.replace("-", "").replace("(","").replace(")","").replace(" ","")
     
 class Partner(models.Model):
     name = models.TextField(default="")
@@ -179,7 +181,6 @@ class Service(models.Model):
     name = models.TextField(default="")
     price = models.IntegerField(blank=True, null=True)
     count = models.IntegerField(blank=True, null=True)
-    code = models.TextField(default="")
     def __str__(self):
         return self.name
 

@@ -87,7 +87,11 @@
                     <div class="phone-block">
                         <div class="phone-number">
                             <i class="fas fa-phone-alt"></i>
-                            <a src="tel:+77262941076">+7 (7262) 94-10-76</a>
+                            {%with branches|first as branch%}
+                                {%with branch.phones.all|first as phone%}
+                                    <a src="tel:{{branch.get_tel}}">{{phone.phone}}</a>
+                                {%endwith%}
+                            {%endwith%}
                         </div>
                         <div class="callback-block twosmallfont">
                             <span>Заказать звонок</span>
@@ -123,28 +127,10 @@
 					</div>
 					<div class="menu__item" >
 						<a href="{%url 'main:uslugi'%}">Услуги и цены</a>
-						<ul style="margin-top: 0px;">
-							<li class="multi-dropdown">
-								Лабораторная диагностика
-								<ul>
-									<li>Гематология</li>
-									<li>Иммуногематологические исследования</li>
-									<li class="multi-dropdown">
-										Биохимические исследования крови
-										<ul>
-											<li>Гематология</li>
-											<li>Иммуногематологические исследования</li>
-											<li>Биохимические исследования крови</li>
-											<li>Витамины</li>
-										</ul>
-									</li>
-									<li>Витамины</li>
-								</ul>
-							</li>
-							<li>Диагностическое отделение</li>
-							<li>Консультативное отделение</li>
-							<li>Консультативное отделение</li>
-							<li>Отделение врачей общей практики</li>
+						<ul style="margin-top: 0px;">							
+							{%for type in services_types%}
+                                <li><a href="{%url 'main:sub_uslugi' type.id%}">{{type.name}}</a></li>		
+                            {%endfor%}					
 						</ul>
 					</div>
 					<a class="menu__item news-block" href="{%url 'main:news'%}">Новости</a>
@@ -341,10 +327,15 @@
             <div class="menu2 middle">
                 <ul>
                     <li>
-                        <a href="tel:+77262941076" class="dark-color">
-                            <i class="svg svg-phone"></i>
-                            <span>+7 (7262) 94-10-76</span>
-                        </a>
+                        {%with branches|first as branch%}
+                            {%with branch.phones.all|first as phone%}
+                                <a href="tel:{{branch.get_tel}}" class="dark-color">
+                                    <i class="svg svg-phone"></i>
+                                    <span>{{phone.phone}}</span>
+                                </a>
+                            {%endwith%}
+                        {%endwith%}
+                        
                     </li>
                 </ul>
             </div>
@@ -352,7 +343,9 @@
                 <div class="title">Будьте на связи</div>
                 <div class="address">
                     <i class="svg svg-address"></i>
-                    г. Тараз, мкр Мынбулак (9), дом 7
+                    {%with branches|first as branch%}
+                        {{branch.address}}
+                    {%endwith%}
                 </div>
                 <div class="email">
                     <i class="svg svg-email"></i>
@@ -454,7 +447,11 @@
                     <div class="contact-block__item phone-block">
                         <div class="phone-number">
                             <i class="fas fa-phone-alt"></i>
-                            <a src="tel:+77262941076">+7 (7262) 94-10-76</a>
+                            {%with branches|first as branch%}
+                                {%with branch.phones.all|first as phone%}
+                                    <a src="tel:{{branch.get_tel}}">{{phone.phone}}</a>
+                                {%endwith%}
+                            {%endwith%}
                         </div>
                         <div class="callback-block twosmallfont">
                             <span>Заказать звонок</span>
@@ -467,8 +464,12 @@
                         >
                     </div>
                     <div class="contact-block__item">
-                        <i class="fas fa-map-marker-alt"></i
-                        ><span>г. Тараз, мкр Мынбулак (9), дом 7</span>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>
+                            {%with branches|first as branch%}
+                                {{branch.address}}
+                            {%endwith%}
+                        </span>
                     </div>
                 </li>
                 <li class="top-footer__item social-block">
