@@ -852,6 +852,7 @@ a.button:hover {
   cursor: pointer;
   float: none;
   margin-left: 50px;
+  padding-top: 3px;
 }
 
 .callback-block:hover {
