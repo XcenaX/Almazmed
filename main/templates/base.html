@@ -29,6 +29,9 @@
 		></script>
 		<title>Almaz Medical Group</title>
         <link rel="stylesheet" href="{%static 'bootstrap/css/bootstrap.min.css'%}" />
+
+        
+
         <style>
             html{
                 max-width: 1920px;
@@ -92,6 +95,8 @@
                                     <a src="tel:{{branch.get_tel}}">{{phone.phone}}</a>
                                 {%endwith%}
                             {%endwith%}
+                            <br>
+                            <a style="float: left;">{{current_city}}</a>
                         </div>
                         <div class="callback-block twosmallfont">
                             <span>Заказать звонок</span>
@@ -130,7 +135,8 @@
 						<ul style="margin-top: 0px;">							
 							{%for type in services_types%}
                                 <li><a href="{%url 'main:sub_uslugi' type.id%}">{{type.name}}</a></li>		
-                            {%endfor%}					
+                            {%endfor%}		
+                            <li><a href="https://www.kdlolymp.kz/pricelist/nur-sultan">лабораторные исследования в процедурном кабинете КДЛ «Олимп»</a></li>			
 						</ul>
 					</div>
 					<a class="menu__item news-block" href="{%url 'main:news'%}">Новости</a>
@@ -163,13 +169,13 @@
 						</ul>
                     </div>
                     <div class="menu__item filials" >
-                        <a href="{%url 'main:choose_city'%}">Изменить город</a>
+                        <a href="{%url 'main:choose_city'%}">Выбрать город</a>
                     </div>
                     <div class="menu__item triple-dots">
 						<i class="fas fa-ellipsis-h"></i>
 						<ul class="dropdown-submenu">
 							<li>Новости</li>
-							<li>Изменить город</li>
+							<li>Выбрать город</li>
 						</ul>
 					</div>
 					<!-- <div class="menu__item language-block">
@@ -316,7 +322,7 @@
                             <li class="sidebar-menu__item">
                                 <div class="sidebar-menu__link dropdown-link">
                                     <a href="{%url 'main:choose_city'%}" class="">
-                                        <span>Изменить город</span>
+                                        <span>Выбрать город</span>
                                     </a>
                                 </div>
                             </li>
@@ -866,6 +872,10 @@
         }, 150);
 
         function setLanguage(lang){
+            if(lang == "ru"){
+                $(".goog-te-button").children[0].children[0].click()
+                return;
+            }
             lang_block = $(".goog-te-combo")[0];
             lang_block.value = lang;
             lang_block.dispatchEvent(new Event('change'));
@@ -924,3 +934,6 @@
 
 {%block scripts%}
 {%endblock%}
+<script src="{%static 'js/main.js'%}"></script>
+	
+<script src="{%static 'js/uslugi.js'%}"></script>

@@ -91,7 +91,8 @@ html {
 }
 
 .skiptranslate iframe {
-  visibility: hidden !important;
+  /* visibility: hidden !important; */
+  margin: auto;
 }
 
 .skiptranslate.goog-te-gadget span {
@@ -846,6 +847,8 @@ a.button:hover {
   color: #0dbc91;
   margin: 0 0 0 23px;
   cursor: pointer;
+  margin-left: 50px;
+  padding-top: 3px;
 }
 
 .callback-block:hover {

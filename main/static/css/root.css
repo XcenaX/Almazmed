@@ -26,7 +26,21 @@
     background: 0 0 !important;
 }
 
+.skiptranslate iframe {
+    visibility: hidden !important;
+}
+  
+iframe{
+    visibility: hidden !important;
+}
 
+.menu__item.filials {
+    background-color: #0dbc91;
+}
+
+.filials a {
+    color: white !important;
+}
 
 .breadcrumb2>li {
     margin: 0;

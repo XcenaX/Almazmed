@@ -94,6 +94,10 @@ html {
   visibility: hidden !important;
 }
 
+iframe{
+  visibility: hidden !important;
+}
+
 .skiptranslate.goog-te-gadget span {
   display: none;
 }
@@ -846,6 +850,8 @@ a.button:hover {
   color: #0dbc91;
   margin: 0 0 0 23px;
   cursor: pointer;
+  float: none;
+  margin-left: 50px;
 }
 
 .callback-block:hover {

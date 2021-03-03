@@ -181,6 +181,7 @@ class Service(models.Model):
     name = models.TextField(default="")
     price = models.IntegerField(blank=True, null=True)
     count = models.IntegerField(blank=True, null=True)
+    is_free = models.BooleanField(default=False)
     def __str__(self):
         return self.name
 

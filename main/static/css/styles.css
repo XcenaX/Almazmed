@@ -217,6 +217,9 @@ input {
   color: #0dbc91;
   margin: 0 0 0 23px;
   cursor: pointer;
+  padding-top: 3px;
+  margin-left: 50px;
+  float: none;
 }
 
 .callback-block:hover {

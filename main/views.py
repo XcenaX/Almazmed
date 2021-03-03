@@ -132,13 +132,15 @@ def index(request):
     news = New.objects.all()[:4]
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     doctors = Doctor.objects.filter(start_date__lte=date.today(), branch__in=branches)[:6]
     cities = City.objects.all()
     partners = Partner.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    free_services_types = ServiceType.objects.filter(name__icontains="Бесплатные").first().services_types.all()[0:4]
     return render(request, "index.html", {
         "news":news,
         "current_city": current_city,
@@ -149,13 +151,15 @@ def index(request):
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
+        "free_services_types": free_services_types,
     })
 
 def about(request):
     current_city_id = session_parameter(request, "city")
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     current_branch = Branch.objects.filter(city=current_city).first()
     cities = City.objects.all()
@@ -174,7 +178,8 @@ def about(request):
 def specialists(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
@@ -196,7 +201,8 @@ def specialists(request):
 def specialists_activity(request, id):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     current_activity = None
     try:
@@ -225,7 +231,8 @@ def specialists_activity(request, id):
 def specialist(request, id):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
@@ -251,7 +258,8 @@ def specialist(request, id):
 def sub_uslugi(request, id):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -273,7 +281,8 @@ def sub_uslugi(request, id):
 def uslugi(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -300,7 +309,8 @@ def setlang(request):
 def news(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     news = New.objects.filter(branch__in=branches)
@@ -326,7 +336,8 @@ def news(request):
 def one_new(request, id):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     current_new = New.objects.get(id=id)
@@ -339,6 +350,7 @@ def one_new(request, id):
         "current_city": current_city,
         "current_lang": session_parameter(request,"lang"),
         "leaders": leaders,
+        "branches": branches,
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
@@ -346,7 +358,8 @@ def one_new(request, id):
 def director_blog(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -359,6 +372,7 @@ def director_blog(request):
         "cities": cities,
         "current_city": current_city,
         "leaders": leaders,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -367,7 +381,8 @@ def director_blog(request):
 def lisences(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -379,6 +394,7 @@ def lisences(request):
         "current_city": current_city,
         "leaders": leaders,
         "lisences": all_lisences,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -386,7 +402,8 @@ def lisences(request):
 def partners(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -398,6 +415,7 @@ def partners(request):
         "current_city": current_city,
         "leaders": leaders,
         "partners": all_partners,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -405,7 +423,8 @@ def partners(request):
 def letters(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -417,6 +436,7 @@ def letters(request):
         "current_city": current_city,
         "leaders": leaders,
         "letters": all_letters,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -424,7 +444,8 @@ def letters(request):
 def patients(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -435,6 +456,7 @@ def patients(request):
         "cities": cities,
         "current_city": current_city,
         "leaders": leaders,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -444,7 +466,8 @@ def patients(request):
 def serviced_area(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -460,6 +483,7 @@ def serviced_area(request):
         "leaders": leaders,
         "sites": sites,
         "iterator": iterator,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -467,7 +491,8 @@ def serviced_area(request):
 def drug_supply(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -478,6 +503,7 @@ def drug_supply(request):
         "cities": cities,
         "current_city": current_city,
         "leaders": leaders,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -485,7 +511,8 @@ def drug_supply(request):
 def gobmp(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -496,6 +523,7 @@ def gobmp(request):
         "cities": cities,
         "current_city": current_city,
         "leaders": leaders,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -503,7 +531,8 @@ def gobmp(request):
 def osms(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -514,6 +543,7 @@ def osms(request):
         "cities": cities,
         "current_city": current_city,
         "leaders": leaders,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -521,7 +551,8 @@ def osms(request):
 def question_answer(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -531,6 +562,7 @@ def question_answer(request):
         "cities": cities,
         "current_city": current_city,
         "leaders": leaders,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -538,7 +570,8 @@ def question_answer(request):
 def goverment_services(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -551,6 +584,7 @@ def goverment_services(request):
         "current_city": current_city,
         "leaders": leaders,
         "phone": phone,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -558,7 +592,8 @@ def goverment_services(request):
 def public_service_register(request):
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
@@ -568,6 +603,7 @@ def public_service_register(request):
         "cities": cities,
         "current_city": current_city,
         "leaders": leaders,
+        "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
@@ -599,7 +635,8 @@ def search(request):
     q = get_parameter(request, "q")
     current_city_id = session_parameter(request, "city")
     if not current_city_id:
-        return redirect(reverse("main:choose_city"))
+        request.session["city"] = City.objects.all()[0].id
+        return redirect(reverse("main:index"))
     current_city = City.objects.get(id=current_city_id)
     branches = Branch.objects.filter(city=current_city)
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()

@@ -24,6 +24,13 @@
 									</div>								
 								</li>
 							{%endfor%}
+							<li class="sidebar-menu__item dropdown-link">
+								<div class="sidebar-menu__link dropdown-link">
+									<a href="https://www.kdlolymp.kz/pricelist/nur-sultan" class="">
+										<span>лабораторные исследования в процедурном кабинете КДЛ «Олимп»</span>
+									</a>									
+								</div>								
+							</li>
 						</ul>
 					</div>
 					
@@ -68,8 +75,10 @@
 								{%for type in service_type.services.all%}
 									<li class="panel__item">
 										<div class="panel__item-top" style="position: relative;">
-											<a>{{type.name}}</a>
-											<div class="price" style="position: absolute;right: 7%;">{{type.price}} тг</div>
+											<a style="padding-right: 80px;">{{type.name}}</a>
+											{%if type.price != 0%}
+												<div class="price" style="position: absolute;right: 7%;">{{type.price}} тг</div>
+											{%endif%}
 											<i class="fas fa-arrow-right hover-icon"></i>
 										</div>
 									</li>
