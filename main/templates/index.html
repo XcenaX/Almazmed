@@ -87,186 +87,28 @@
 		<div class="units-cards">
 			<div class="wrapper">
 				<ul class="units-cards__list">
-					<li class="units-cards__item">
-						<div class="units-cards__title">
-							<a src="">Лабораторная диагностика</a>
-						</div>
-						<ul class="units-list">
-							<li>
-								<a src=""> Диагностические профили </a>
-							</li>
-							<li>
-								<a src=""> Гематология </a>
-							</li>
-							<li>
-								<a src=""> На базе лаборатории Synlab и Limbach </a>
-							</li>
-							<li>
-								<a src=""> Аллергодиагностика </a>
-							</li>
-							<li>
-								<a src=""> Иммуногематологические исследования</a>
-							</li>
-
-							<li>
-								<a src=""> Биохимические исследования крови</a>
-							</li>
-
-							<li>
-								<a src=""> Биохимические исследование мочи</a>
-							</li>
-
-							<li>
-								<a src=""> Биохимические исследование кала</a>
-							</li>
-
-							<li>
-								<a src=""> Витамины </a>
-							</li>
-
-							<li>
-								<a src=""> Общеклинические исследования</a>
-							</li>
-
-							<li>
-								<a src=""> Имунологические исследования </a>
-							</li>
-
-							<li>
-								<a src=""> Диагностика аутоиммунных заболеваний </a>
-							</li>
-
-							<li>
-								<a src=""> Диагностика целиакии </a>
-							</li>
-
-							<li>
-								<a src=""> Диагностика бесплодия </a>
-							</li>
-
-							<li>
-								<a src=""> Онкомаркеры </a>
-							</li>
-
-							<li>
-								<a src=""> Маркеры обмена костной ткани </a>
-							</li>
-
-							<li>
-								<a src=""> Маркеры сепсиса </a>
-							</li>
-
-							<li>
-								<a src="">
-									Кардиоспецифичные белки и маркеры риска сердечно-сосудистых
-									заболеваний
-								</a>
-							</li>
-
-							<li>
-								<a src=""> Лекарственный мониторинг </a>
-							</li>
-
-							<li>
-								<a src=""> Пренатальный скрининг </a>
-							</li>
-
-							<li>
-								<a src=""> Серологические маркеры инфекционных заболеваний </a>
-							</li>
-
-							<li>
-								<a src=""> Сифилис </a>
-							</li>
-
-							<li>
-								<a src=""> Цитология </a>
-							</li>
-
-							<li>
-								<a src=""> Риф-диагностика* </a>
-							</li>
-
-							<li>
-								<a src=""> Коагулогические исследования* </a>
-							</li>
-
-							<li>
-								<a src=""> Серологические маркеры инфекции (ИФА) </a>
-							</li>
-
-							<li>
-								<a src="">
-									ПЦР в режиме реального времени (Rotor-Gene™ 6000)
-								</a>
-							</li>
-
-							<li>
-								<a src="">
-									ПЦР в режиме реального времени (COBAS TaqMan® 48)
-								</a>
-							</li>
-
-							<li>
-								<a src=""> ПЦР в режиме реального времени (QIAsymphony) </a>
-							</li>
-
-							<li>
-								<a src=""> Транспортные услуги в черте города </a>
-							</li>
-
-							<li>
-								<a src=""> Услуги по забору биоматериала </a>
-							</li>
-
-							<li>
-								<a src="">
-									Микробиологические исследования на автоматическом анализаторе
-									WalkAway-40 Siemens (Германия)
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="units-cards__item">
-						<div class="units-cards__title">
-							<a src="">Диагностическое отделение</a>
-						</div>
-						<ul class="units-list">
-							<li><a src="">Флюорография и рентген</a></li>
-							<li><a src="">Ультразвуковые исследования</a></li>
-							<li><a src="">Функциональная диагностика</a></li>
-							<li><a src="">Эндоскопия</a></li>
-						</ul>
-					</li>
-					<li class="units-cards__item">
-						<div class="units-cards__title">
-							<a src="">Консультативное отделение</a>
-						</div>
-						<ul class="units-list">
-							<li><a src="">Нефролог</a></li>
-							<li><a src="">Кардиолог</a></li>
-							<li><a src="">Маммолог</a></li>
-							<li><a src="">Невропатолог</a></li>
-							<li><a src="">Эндокринолог</a></li>
-							<li><a src="">Профпатолог</a></li>
-							<li><a src="">Инфекционист</a></li>
-							<li><a src="">Дерматолог</a></li>
-							<li><a src="">Ревматолог</a></li>
-							<li><a src="">Хирург</a></li>
-							<li>
-								<a src="">Процедуры и манипуляции хирурга, травматолога</a>
-							</li>
-							<li><a src="">Уролог</a></li>
-							<li><a src="">Процедуры и манипуляции уролога</a></li>
-							<li><a src="">Окулист</a></li>
-							<li><a src="">Процедуры и манипуляции окулиста</a></li>
-							<li><a src="">Онколог</a></li>
-							<li><a src="">Отоларинголог</a></li>
-							<li><a src="">Процедуры и манипуляции оториноларинголога</a></li>
-							<li><a src="">Генетик</a></li>
-							<li><a src="">Стоматолог</a></li>
-						</ul>
-					</li>
+					{%for service_type in free_services_types%}
+						<li class="units-cards__item">
+							<div class="units-cards__title">
+								<a href="{%url 'main:sub_uslugi' service_type.id %}">{{service_type.name}}</a>
+							</div>
+							<ul class="units-list">
+								{%if service_type.services_types.all%}
+									{% for sub_service_type in service_type.services_types.all %}
+										<li>
+											<a href="{%url 'main:sub_uslugi' sub_service_type.id %}"> {{sub_service_type.name}} </a>
+										</li>
+									{%endfor%}
+								{%else%}
+									{% for service in service_type.services.all %}
+										<li>
+											<a href="{%url 'main:sub_uslugi' service_type.id %}"> {{service.name}} </a>
+										</li>
+									{%endfor%}
+								{%endif%}
+							</ul>
+						</li>
+					{%endfor%}
 				</ul>
 			</div>
 		</div>
@@ -388,9 +230,7 @@
 
 {% block scripts%}
 	<!-- SCRIPTS -->
-	<script src="{%static 'js/main.js'%}"></script>
 	
-	<script src="{%static 'js/uslugi.js'%}"></script>
 	<script type="text/javascript">
 		ymaps.ready(init);
 
