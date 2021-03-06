@@ -40,7 +40,8 @@ from django.db.models.functions import Lower
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 COUNT_BLOG_ON_PAGE=50
 
-print(Doctor.objects.filter(direction_of_activity__name__icontains="гинеколог"))
+
+from django.views.decorators.csrf import csrf_exempt
 
 def get_paginated_blogs(request, paginator):
     page = request.GET.get('page')
@@ -90,8 +91,8 @@ class make_incrementor(object):
         self.count = 0
         return self.count
 
-def sort_doctors(current_city):
-    branches = Branch.objects.filter(city=current_city)
+def sort_doctors(city):
+    branches = Branch.objects.filter(city=city)
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     all_doctors = []
     for activity in activities:
@@ -128,46 +129,50 @@ def session_parameter(request, name):
 
 #VIEWS
 
-def index(request):
+def index(request, city):
     news = New.objects.all()[:4]
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
-    doctors = Doctor.objects.filter(start_date__lte=date.today(), branch__in=branches)[:6]
+    doctors = Doctor.objects.filter(branch__in=branches, has_appointment=True)[:6]
     cities = City.objects.all()
     partners = Partner.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
-    free_services_types = ServiceType.objects.filter(name__icontains="Бесплатные").first().services_types.all()[0:4]
+    services_types = ServiceType.objects.filter(name__icontains="Бесплатные", branch__in=branches).first()
+    free_services_types = None
+    if services_types:
+        free_services_types = services_types.services_types.all()[0:4]
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "index.html", {
         "news":news,
-        "current_city": current_city,
+        "city": current_city,
         "branches": branches,
+        "all_branches": Branch.objects.all(),
         "doctors": doctors,
         "cities": cities,
         "partners": partners,
+        "activities": activities,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
         "free_services_types": free_services_types,
     })
 
-def about(request):
-    current_city_id = session_parameter(request, "city")
+def about(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
     current_branch = Branch.objects.filter(city=current_city).first()
     cities = City.objects.all()
     branches = Branch.objects.filter(city=current_city)
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "about.html", {
         "path": [{"О поликлинике": request.META.get('PATH_INFO', None)}],
         "leaders": leaders,
-        "current_city": current_city,
+        "activities": activities,
+        "city": current_city,
         "current_branch": current_branch,
         "cities": cities,
         "current_lang": session_parameter(request,"lang"),
@@ -175,12 +180,10 @@ def about(request):
         "branches": branches,
     })
 
-def specialists(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def specialists(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     doctors = sort_doctors(current_city)
@@ -190,7 +193,7 @@ def specialists(request):
         "path": [{"Специалисты": request.META.get('PATH_INFO', None)}],
         "activities": activities,
         "doctors": doctors,
-        "current_city": current_city,
+        "city": current_city,
         "cities": cities,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
@@ -198,12 +201,10 @@ def specialists(request):
         "branches": branches,
     })
 
-def specialists_activity(request, id):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def specialists_activity(request, city, id):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     current_activity = None
     try:
         current_activity = DirectionOfActivity.objects.get(id=id)
@@ -220,7 +221,7 @@ def specialists_activity(request, id):
         "activities": activities,
         "doctors": all_doctors,
         "current_activity": current_activity,
-        "current_city": current_city,
+        "city": current_city,
         "cities": cities,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
@@ -228,12 +229,10 @@ def specialists_activity(request, id):
         "branches": branches,
     })
 
-def specialist(request, id):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def specialist(request, city, id):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     current_doctor = None
@@ -247,7 +246,7 @@ def specialist(request, id):
         "path": [{"Специалисты": "/specialists"}, {current_doctor.fullname: request.META.get('PATH_INFO', None)}],
         "activities": activities,
         "current_doctor": current_doctor,
-        "current_city": current_city,
+        "city": current_city,
         "cities": cities,
         "leaders": leaders,
         "current_lang": session_parameter(request,"lang"),
@@ -255,21 +254,21 @@ def specialist(request, id):
         "branches": branches,
     })
 
-def sub_uslugi(request, id):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def sub_uslugi(request, city, id):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
-    leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     service_type = ServiceType.objects.filter(id=id).first()
     services_types = ServiceType.objects.filter(is_top=True)
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "uslugi-i-tseny.html", {
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
+        "activities": activities,
         "current_lang": session_parameter(request,"lang"),
         "service_type": service_type,
         "services_types": services_types,
@@ -278,20 +277,20 @@ def sub_uslugi(request, id):
         "branches": branches,
     })
 
-def uslugi(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def uslugi(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
-    leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     services_types = ServiceType.objects.filter(is_top=True, branch__in=branches)
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "uslugi-i-tseny.html", {
         "path": [{"Услуги и цены": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
+        "activities": activities,
         "leaders": leaders,  
         "current_lang": session_parameter(request,"lang"),
         "services_types": services_types,
@@ -306,12 +305,10 @@ def setlang(request):
         return JsonResponse({"success": True})
     return HttpResponse("GET method not allowed! But I can tell you joke. There is cheese on the table.<p>-Fucking cheese.</p><p>-Why fucking?</p><p>-Do you see the holes retard?<p>AHAHAHHAHAHAHAHAHAH\nthis is bad joke")
 
-def news(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def news(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     news = New.objects.filter(branch__in=branches)
     year = get_parameter(request, "year")
@@ -322,55 +319,57 @@ def news(request):
         
         news = New.objects.filter(date__gte=start, date__lte=end)
     cities = City.objects.all()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "news.html", {
         "path": [{"Новости": request.META.get('PATH_INFO', None)}],
         "news": news,
         "year": year,
         "cities": cities,
-        "current_city": current_city,
+        "activities": activities,
+        "city": current_city,
         "current_lang": session_parameter(request,"lang"),
         "leaders": leaders,
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
-def one_new(request, id):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def one_new(request, city, id):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     current_new = New.objects.get(id=id)
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "one_new.html", {
         "path": [{"Новости": "/news"}, {current_new.title: request.META.get('PATH_INFO', None)}],
         "current_new": current_new,
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "current_lang": session_parameter(request,"lang"),
         "leaders": leaders,
         "branches": branches,
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
+        "activities": activities,
     })
 
 
-def director_blog(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def director_blog(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
-    position = Position.objects.filter(name__trigram_similar="Директор").first()
-    director = Doctor.objects.filter(position=position).first()
+    position = Position.objects.filter(name__contains="Директор").first()
+    director = Doctor.objects.filter(id=6).first()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "director_blog.html", {
         "path": [{"О поликлинике": "/about"}, {"Блог директора филиала": request.META.get('PATH_INFO', None)}],
         "director": director,
+        "activities": activities,
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
         "branches": branches,
         "current_lang": session_parameter(request,"lang"),
@@ -378,84 +377,84 @@ def director_blog(request):
     })
 
 
-def lisences(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def lisences(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "lisences.html", {
         "path": [{"О поликлинике": "/about"}, {"Лицензии и Сертификаты": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
         "lisences": all_lisences,
         "branches": branches,
+        "activities": activities,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
-def partners(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def partners(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_partners = Partner.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "partners.html", {
         "path": [{"О поликлинике": "/about"}, {"Партнеры": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
         "partners": all_partners,
+        "activities": activities,
         "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
-def letters(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def letters(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_letters = Letter.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "letters.html", {
         "path": [{"О поликлинике": "/about"}, {"Отзывы клиентов": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
         "letters": all_letters,
         "branches": branches,
+        "activities": activities,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
-def patients(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def patients(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "patients.html", {
         "path": [{"Пациенту": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
+        "activities": activities,
         "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
@@ -463,151 +462,151 @@ def patients(request):
 
 
 
-def serviced_area(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def serviced_area(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
     sites = HospitalSite.objects.all()
     iterator = make_incrementor(0)
-    
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "serviced_area.html", {
         "path": [{"Пациенту": "/patients"},{"Обслуживаемая территория": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
         "sites": sites,
+        "activities": activities,
         "iterator": iterator,
         "branches": branches,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
-def drug_supply(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def drug_supply(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "drug_supply.html", {
         "path": [{"Пациенту": "/patients"},{"Лекарственное обеспечение": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
         "branches": branches,
+        "activities": activities,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
-def gobmp(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def gobmp(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "gobmp.html", {
         "path": [{"Пациенту": "/patients"},{"ГОБМП": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
         "branches": branches,
+        "activities": activities,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
-def osms(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def osms(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "osms.html", {
         "path": [{"Пациенту": "/patients"},{"ОСМС": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
         "branches": branches,
+        "activities": activities,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
-def question_answer(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def question_answer(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "question_answer.html", {
         "path": [{"Пациенту": "/patients"},{"Вопрос ответ": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
         "branches": branches,
+        "activities": activities,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
-def goverment_services(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def goverment_services(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
     branch = Branch.objects.filter(city=current_city).first()
     phone = branch.phones.first().phone
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "goverment_services.html", {
         "path": [{"Пациенту": "/patients"},{"Государственные услуги": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
         "phone": phone,
         "branches": branches,
+        "activities": activities,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
-def public_service_register(request):
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
+def public_service_register(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "public_service_register.html", {
         "path": [{"Пациенту": "/patients"},{"Реестр государственных услуг": request.META.get('PATH_INFO', None)}],
         "cities": cities,
-        "current_city": current_city,
+        "city": current_city,
         "leaders": leaders,
         "branches": branches,
+        "activities": activities,
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
+@csrf_exempt
 def choose_city(request):
     if request.method == "POST":
         city_id = post_parameter(request, "city")
@@ -617,33 +616,33 @@ def choose_city(request):
         except:
             return JsonResponse({"error": "city with id " + city_id + " not found!"})
         request.session["city"] = city_id
-        current_city = city
+        city = city
         return redirect(reverse("main:index"))
     elif request.method == "GET":
         cities = City.objects.all()
-        current_city_id = session_parameter(request, "city")
-        current_city = None
-        if current_city_id:
-            current_city = City.objects.get(id=current_city_id)
+        
+        city = None
+        if city_id:
+            city = City.objects.get(id=city_id)
         return render(request, "choose_city.html", {
             "cities": cities,
-            "current_city": current_city,
+            "city": city,
             "current_lang": session_parameter(request,"lang"),
         })
 
-def search(request):
-    q = get_parameter(request, "q")
-    current_city_id = session_parameter(request, "city")
-    if not current_city_id:
-        request.session["city"] = City.objects.all()[0].id
-        return redirect(reverse("main:index"))
-    current_city = City.objects.get(id=current_city_id)
-    branches = Branch.objects.filter(city=current_city)
+def search(request, city):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        current_city = City.objects.all()[0]
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
 
-    doctors = Doctor.objects.filter(Q(fullname__icontains=q) | Q(direction_of_activity__name__icontains=q) & Q(branch__in=branches))
-    news = New.objects.filter(title__icontains=q, branch__in=branches)
-    services_types = ServiceType.objects.filter(name__icontains=q, branch__in=branches)
+    q = get_parameter(request, "q")
+    if not q:
+        q = " "
+    branches = Branch.objects.all()
+    doctors = Doctor.objects.filter(Q(fullname__icontains=q) | Q(direction_of_activity__name__icontains=q))
+    news = New.objects.filter(title__icontains=q)
+    services_types = ServiceType.objects.filter(name__icontains=q)
 
     result = []
     for doctor in doctors:
@@ -655,20 +654,24 @@ def search(request):
 
     paginator = Paginator(result, COUNT_BLOG_ON_PAGE)
     paginated_blocks, pages = get_paginated_blogs(request, paginator)
-
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "search.html", {
-        "current_city": current_city,
+        "city": current_city,
         "branches": branches,
         "result": paginated_blocks,
         "pages": pages,
         "leaders": leaders,
+        "activities": activities,
         "current_lang": session_parameter(request,"lang"),
         "q": q,
         "path": [{"Поиск": request.META.get('PATH_INFO', None)}],
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
 
-    
+def test(request, city):
+    return render(request, "test.html", {
+        
+    })
 
 def download(request, path):
     file_path = os.path.join(settings.MEDIA_ROOT, path)

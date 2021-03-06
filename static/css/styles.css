@@ -215,12 +215,24 @@ input {
 
 .callback-block {
   color: #0dbc91;
-  margin: 0 0 0 23px;
+  
   cursor: pointer;
 }
 
 .callback-block:hover {
   color: #14d1a2;
+}
+
+.city_li{
+  background: #0da882 !important;
+  text-align: center !important;
+  font-weight: bold;
+  cursor: pointer !important;
+}
+
+.filials a:hover, .filials a:focus {
+  text-decoration: none !important;
+  color: white !important;
 }
 
 .language-block {

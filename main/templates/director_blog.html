@@ -28,14 +28,14 @@
 							<ul class="sidebar-menu">
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:about'%}">
+										<a href="{%url 'main:about' city.en_name%}">
 											<span>О поликлинике</span>
                                         </a>										
 									</div>									
 								</li>
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:specialists_activity' leaders.id%}" class="">
+										<a href="{%url 'main:specialists_activity' city.en_name leaders.id%}" class="">
 											<span>Руководители</span>
 										</a>										
 									</div>									
@@ -49,21 +49,21 @@
 								</li>
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:lisences'%}">
+										<a href="{%url 'main:lisences' city.en_name%}">
 											<span>Лицензии</span>
 										</a>										
 									</div>									
 								</li>
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:partners'%}">
+										<a href="{%url 'main:partners' city.en_name%}">
 											<span>Партнеры</span>
 										</a>										
 									</div>									
 								</li>
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:letters'%}">
+										<a href="{%url 'main:letters' city.en_name%}">
 											<span>Благодарственные письма</span>
 										</a>										
 									</div>									
@@ -77,10 +77,10 @@
                             <tbody>
                                 <tr>
                                     <td valign="top" style="padding-right: 20px;">
-                                        <img width="200" src="{{director.image.url}}" /> <br />
+                                        <img width="200" src="{%if director.image%}{{director.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%}" /> <br />
                                         <span style="font: 11px/20px PT Sans Caption, Arial, sans-serif;">
                                             <b>{{director.fullname}}</b><br />
-                                            {{director.position.name}}
+                                            Директор Жамбылского филиала ТОО «Almaz Medical Group»
                                         </span>
                                     </td>
                                     <td valign="top">

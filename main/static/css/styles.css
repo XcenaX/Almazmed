@@ -217,12 +217,22 @@ input {
   color: #0dbc91;
   cursor: pointer;
   padding-top: 3px;
-  margin-left: 50px !important;
   float: none;
 }
 
 .callback-block:hover {
   color: #14d1a2;
+}
+
+.city_li{
+  background: #0da882;
+  text-align: center;
+  font-weight: bold;
+}
+
+.filials a:hover, .filials a:focus {
+  text-decoration: none !important;
+  color: white !important;
 }
 
 .language-block {

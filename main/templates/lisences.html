@@ -28,21 +28,21 @@
 							<ul class="sidebar-menu">
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:about'%}" >
+										<a href="{%url 'main:about' city.en_name%}" >
 											<span>О поликлинике</span>
                                         </a>										
 									</div>									
 								</li>
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:specialists_activity' leaders.id%}">
+										<a href="{%url 'main:specialists_activity' city.en_name leaders.id%}">
 											<span>Руководители</span>
 										</a>										
 									</div>									
 								</li>
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:director_blog'%}">
+										<a href="{%url 'main:director_blog' city.en_name%}">
 											<span>Блог директора филиала</span>
 										</a>										
 									</div>									
@@ -56,14 +56,14 @@
 								</li>
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:partners'%}">
+										<a href="{%url 'main:partners' city.en_name%}">
 											<span>Партнеры</span>
 										</a>										
 									</div>									
 								</li>
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:letters'%}">
+										<a href="{%url 'main:letters' city.en_name%}">
 											<span>Благодарственные письма</span>
 										</a>										
 									</div>									

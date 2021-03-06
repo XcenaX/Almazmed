@@ -30,7 +30,18 @@
 		<title>Almaz Medical Group</title>
         <link rel="stylesheet" href="{%static 'bootstrap/css/bootstrap.min.css'%}" />
 
-        
+        <script>
+            function setCity(id){
+                $.ajax({
+                    url: "/choose_city", 
+                    type: "POST",
+                    data: {"city": id},
+                    success: function(data){
+                        location.reload(true);
+                    }
+                });
+            }
+        </script>
 
         <style>
             html{
@@ -59,13 +70,13 @@
                     <div></div>
                 </li>
                 <li class="top-header__logo">
-                    <a href="{%url 'main:index'%}"> <img src="{%static 'img/logo.png'%}" /></a>
+                    <a href="{%url 'main:index' city.en_name%}"> <img src="{%static 'img/logo.png'%}" /></a>
                 </li>
                 <li class="search-icon">
                     <i class="fas fa-search"></i>
                 </li>
                 <li class="search-field">
-                    <form action="{%url 'main:search'%}" method="GET">
+                    <form action="{%url 'main:search' city.en_name%}" method="GET">
                         <div class="search-input-div">
                             <input
                                 class="search-input twosmallfont"
@@ -96,11 +107,12 @@
                                 {%endwith%}
                             {%endwith%}
                             <br>
-                            <a style="float: left;">{{current_city}}</a>
+                            
                         </div>
                         <div class="callback-block twosmallfont">
                             <span>Заказать звонок</span>
                         </div>
+                        
                     </div>
                     <div class="language-block" id="lang_block_mobile">
                         <div id="google_translate_element"></div>
@@ -114,6 +126,17 @@
                     </button>
                 </li>
             </ul>
+            <div class="menu__item filials" id="mobile_city">
+                <a>{{city.name}}</a>
+                <ul style="margin-top: 0px;">
+                    {%for a_city in cities%}
+                        {%if a_city.id != city.id%}
+                            <li class="city_li"><a href="{%url 'main:index' a_city.en_name%}">{{a_city.name}}</a></li>    
+                        {%endif%}
+                    {%endfor%}
+                </ul>
+                <div class="down-arrow"></div>
+            </div>
         </div>
     </header>
     <!-- NAVBAR -->
@@ -130,47 +153,63 @@
 					<div class="logo-block">
 						<img src="{%static 'img/logo.png'%}" alt="" />
 					</div>
+                    <div class="menu__item filials" >
+                        <a>{{city.name}}</a>
+                        <ul style="margin-top: 0px;">
+                            {%for a_city in cities%}
+                                {%if a_city.id != city.id%}
+                                    <li class="city_li"><a href="{%url 'main:index' a_city.en_name%}">{{a_city.name}}</a></li>    
+                                {%endif%}
+                            {%endfor%}
+						</ul>
+                    </div>
 					<div class="menu__item" >
-						<a href="{%url 'main:uslugi'%}">Услуги и цены</a>
+						<a href="{%url 'main:uslugi' city.en_name%}">Услуги и цены</a>
 						<ul style="margin-top: 0px;">							
 							{%for type in services_types%}
-                                <li><a href="{%url 'main:sub_uslugi' type.id%}">{{type.name}}</a></li>		
+                                <li><a href="{%url 'main:sub_uslugi' city.en_name type.id%}">{{type.name}}</a></li>		
                             {%endfor%}		
                             <li><a href="https://www.kdlolymp.kz/pricelist/nur-sultan">лабораторные исследования в процедурном кабинете КДЛ «Олимп»</a></li>			
 						</ul>
 					</div>
-					<a class="menu__item news-block" href="{%url 'main:news'%}">Новости</a>
+					<a class="menu__item news-block" href="{%url 'main:news' city.en_name%}">Новости</a>
 					<div class="menu__item" >
-                        <a href="{%url 'main:about'%}">О поликлинике</a>
+                        <a href="{%url 'main:about' city.en_name%}">О поликлинике</a>
                         <ul style="margin-top: 0px;">
-							<li><a href="{%url 'main:about'%}">О поликлинике</a></li>
-                            <li><a href="{%url 'main:specialists_activity' leaders.id%}">Руководители</a></li>
-                            <li><a href="{%url 'main:director_blog'%}">Блог директора филиала</a></li>
-                            <li><a href="{%url 'main:lisences'%}">Лицензии</a></li>
-                            <li><a href="{%url 'main:partners'%}">Партнеры</a></li>
-                            <li><a href="{%url 'main:letters'%}">Благодарственные письма</a></li>
+							<li><a href="{%url 'main:about' city.en_name%}">О поликлинике</a></li>
+                            <li><a href="{%url 'main:specialists_activity' city.en_name leaders.id%}">Руководители</a></li>
+                            <li><a href="{%url 'main:director_blog' city.en_name%}">Блог директора филиала</a></li>
+                            <li><a href="{%url 'main:lisences' city.en_name%}">Лицензии</a></li>
+                            <li><a href="{%url 'main:partners' city.en_name%}">Партнеры</a></li>
+                            <li><a href="{%url 'main:letters' city.en_name%}">Благодарственные письма</a></li>
 						</ul>
                     </div>
-					<a class="menu__item" href="{%url 'main:specialists'%}">Специалисты</a>
-					<div class="menu__item news" >
-                        <a href="{%url 'main:patients'%}">Пациенту</a>
+                    <div class="menu__item">
+                        <a href="{%url 'main:specialists' city.en_name%}">Специалисты</a>
                         <ul style="margin-top: 0px;">
-							<li><a href="{%url 'main:serviced_area'%}">Обслуживаемая территория</a></li>
+                            {%for activity in activities%}
+                                <li><a href="{%url 'main:specialists_activity' city.en_name activity.id%}">{{activity.name}}</a></li>
+                            {%endfor%}
+                        </ul>
+                    </div>
+					
+					<div class="menu__item news" >
+                        <a href="{%url 'main:patients' city.en_name%}">Пациенту</a>
+                        <ul style="margin-top: 0px;">
+							<li><a href="{%url 'main:serviced_area' city.en_name%}">Обслуживаемая территория</a></li>
                             <li><a href="https://lkp-zha.dmed.kz/">Запись на примем к врачу</a></li>
                             <li><a href="https://lkp-zha.dmed.kz/">Вызов врача на дом</a></li>
-                            <li><a href="{%url 'main:drug_supply'%}">Лекарственное обеспечение</a></li>
+                            <li><a href="{%url 'main:drug_supply' city.en_name%}">Лекарственное обеспечение</a></li>
                             <li><a href="https://www.kdlolymp.kz/results/login">Результаты лабораторных исследований</a></li>
                             <li><a href="https://lkp-zha.dmed.kz/">Личный кабинет</a></li>
-                            <li><a href="{%url 'main:gobmp'%}">ГОБМП</a></li>
-                            <li><a href="{%url 'main:osms'%}">ОСМС</a></li>
-                            <li><a href="{%url 'main:question_answer'%}">Вопрос ответ</a></li>
-                            <li><a href="{%url 'main:goverment_services'%}">Государственные услуги</a></li>
-                            <li><a href="{%url 'main:public_service_register'%}">Реестр Государственных услуг</a></li>
+                            <li><a href="{%url 'main:gobmp' city.en_name%}">ГОБМП</a></li>
+                            <li><a href="{%url 'main:osms' city.en_name%}">ОСМС</a></li>
+                            <li><a href="{%url 'main:question_answer' city.en_name%}">Вопрос ответ</a></li>
+                            <li><a href="{%url 'main:goverment_services' city.en_name%}">Государственные услуги</a></li>
+                            <li><a href="{%url 'main:public_service_register' city.en_name%}">Реестр Государственных услуг</a></li>
 						</ul>
                     </div>
-                    <div class="menu__item filials" >
-                        <a href="{%url 'main:choose_city'%}">Выбрать город</a>
-                    </div>
+                    
                     <div class="menu__item triple-dots">
 						<i class="fas fa-ellipsis-h"></i>
 						<ul class="dropdown-submenu">
@@ -201,11 +240,11 @@
 					{%for type in services_types%}
                         <li class="menu-page-item">
                             <h2>
-                                <a href="{%url 'main:sub_uslugi' type.id%}">{{type.name}}</a>
+                                <a href="{%url 'main:sub_uslugi' city.en_name type.id%}">{{type.name}}</a>
                             </h2>
                             {%for sub_type in type.services_types.all%}
                                 <div class="menu-page-link menu-page-dropdown">
-                                    <a src="{%url 'main:sub_uslugi' sub_type.id%}">{{sub_type.name}}</a>
+                                    <a src="{%url 'main:sub_uslugi' city.en_name sub_type.id%}">{{sub_type.name}}</a>
                                 </div>
                             {%endfor%}
                         </li>
@@ -228,104 +267,97 @@
                 <div class="main-section__container" style="display: block !important;">
                     <div class="sidebar">
                         <ul class="sidebar-menu" style="display: block !important;">
-                            <li class="sidebar-menu__item dropdown-link">
+                            <li class="sidebar-menu__item">
                                 <div class="sidebar-menu__link dropdown-link">
                                     <a class="">
+                                        <span>{{city.name}}</span>
+                                    </a>
+                                    <i class="fas fa-caret-down"></i>
+                                    <ul class="dropdown-link__content">
+                                        {%for a_city in cities%}
+                                            {%if a_city.id != city.id%}
+                                                <li><a href="{%url 'main:index' a_city.en_name%}">{{a_city.name}}</a></li>
+                                            {%endif%}
+                                        {%endfor%}
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="sidebar-menu__item dropdown-link">
+                                <div class="sidebar-menu__link dropdown-link">
+                                    <a href="{%url 'main:uslugi' city.en_name%}">
                                         <span>Услуги</span>
                                     </a>
                                     <i class="fas fa-caret-down"></i>
                                 </div>
                                 <ul class="dropdown-link__content">
-                                    <li>
-                                        <div class="dropdown-link">
-                                            <a href="">Гематология</a>
-                                            <i class="fas fa-caret-down"></i>
-                                        </div>
-                                        <ul class="dropdown-link__content">
-                                            <li><a href="">Гематология</a></li>
-                                            <li>
-                                                <a href="">Иммуногематологические исследования</a>
-                                            </li>
-                                            <li><a href="">Биохимические исследования крови</a></li>
-                                            <li><a href="">Имунологические исследования</a></li>
-                                            <li>
-                                                <a href="">Диагностика аутоиммунных заболеваний</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="">Иммуногематологические исследования</a></li>
-                                    <li><a href="">Биохимические исследования крови</a></li>
-                                    <li><a href="">Имунологические исследования</a></li>
-                                    <li><a href="">Диагностика аутоиммунных заболеваний</a></li>
+                                    {%for type in services_types%}
+                                        <li><a href="{%url 'main:sub_uslugi' city.en_name type.id%}">{{type.name}}</a></li>		
+                                    {%endfor%}		
+                                    <li><a href="https://www.kdlolymp.kz/pricelist/nur-sultan">лабораторные исследования в процедурном кабинете КДЛ «Олимп»</a></li>
+                                    
+                                    
                                 </ul>
                             </li>
                             <li class="sidebar-menu__item">
                                 <div class="sidebar-menu__link dropdown-link">
-                                    <a href="{%url 'main:news'%}" class="">
+                                    <a href="{%url 'main:news' city.en_name%}" class="">
                                         <span>Новости</span>
                                     </a>
-                                    <i class="fas fa-caret-down"></i>
+                                    
                                 </div>
-                                <ul class="dropdown-link__content">
-                                    <li><a href="">Гематология</a></li>
-                                    <li><a href="">Иммуногематологические исследования</a></li>
-                                    <li><a href="">Биохимические исследования крови</a></li>
-                                    <li><a href="">Имунологические исследования</a></li>
-                                    <li><a href="">Диагностика аутоиммунных заболеваний</a></li>
-                                </ul>
+                                
                             </li>
                             <li class="sidebar-menu__item">
                                 <div class="sidebar-menu__link dropdown-link">
-                                    <a href="{%url 'main:about'%}" class="">
+                                    <a href="{%url 'main:about' city.en_name%}" class="">
                                         <span>О поликлинике</span>
                                     </a>
                                     <i class="fas fa-caret-down"></i>
                                 </div>
                                 <ul class="dropdown-link__content">
-                                    <li><a href="">Гематология</a></li>
-                                    <li><a href="">Иммуногематологические исследования</a></li>
-                                    <li><a href="">Биохимические исследования крови</a></li>
-                                    <li><a href="">Имунологические исследования</a></li>
-                                    <li><a href="">Диагностика аутоиммунных заболеваний</a></li>
+                                    <li><a href="{%url 'main:about' city.en_name%}">О поликлинике</a></li>
+                                    <li><a href="{%url 'main:specialists_activity' city.en_name leaders.id%}">Руководители</a></li>
+                                    <li><a href="{%url 'main:director_blog' city.en_name%}">Блог директора филиала</a></li>
+                                    <li><a href="{%url 'main:lisences' city.en_name%}">Лицензии</a></li>
+                                    <li><a href="{%url 'main:partners' city.en_name%}">Партнеры</a></li>
+                                    <li><a href="{%url 'main:letters' city.en_name%}">Благодарственные письма</a></li>
                                 </ul>
                             </li>
                             <li class="sidebar-menu__item">
                                 <div class="sidebar-menu__link dropdown-link">
-                                    <a href="{%url 'main:specialists'%}" class="">
+                                    <a href="{%url 'main:specialists' city.en_name%}" class="">
                                         <span>Специалисты</span>
                                     </a>
                                     <i class="fas fa-caret-down"></i>
                                     <ul class="dropdown-link__content">
-                                        <li><a href="">Гематология</a></li>
-                                        <li><a href="">Иммуногематологические исследования</a></li>
-                                        <li><a href="">Биохимические исследования крови</a></li>
-                                        <li><a href="">Имунологические исследования</a></li>
-                                        <li><a href="">Диагностика аутоиммунных заболеваний</a></li>
+                                        {%for activity in activities%}
+                                            <li><a href="{%url 'main:specialists_activity' city.en_name activity.id%}">{{activity.name}}</a></li>
+                                        {%endfor%}
                                     </ul>
                                 </div>
                             </li>
                             <li class="sidebar-menu__item">
                                 <div class="sidebar-menu__link dropdown-link">
-                                    <a href="{%url 'main:patients'%}" class="">
+                                    <a href="{%url 'main:patients' city.en_name%}" class="">
                                         <span>Пациенту</span>
                                     </a>
                                     <i class="fas fa-caret-down"></i>
                                     <ul class="dropdown-link__content">
-                                        <li><a href="">Гематология</a></li>
-                                        <li><a href="">Иммуногематологические исследования</a></li>
-                                        <li><a href="">Биохимические исследования крови</a></li>
-                                        <li><a href="">Имунологические исследования</a></li>
-                                        <li><a href="">Диагностика аутоиммунных заболеваний</a></li>
+                                        <li><a href="{%url 'main:serviced_area' city.en_name%}">Обслуживаемая территория</a></li>
+                                        <li><a href="https://lkp-zha.dmed.kz/">Запись на примем к врачу</a></li>
+                                        <li><a href="https://lkp-zha.dmed.kz/">Вызов врача на дом</a></li>
+                                        <li><a href="{%url 'main:drug_supply' city.en_name%}">Лекарственное обеспечение</a></li>
+                                        <li><a href="https://www.kdlolymp.kz/results/login">Результаты лабораторных исследований</a></li>
+                                        <li><a href="https://lkp-zha.dmed.kz/">Личный кабинет</a></li>
+                                        <li><a href="{%url 'main:gobmp' city.en_name%}">ГОБМП</a></li>
+                                        <li><a href="{%url 'main:osms' city.en_name%}">ОСМС</a></li>
+                                        <li><a href="{%url 'main:question_answer' city.en_name%}">Вопрос ответ</a></li>
+                                        <li><a href="{%url 'main:goverment_services' city.en_name%}">Государственные услуги</a></li>
+                                        <li><a href="{%url 'main:public_service_register' city.en_name%}">Реестр Государственных услуг</a></li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="sidebar-menu__item">
-                                <div class="sidebar-menu__link dropdown-link">
-                                    <a href="{%url 'main:choose_city'%}" class="">
-                                        <span>Выбрать город</span>
-                                    </a>
-                                </div>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -797,7 +829,7 @@
     <div id="search-modal" class="modal">
         <div class="search-modal-content">
             <div class="wrapper">
-                <form action="{%url 'main:search'%}" method="GET" class="form">
+                <form action="{%url 'main:search' city.en_name%}" method="GET" class="form">
                     <div class="search-modal__input">
                         <input
                             type="text"
@@ -872,10 +904,7 @@
         }, 150);
 
         function setLanguage(lang){
-            if(lang == "ru"){
-                $(".goog-te-button").children[0].children[0].click()
-                return;
-            }
+            
             lang_block = $(".goog-te-combo")[0];
             lang_block.value = lang;
             lang_block.dispatchEvent(new Event('change'));
@@ -885,7 +914,7 @@
             if("{{current_lang}}" != lang){
                 $.ajax({
                 type: "POST",
-                url: "{%url 'main:setlang'%}",
+                url: "/setlang",
                 data: {
                     "lang": lang,
                 },

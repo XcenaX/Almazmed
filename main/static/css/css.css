@@ -13,6 +13,31 @@
 		format("truetype");
 }
 
+#goog-gt-tt{
+    display: none !important;
+}
+
+#mobile_city{
+    display: none;
+}
+
+.down-arrow {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    background: url(/static/img/down-arrow.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+.goog-text-highlight{
+    background-color: inherit !important;
+    box-shadow: none !important;
+}
+
 .shadow1:hover {
     z-index: 1;
     -webkit-box-shadow: 0 5px 20px 0 rgba(18,25,38,.1);

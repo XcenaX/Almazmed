@@ -14,7 +14,7 @@ urlpatterns = [
     path('lisences', views.lisences, name='lisences'),
     path('letters', views.letters, name='letters'),
     path('partners', views.partners, name='partners'),
-    
+    path('test', views.test, name='test'),
     
     path('patients', views.patients, name='patients'),
     path('serviced_area', views.serviced_area, name='serviced_area'),
@@ -33,10 +33,7 @@ urlpatterns = [
 
     path('uslugi', views.uslugi, name='uslugi'),
     path('sub_uslugi/<int:id>', views.sub_uslugi, name='sub_uslugi'),
-    path('choose_city', views.choose_city, name='choose_city'),
-
-    path('download/(?P<path>.*)$', views.download, name="download"),
-    path('setlang', views.setlang, name="setlang"),
+    
 
     path('search', views.search, name="search"),
     #url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',views.activate, name='activate'),    

@@ -18,7 +18,7 @@
 							{%for type in services_types%}
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:sub_uslugi' type.id%}" class="">
+										<a href="{%url 'main:sub_uslugi' city.en_name type.id%}" class="">
 											<span>{{type.name}}</span>
 										</a>									
 									</div>								
@@ -67,7 +67,7 @@
 								{%for type in service_type.services_types.all%}
 									<li class="panel__item">
 										<div class="panel__item-top">
-											<a href="{%url 'main:sub_uslugi' type.id%}">{{type.name}}</a>
+											<a href="{%url 'main:sub_uslugi' city.en_name type.id%}">{{type.name}}</a>
 											<i class="fas fa-arrow-right hover-icon"></i>
 										</div>
 									</li>		
@@ -87,7 +87,7 @@
 								{%for type in services_types%}
 									<li class="panel__item">
 										<div class="panel__item-top">
-											<a href="{%url 'main:sub_uslugi' type.id%}">{{type.name}}</a>
+											<a href="{%url 'main:sub_uslugi' city.en_name type.id%}">{{type.name}}</a>
 											<i class="fas fa-arrow-right hover-icon"></i>
 										</div>
 									</li>		

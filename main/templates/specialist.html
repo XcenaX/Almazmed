@@ -19,7 +19,7 @@
 								{%for activity in activities%}
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:specialists_activity' activity.id%}" class="">
+										<a href="{%url 'main:specialists_activity' city.en_name activity.id%}" class="">
 											<span>{{activity.name}}</span>
 										</a>										
 									</div>									
@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         
-                        <a class="back-url back-block dark_link twosmallfont" href="{%url 'main:specialists'%}"><i class="fa2 fa-angle-left"></i><span>Список сотрудников</span></a>
+                        <a class="back-url back-block dark_link twosmallfont" href="{%url 'main:specialists' city.en_name%}"><i class="fa2 fa-angle-left"></i><span>Список сотрудников</span></a>
 					</div>
 				</div>							
 			</div>

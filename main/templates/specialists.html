@@ -19,7 +19,7 @@
 								{%for activity in activities%}
 								<li class="sidebar-menu__item dropdown-link {%if activity.id == current_activity.id%}opened{%endif%}">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:specialists_activity' activity.id%}" class="">
+										<a href="{%url 'main:specialists_activity' city.en_name activity.id%}" class="">
 											<span>{{activity.name}}</span>
 										</a>										
 									</div>									
@@ -48,14 +48,14 @@
 										<div class="col-md-4 col-sm-12 col-xs-12">
 											<div class="shadow1 {%if element.is_working%}has-address{%else%}spec-wrap{%endif%}">
 												<div class="spec-img-wrap">
-													<a href="{%url 'main:specialist' element.id%}">
+													<a href="{%url 'main:specialist' city.en_name element.id%}">
 														<img src="{%if element.image%}{{element.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%}" alt="" class="spec-img">
 													</a>
 													
 												</div>
 												<div class="spec-body">
 													<div class="spec-name">
-														<a href="{%url 'main:specialist' element.id%}">{{element.fullname}}</a>
+														<a href="{%url 'main:specialist' city.en_name element.id%}">{{element.fullname}}</a>
 													</div>
 													<div class="spec-profession">
 														<span>{{element.position.name}}</span>

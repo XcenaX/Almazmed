@@ -14,6 +14,7 @@ class QualificationDocument(models.Model):
     
 class City(models.Model):
     name = models.TextField(default="")
+    en_name = models.TextField(default="")
     def __str__(self):
         return self.name
 
@@ -118,6 +119,7 @@ class Doctor(models.Model):
     education = models.ManyToManyField(Education, null=True, related_name='educations',  blank=True)
     image = models.ImageField(upload_to='doctors', blank=True, null=True)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE, blank=True, null=True)
+    has_appointment = models.BooleanField(default=True)
     def __str__(self):
         return self.fullname
     def is_working(self):

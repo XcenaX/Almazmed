@@ -26,7 +26,7 @@
 							<ul class="sidebar-menu">
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="{%url 'main:serviced_area'%}" >
+										<a href="{%url 'main:serviced_area' city.en_name%}" >
 											<span>Обслуживаемая территория</span>
                                         </a>										
 									</div>									
@@ -47,7 +47,7 @@
 								</li>
 								<li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="">
+										<a href="{%url 'main:drug_supply' city.en_name%}">
 											<span>Лекарственное обеспечение</span>
                                         </a>										
 									</div>									
@@ -68,35 +68,35 @@
                                 </li>
                                 <li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="">
+										<a href="{%url 'main:gobmp' city.en_name%}">
 											<span>ГОБМП</span>
 										</a>										
 									</div>									
                                 </li>
                                 <li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="">
+										<a href="{%url 'main:osms' city.en_name%}">
 											<span>ОСМС</span>
 										</a>										
 									</div>									
                                 </li>
                                 <li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="">
+										<a href="{%url 'main:question_answer' city.en_name%}">
 											<span>Вопрос ответ</span>
 										</a>										
 									</div>									
                                 </li>
                                 <li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="">
+										<a href="{%url 'main:goverment_services' city.en_name%}">
 											<span>Государственные услуги</span>
 										</a>										
 									</div>									
                                 </li>
                                 <li class="sidebar-menu__item dropdown-link">
 									<div class="sidebar-menu__link dropdown-link">
-										<a href="">
+										<a href="{%url 'main:public_service_register' city.en_name%}">
 											<span>Реестр Государственных услуг</span>
 										</a>										
 									</div>									

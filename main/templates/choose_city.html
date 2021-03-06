@@ -74,11 +74,11 @@
                 Выберите из списка город, в котором вы живёте
             </div>
     
-            <form class="form" action="{%url 'main:choose_city'%}" method="POST">{%csrf_token%}        
+            <form class="form" action="/choose_city" method="POST">{%csrf_token%}        
                 <div class="form-group">
                     <select id="order-modal__type" name="city" class="input-control" required="" style="font-size: 1.5em;">
-                        {%for city in cities%}
-                            <option {%if city.id == current_city.id%} selected {%endif%} value="{{city.id}}">{{city.name}}</option>
+                        {%for _city in cities%}
+                            <option {%if _city.id == city.id%} selected {%endif%} value="{{_city.id}}">{{_city.name}}</option>
                         {%endfor%}
                         
                     </select>

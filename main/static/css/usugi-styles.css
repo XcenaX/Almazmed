@@ -2339,7 +2339,7 @@ footer .callback-block {
 
 .dropdown-link .fa-caret-down {
   position: absolute;
-  top: 50%;
+  top: 30px;
   padding: 4px 6px;
   font-size: 1rem;
   right: 10px;

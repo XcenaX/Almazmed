@@ -17,7 +17,7 @@
 						<div class="title"> Расписание приема врачей </div>
 						<div class="description">График работы специалистов отделений</div>
 						<div class="buttons">
-							<a src="" class="button button-default button-lg">Подробнее</a>
+							<a href="https://kmis.meditec.kz/sch/" class="button button-default button-lg">Подробнее</a>
 						</div>
 					</div>
 				</li>
@@ -29,7 +29,7 @@
 							свяжутся в течении рабочего дня
 						</div>
 						<div class="buttons">
-							<a class="button button-default button-lg"> Запись на прием </a>
+							<a class="button button-default button-lg" href="https://damumed.kz/#/tour"> Запись на прием </a>
 						</div>
 					</div>
 				</li>
@@ -42,7 +42,7 @@
 							заполнив форму
 						</div>
 						<div class="buttons">
-							<a class="button button-default button-lg"> Вызов врача </a>
+							<a class="button button-default button-lg" href="https://damumed.kz/#/tour"> Вызов врача </a>
 							<button
 								class="button button-default button-lg online-order-button"
 							>
@@ -90,19 +90,19 @@
 					{%for service_type in free_services_types%}
 						<li class="units-cards__item">
 							<div class="units-cards__title">
-								<a href="{%url 'main:sub_uslugi' service_type.id %}">{{service_type.name}}</a>
+								<a href="{%url 'main:sub_uslugi' city.en_name service_type.id %}">{{service_type.name}}</a>
 							</div>
 							<ul class="units-list">
 								{%if service_type.services_types.all%}
 									{% for sub_service_type in service_type.services_types.all %}
 										<li>
-											<a href="{%url 'main:sub_uslugi' sub_service_type.id %}"> {{sub_service_type.name}} </a>
+											<a href="{%url 'main:sub_uslugi' city.en_name sub_service_type.id %}"> {{sub_service_type.name}} </a>
 										</li>
 									{%endfor%}
 								{%else%}
 									{% for service in service_type.services.all %}
 										<li>
-											<a href="{%url 'main:sub_uslugi' service_type.id %}"> {{service.name}} </a>
+											<a href="{%url 'main:sub_uslugi' city.en_name service_type.id %}"> {{service.name}} </a>
 										</li>
 									{%endfor%}
 								{%endif%}
@@ -116,7 +116,7 @@
 		<div class="employers-section">
 			<div class="employers-wrapper wrapper">
 				<div class="employers__view-all">
-					<a class="inverted-colors" href="{%url 'main:specialists'%}">Все специалисты центра</a>
+					<a class="inverted-colors" href="{%url 'main:specialists' city.en_name%}">Все специалисты центра</a>
 				</div>
 
 				<div class="employers__list">
@@ -127,7 +127,7 @@
 									<div class="employer-image" style="width: 75%;">
 										<img src="{%if doctor.image%}{{doctor.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%}" style="width: 100%;"/>
 									</div>
-									<a href="{%url 'main:specialist' doctor.id%}" class="employer-name"
+									<a href="{%url 'main:specialist' city.en_name doctor.id%}" class="employer-name"
 										>{{doctor.fullname}}</a
 									>
 									<p class="employer-category">{{doctor.position.name}}</p>
@@ -148,7 +148,7 @@
 			<div class="news-section__wrapper wrapper">
 				<div class="news-section__view-all">
 					<h1>Новости</h1>
-					<a class="inverted-colors" href="{%url 'main:news'%}">Все новости</a>
+					<a class="inverted-colors" href="{%url 'main:news' city.en_name%}">Все новости</a>
 				</div>
 				<div class="row">
 					{%for new in news%}
@@ -192,7 +192,7 @@
 				</div>
 
 				<div class="address-section__cards-list">
-					{%for branch in branches%}
+					{%for branch in all_branches%}
 						<div class="address-section__card">
 							<h2>г. {{branch.city.name}}, {{branch.address}}</h2>
 							<div>
@@ -241,7 +241,7 @@
 				controls: ["zoomControl", "fullscreenControl"],
 			});
 			//52.297973,76.9410264
-			{%for branch in branches%}
+			{%for branch in all_branches%}
 			myMap.geoObjects.add(new ymaps.Placemark(
 				[{{branch.latitude}}, {{branch.longitude}}],
 				{
@@ -252,7 +252,7 @@
 							"<p>{{branch_phone.phone}} {{branch_phone.name}}</p>" +						
 						{%endfor%}
 						"",
-					balloonContentFooter: "<a src=''>Подробнее</a>",
+					balloonContentFooter: "<a src='https://kmis.meditec.kz/sch/'>Подробнее</a>",
 					hintContent: "Нажмите, чтобы посмотреть информацию.",
 				}
 			));

@@ -41,27 +41,27 @@
                                 <hr />
                                 {%for item in result%}
                                     {%if item.type == "new"%}
-                                        <a href="{%url 'main:one_new' item.item.id%}">{{item.item.title}}</a>
+                                        <a href="{%url 'main:one_new' item.item.branch.city.en_name item.item.id%}">{{item.item.title}}</a>
                                         <ul class="path">
                                             <li><a href="/">Главная</a></li>
-                                            <li><a href="{%url 'main:news'%}">Новости</a></li>
+                                            <li><a href="{%url 'main:news' item.item.branch.city.en_name%}">Новости</a></li>
                                         </ul>
                                         <div class="text">
                                             {{item.item.description|slice:"0:80"}}...
                                         </div>
                                         <hr />
                                     {%elif item.type == "doctor"%}
-                                        <a href="{%url 'main:specialist' item.item.id%}">{{item.item.fullname}}</a>
+                                        <a href="{%url 'main:specialist' item.item.branch.city.en_name item.item.id%}">{{item.item.fullname}}</a>
                                         <ul class="path">
                                             <li><a href="/">Главная</a></li>
-                                            <li><a href="{%url 'main:specialists'%}">Специалисты</a></li>
+                                            <li><a href="{%url 'main:specialists' item.item.branch.city.en_name%}">Специалисты</a></li>
                                         </ul>                                        
                                         <hr />
                                     {%elif item.type == "service_type"%}
-                                        <a href="{%url 'main:sub_uslugi' item.item.id%}">{{item.item.name}}</a>
+                                        <a href="{%url 'main:sub_uslugi' item.item.branch.city.en_name item.item.id%}">{{item.item.name}}</a>
                                         <ul class="path">
                                             <li><a href="/">Главная</a></li>
-                                            <li><a href="{%url 'main:uslugi'%}">Услуги и цены</a></li>                                        
+                                            <li><a href="{%url 'main:uslugi' item.item.branch.city.en_name%}">Услуги и цены</a></li>                                        
                                             <li><a href="">{{item.item.name}}</a></li>
                                         </ul>                                        
                                         <hr />
