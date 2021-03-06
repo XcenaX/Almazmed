@@ -13,6 +13,10 @@
 		format("truetype");
 }
 
+#mobile_city{
+    display: none;
+}
+
 .down-arrow {
     width: 20px;
     height: 20px;
