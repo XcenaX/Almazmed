@@ -1153,7 +1153,7 @@ header {
 	display: flex;
 	column-gap: 30px;
 	@media (max-width: 768px) {
-		display: none;
+		display: block;
 	}
 }
 .address-section__card {

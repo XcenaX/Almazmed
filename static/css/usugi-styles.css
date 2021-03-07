@@ -1589,7 +1589,7 @@ a.button:hover {
 
 @media (max-width: 768px) {
   .address-section__cards-list {
-    display: none;
+    display: block;
   }
 }
 

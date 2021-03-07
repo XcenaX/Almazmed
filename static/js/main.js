@@ -136,18 +136,20 @@ function switchAddressType() {
 		labels[0].style.color = "#78d1b6";
 		labels[1].style.color = "#333";
 		if (window.matchMedia("(max-width: 768px)").matches) {
-			carousel.style.display = "block";
-			pager.style.display = "block";
+			//carousel.style.display = "block";
+			//pager.style.display = "block";
+			list.style.display = "block";
 		} else {
-			list.style.display = "flex";
+			list.style.display = "block";
 		}
 		map.style.display = "none";
 	} else {
 		labels[0].style.color = "#333";
 		labels[1].style.color = "#78d1b6";
 		if (window.matchMedia("(max-width: 768px)").matches) {
-			carousel.style.display = "none";
-			pager.style.display = "none";
+			//carousel.style.display = "none";
+			//pager.style.display = "none";
+			list.style.display = "none";
 		} else {
 			list.style.display = "none";
 		}
