@@ -682,3 +682,6 @@ def download(request, path):
             return response
     raise Http404
 
+
+def domain(request):
+    return redirect(reverse("main:index", kwargs={'city':City.objects.all().first().en_name}))

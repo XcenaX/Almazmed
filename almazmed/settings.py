@@ -23,7 +23,9 @@ print(BASE_DIR)
 SECRET_KEY = 'x@4@96ckczw13r%fxz@pwlbczom_3mx48wb+5t^$79e==63+^&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+handler404 = 'app.views.404_view'
 
 ALLOWED_HOSTS = ["*"]
 
