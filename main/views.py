@@ -133,7 +133,7 @@ def index(request, city):
     news = New.objects.all()[:4]
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     doctors = Doctor.objects.filter(branch__in=branches, has_appointment=True)[:6]
     cities = City.objects.all()
@@ -162,7 +162,7 @@ def index(request, city):
 def about(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
     current_branch = Branch.objects.filter(city=current_city).first()
     cities = City.objects.all()
@@ -183,7 +183,7 @@ def about(request, city):
 def specialists(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     doctors = sort_doctors(current_city)
@@ -204,7 +204,7 @@ def specialists(request, city):
 def specialists_activity(request, city, id):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     current_activity = None
     try:
         current_activity = DirectionOfActivity.objects.get(id=id)
@@ -232,7 +232,7 @@ def specialists_activity(request, city, id):
 def specialist(request, city, id):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     current_doctor = None
@@ -257,7 +257,7 @@ def specialist(request, city, id):
 def sub_uslugi(request, city, id):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
@@ -280,7 +280,7 @@ def sub_uslugi(request, city, id):
 def uslugi(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
@@ -308,7 +308,7 @@ def setlang(request):
 def news(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     news = New.objects.filter(branch__in=branches)
     year = get_parameter(request, "year")
@@ -335,7 +335,7 @@ def news(request, city):
 def one_new(request, city, id):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     current_new = New.objects.get(id=id)
     cities = City.objects.all()
@@ -357,7 +357,7 @@ def one_new(request, city, id):
 def director_blog(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     position = Position.objects.filter(name__contains="Директор").first()
@@ -380,7 +380,7 @@ def director_blog(request, city):
 def lisences(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
@@ -401,7 +401,7 @@ def lisences(request, city):
 def partners(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_partners = Partner.objects.all()
@@ -422,7 +422,7 @@ def partners(request, city):
 def letters(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_letters = Letter.objects.all()
@@ -443,7 +443,7 @@ def letters(request, city):
 def patients(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
@@ -465,7 +465,7 @@ def patients(request, city):
 def serviced_area(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
@@ -489,7 +489,7 @@ def serviced_area(request, city):
 def drug_supply(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
@@ -509,7 +509,7 @@ def drug_supply(request, city):
 def gobmp(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
@@ -529,7 +529,7 @@ def gobmp(request, city):
 def osms(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     all_lisences = License.objects.all()
@@ -549,7 +549,7 @@ def osms(request, city):
 def question_answer(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
@@ -568,7 +568,7 @@ def question_answer(request, city):
 def goverment_services(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
@@ -590,7 +590,7 @@ def goverment_services(request, city):
 def public_service_register(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
@@ -633,7 +633,7 @@ def choose_city(request):
 def search(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
-        current_city = City.objects.all()[0]
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     leaders = DirectionOfActivity.objects.filter(name="Руководители").first()
 
     q = get_parameter(request, "q")
