@@ -952,9 +952,14 @@
                 if(lang_block.children.length < 100){
                     return
                 }
-                setLanguage("{{current_lang}}");
-                lang_block.onchange();
-                clearInterval(timer);
+                if("{{current_lang}}" != "ru"){
+                    setLanguage("{{current_lang}}");
+                    lang_block.onchange();
+                    clearInterval(timer);
+                    return
+                }
+    
+                
 
             }, 50);
                 

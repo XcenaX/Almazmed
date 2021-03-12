@@ -904,7 +904,7 @@ a.button:hover {
   display: block;
   position: absolute;
   top: 63px;
-  min-width: 200px;
+  width: 100%;
   color: #333;
   font-weight: 300;
   z-index: 300;
