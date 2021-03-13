@@ -26,7 +26,7 @@ worksheet = workbook.sheet_by_index(0)
 
 CITY_NAME = "Павлодар"
 city = City.objects.filter(name=CITY_NAME).first()
-
+top_service = ServiceType.objects.get(id=309)
 
 if not city:
     print("Нет города")
@@ -79,11 +79,9 @@ else:
                 if service_name == " ":
                     continue
                 service = ServiceType.objects.filter(name=service_name).first()
-                if not service:
-                    if(i == 0):
-                        service = ServiceType.objects.create(name=service_name, is_top=True, branch=branch)
-                    else:
-                        service = ServiceType.objects.create(name=service_name, is_top=False, branch=branch)
+                if service.name == "Отделение физиотерапии и дневного стационара":
+                    service = top_service
+                
                 
                 if(i > 0):
                     previous_name = sub_services[i-1]
