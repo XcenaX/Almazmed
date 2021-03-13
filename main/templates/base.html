@@ -128,7 +128,7 @@
             </ul>
             <div class="menu__item filials" id="mobile_city">
                 <a>{{city.name}}</a>
-                <ul style="margin-top: 0px;">
+                <ul style="margin-top: 0px;min-width: auto !important; width: 100% !important;">
                     {%for a_city in cities%}
                         {%if a_city.id != city.id%}
                             <li class="city_li"><a href="{%url 'main:index' a_city.en_name%}">{{a_city.name}}</a></li>    

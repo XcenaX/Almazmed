@@ -1079,7 +1079,7 @@ a.button:hover {
 .city_li{
   background: #0da882 !important;
   text-align: center !important;
-  font-weight: bold;
+  font-weight: normal;
   cursor: pointer !important;
 }
 
