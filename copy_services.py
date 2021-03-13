@@ -17,8 +17,8 @@ import time
 
 #current_service_type = ServiceType.objects.get(id=143)
 
-consult = ServiceType.objects.get(id=139)
-free_consult = ServiceType.objects.get(id=198)
+consult = ServiceType.objects.get(id=208)
+free_consult = ServiceType.objects.get(id=292)
 
 for item in consult.services_types.all():
     item_services = item.services.all()

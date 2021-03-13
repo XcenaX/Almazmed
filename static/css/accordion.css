@@ -908,6 +908,8 @@ a.button:hover {
   color: #333;
   font-weight: 300;
   z-index: 300;
+  overflow: auto;
+  max-height: 500px;
 }
 
 .menu__item:hover > ul li {
@@ -918,6 +920,7 @@ a.button:hover {
   background-color: #fff;
   text-align: left;
   border-bottom: 1px solid #eeeeee;
+  width: 100%;
 }
 
 .menu__item:hover > ul li a {

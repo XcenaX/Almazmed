@@ -16,6 +16,11 @@
         td {
             line-height: 2em;
         }
+        tr{
+            height: 100px;
+            text-align: center;
+        }
+        
 	</style>
 {% endblock %}
 
@@ -112,53 +117,34 @@
 					
 					<div class="col-md-9 col-sm-12 col-xs-12 content-md">
                         <table class="table-bordered">
-                            <tbody>
+                            <thead>
                                 <tr class="title-green">
-                                    <td>
+                                    <th class="col5">
                                         № участка
-                                    </td>
-                                    <td>
+                                    </th>
+                                    <th class="col10">
                                         Наименование участка
-                                    </td>
-                                    <td>
+                                    </th>
+                                    <th class="col15">
                                         Мкрорайон/ район
-                                    </td>
-                                    <td>
+                                    </th>
+                                    <th class="col15">
                                         № улицы, дома
-                                    </td>
-                                    <td>
+                                    </th>
+                                    <th class="col20">
                                         Участковый врач
-                                    </td>
-                                    <td>
+                                    </th>
+                                    <th class="col20">
                                         Участковая медсестра
-                                    </td>
-                                    <td>
+                                    </th>
+                                    <th class="col15">
                                         Корпус, № кабинета
-                                    </td>
+                                    </th>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td>
-                                        3
-                                    </td>
-                                    <td>
-                                        4
-                                    </td>
-                                    <td>
-                                        5
-                                    </td>
-                                    <td>
-                                        6
-                                    </td>
-                                    <td>
-                                        7
-                                    </td>
-                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                
                                 
                                     {%for site in sites%}
                                         {%for area in site.microdistricts.all%}
@@ -180,13 +166,21 @@
                                                             {%endfor%}
                                                         </td>
                                                         <td>
-                                                            {{cabinet.district_doctor}}
+                                                            {%if cabinet.district_doctor%}
+                                                                {{cabinet.district_doctor}}
+                                                            {%endif%}
                                                         </td>
                                                         <td>
-                                                            {{cabinet.nurse}}
+                                                            {%if cabinet.nurse%}
+                                                                {{cabinet.nurse}}
+                                                            {%endif%}
                                                         </td>
                                                         <td>
-                                                            {{hospital_building.number}} корпус №{{cabinet.number}}
+                                                            {%if hospital_building.number > 0%}
+                                                                {{hospital_building.number}} корпус №{{cabinet.number}}
+                                                            {%else%}
+                                                                Нет
+                                                            {%endif%}
                                                         </td>
                                                     </tr>                                                                                                      
                                                 {%endfor%}

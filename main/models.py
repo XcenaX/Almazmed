@@ -176,6 +176,7 @@ class HospitalSite(models.Model):
     name = models.TextField(default="")
     number = models.IntegerField(default=0)
     microdistricts = models.ManyToManyField(Microdistrict, null=True, blank=True)
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE, blank=True, null=True)
     def __str__(self):
         return self.name
 
