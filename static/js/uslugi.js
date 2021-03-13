@@ -32,7 +32,7 @@ Array.from(panelSubmenuIcons).forEach((element, index) => {
 			dropdownContent[index].style.display =
 				dropdownContent[index].style.display === "grid" ? "none" : "grid";
 
-			let chevron = document.querySelectorAll(".submenu-icon i");
+			let chevron = document.querySelectorAll(".submenu-icon div");
 			chevron[index].style.transform =
 				chevron[index].style.transform === "rotate(180deg)"
 					? "rotate(0deg)"

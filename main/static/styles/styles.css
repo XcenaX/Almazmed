@@ -984,6 +984,14 @@ a.button:hover {
   -webkit-transition: all 0.3s ease;
 }
 
+.fa-caret-down-div{
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  top: 0px;
+  right: 0px;
+}
+
 .menu__item:hover > ul {
   -webkit-box-shadow: 0 5px 20px 0 rgba(18, 25, 38, 0.1);
   -ms-box-shadow: 0 5px 20px 0 rgba(18, 25, 38, 0.1);

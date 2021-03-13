@@ -272,7 +272,9 @@
                                     <a class="">
                                         <span>{{city.name}}</span>
                                     </a>
-                                    <i class="fas fa-caret-down"></i>
+                                    <div class="fas fa-caret-down-div">
+                                        <i class="fas fa-caret-down"></i>
+                                    </div>
                                     <ul class="dropdown-link__content">
                                         {%for a_city in cities%}
                                             {%if a_city.id != city.id%}
@@ -287,7 +289,9 @@
                                     <a href="{%url 'main:uslugi' city.en_name%}">
                                         <span>Услуги</span>
                                     </a>
-                                    <i class="fas fa-caret-down"></i>
+                                    <div class="fas fa-caret-down-div">
+                                        <i class="fas fa-caret-down"></i>
+                                    </div>
                                 </div>
                                 <ul class="dropdown-link__content">
                                     {%for type in services_types%}
@@ -312,7 +316,9 @@
                                     <a href="{%url 'main:about' city.en_name%}" class="">
                                         <span>О поликлинике</span>
                                     </a>
-                                    <i class="fas fa-caret-down"></i>
+                                    <div class="fas fa-caret-down-div">
+                                        <i class="fas fa-caret-down"></i>
+                                    </div>
                                 </div>
                                 <ul class="dropdown-link__content">
                                     <li><a href="{%url 'main:about' city.en_name%}">О поликлинике</a></li>
@@ -328,7 +334,9 @@
                                     <a href="{%url 'main:specialists' city.en_name%}" class="">
                                         <span>Специалисты</span>
                                     </a>
-                                    <i class="fas fa-caret-down"></i>
+                                    <div class="fas fa-caret-down-div">
+                                        <i class="fas fa-caret-down"></i>
+                                    </div>
                                     <ul class="dropdown-link__content">
                                         {%for activity in activities%}
                                             <li><a href="{%url 'main:specialists_activity' city.en_name activity.id%}">{{activity.name}}</a></li>
@@ -341,7 +349,9 @@
                                     <a href="{%url 'main:patients' city.en_name%}" class="">
                                         <span>Пациенту</span>
                                     </a>
-                                    <i class="fas fa-caret-down"></i>
+                                    <div class="fas fa-caret-down-div">
+                                        <i class="fas fa-caret-down"></i>
+                                    </div>
                                     <ul class="dropdown-link__content">
                                         <li><a href="{%url 'main:serviced_area' city.en_name%}">Обслуживаемая территория</a></li>
                                         <li><a href="https://lkp-zha.dmed.kz/">Запись на примем к врачу</a></li>
