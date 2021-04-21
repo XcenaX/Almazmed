@@ -11,7 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('<slug:city>/', include('main.urls')),
     path('choose_city/', main_views.choose_city, name='choose_city'),
-    path('download/(?P<path>.*)$', main_views.download, name="download"),
+    #path('download/(?P<path>.*)$', main_views.download, name="download"),
     path('setlang', main_views.setlang, name="setlang"),
     path('', main_views.domain, name="domain"),
     #path('test/', main_views.test, name="test"),
