@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block styles %}
+    <link rel="stylesheet" href="{%static 'css/specialist.css'%}">
+    <style>
+        #mobile_sidebar{
+			display: none;
+		}
+		@media (max-width: 700px){
+			#pc_sidebar{
+				display: none;
+			}
+			#mobile_sidebar{
+				display: block;
+			}
+		}
+    </style>
+{% endblock %}
+
+
+
+{% block body %}
+	<body>
+		<!-- MAIN SECTION -->
+		<div class="main-section">
+			<div class="wrapper">
+				<div class="row" style="margin-bottom: 59px;">
+					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md">
+						<div class="sidebar" id="pc_sidebar">
+							<ul class="sidebar-menu">
+								{%for service in services_types%}
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="{%url 'main:sub_uslugi' city.en_name service.id%}" class="">
+											<span>{{service.name}}</span>
+										</a>										
+									</div>									
+								</li>
+								{%endfor%}
+								<li class="sidebar-menu__item dropdown-link">
+									<div class="sidebar-menu__link dropdown-link">
+										<a href="" class="">
+											<span>График работы специалистов и отделений</span>
+										</a>										
+									</div>									
+								</li>
+							</ul>
+						</div>				
+						<div class="sidebar" id="mobile_sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item">
+									<div class="sidebar-menu__link dropdown-link">
+										<a>
+											<span>Тип услуги</span>
+										</a>
+										<div class="fas fa-caret-down-div" aria-hidden="true">
+											<i class="fas fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+									<ul class="dropdown-link__content">
+										{%for service in services_types%}											
+                                            <li class="sidebar-menu__item dropdown-link">
+                                                <div class="sidebar-menu__link dropdown-link">
+                                                    <a href="{%url 'main:sub_uslugi' city.en_name service.id%}" class="">
+                                                        <span>{{service.name}}</span>
+                                                    </a>										
+                                                </div>									
+                                            </li>											
+										{%endfor%}
+										<li class="sidebar-menu__item dropdown-link">
+											<div class="sidebar-menu__link dropdown-link">
+												<a href="" class="">
+													<span>График работы специалистов и отделений</span>
+												</a>										
+											</div>									
+										</li>
+									</ul>
+								</li>									
+							</ul>
+						</div>					
+					</div>
+					
+					<div class="col-md-9 col-sm-12 col-xs-12">
+                        {%for current_doctor in doctors%}
+                            
+                            <div class="detail staff">
+                                <div class="detail_wrap">
+                                    <div class="doctor-name">{{current_doctor.fullname}}</div>
+                                    <div class="top_block clearfix">
+                                        <div class="detailimage">
+                                            <img src="{%if current_doctor.image%}{{current_doctor.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%}" title="{{current_doctor.fullname}}" alt="{{current_doctor.fullname}}" class="img-responsive" />
+                                        </div>
+                                        <div class="top_right_block clearfix">
+                                            {%if current_doctor.is_working%}
+                                                <div class="top_desc pull-right">
+                                                    <div class="button2">
+                                                        <span class="btn btn-default btn-lg animate-load" data-event="jqm" data-param-id="18" data-name="record_online" data-autoload-specialist="15">Запись онлайн</span>
+                                                    </div>
+                                                    <div class="text">
+                                                        <!--
+                                                                        -->Запишитесь на прием к доктору в удобное для вас время<!--
+                                                                    -->
+                                                    </div>
+                                                </div>
+                                            {%endif%}
+                                            <div class="properties">
+                                                {%if current_doctor.position%}
+                                                <div class="property">
+                                                    <div class="title-prop twosmallfont">Должность</div>
+                                                    <div class="">{{current_doctor.position.name}}</div>
+                                                </div>
+                                                {%endif%}
+                                                {%if current_doctor.qualification_category%}
+                                                <div class="property">
+                                                    <div class="title-prop twosmallfont">Квалификационная категория</div>
+                                                    <div class="">{{current_doctor.qualification_category}}</div>
+                                                </div>
+                                                {%endif%}
+                                                {%if current_doctor.work_experience > 0%}
+                                                <div class="property">
+                                                    <div class="title-prop twosmallfont">Стаж работы по специальности</div>
+                                                    <div class="">{{current_doctor.work_experience}} лет</div>
+                                                </div>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="post-content">
+                                        <div class="properties">
+                                            {%if current_doctor.qualification.all|length > 0%}
+                                            <div class="property awards">
+                                                <div class="title-prop twosmallfont">Документ о повышении квалификации за последние 5 лет</div>
+                                                <div class="value">
+                                                    <ul>
+                                                        {%for document in current_doctor.qualification.all%}
+                                                            <li>{{document.name}}</li>
+                                                        {%endfor%}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            {%endif%}
+                                            <div class="property activity">
+                                                <div class="title-prop twosmallfont">Направление деятельности</div>
+                                                <div class="value">{{current_doctor.direction_of_activity.name}}</div>
+                                            </div>
+                                            {%if current_doctor.education.all|length > 0%}
+                                            <div class="property education">
+                                                <div class="title-prop twosmallfont">Образование</div>
+                                                <div class="value">
+                                                    <ul>
+                                                        {%for element in current_doctor.education.all%}
+                                                        <li>{{element.name}}</li>
+                                                        {%endfor%}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            {%endif%}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {%endfor%}
+                        <a class="back-url back-block dark_link twosmallfont" href="{%url 'main:specialists' city.en_name%}"><i class="fa2 fa-angle-left"></i><span>Список сотрудников</span></a>
+					</div>
+				</div>							
+			</div>
+		</div>
+
+		<div class="banner_warning">
+			Имеются противопоказания. Необходима консультация специалиста
+		</div>
+
+		<!-- SCRIPTS -->
+		
+	</body>
+{% endblock %}
+
+{% block scripts%}
+	<!-- SCRIPTS -->
+	<script src="{%static 'bootstrap/js/bootstrap.js'%}"></script>
+	<script src="{%static 'js/main.js'%}"></script>
+	
+	<script src="{%static 'js/uslugi.js'%}"></script>
+	
+{%endblock%}

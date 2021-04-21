@@ -3,6 +3,19 @@
 
 {%block styles %}
     <link rel="stylesheet" href="{%static 'css/specialists.css'%}">
+	<style>
+		#mobile_sidebar{
+			display: none;
+		}
+		@media (max-width: 700px){
+			#pc_sidebar{
+				display: none;
+			}
+			#mobile_sidebar{
+				display: block;
+			}
+		}
+	</style>
 {% endblock %}
 
 
@@ -13,8 +26,8 @@
 		<div class="main-section">
 			<div class="wrapper">
 				<div class="row" style="margin-bottom: 59px;">
-					<div class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md">
-						<div class="sidebar">
+					<div style="margin-bottom: 30px;" class="col-md-3 col-sm-3 hidden-xs hidden-sm left-menu-md">
+						<div class="sidebar" id="pc_sidebar">
 							<ul class="sidebar-menu">
 								{%for activity in activities%}
 								<li class="sidebar-menu__item dropdown-link {%if activity.id == current_activity.id%}opened{%endif%}">
@@ -33,7 +46,42 @@
 									</div>									
 								</li>
 							</ul>
-						</div>					
+						</div>				
+						<div class="sidebar" id="mobile_sidebar">
+							<ul class="sidebar-menu">
+								<li class="sidebar-menu__item">
+									<div class="sidebar-menu__link dropdown-link">
+										<a>
+											<span>{%if current_activity%}{{current_activity}}{%else%}Выберите направление{%endif%}</span>
+										</a>
+										<div class="fas fa-caret-down-div" aria-hidden="true">
+											<i class="fas fa-caret-down" aria-hidden="true"></i>
+										</div>
+									</div>
+									<ul class="dropdown-link__content">
+										{%for activity in activities%}
+											{%if activity != current_activity%}
+												<li class="sidebar-menu__item dropdown-link {%if activity.id == current_activity.id%}opened{%endif%}">
+													<div class="sidebar-menu__link dropdown-link">
+														<a href="{%url 'main:specialists_activity' city.en_name activity.id%}" class="">
+															<span>{{activity.name}}</span>
+														</a>										
+													</div>									
+												</li>
+											{%endif%}
+										{%endfor%}
+										<li class="sidebar-menu__item dropdown-link">
+											<div class="sidebar-menu__link dropdown-link">
+												<a href="" class="">
+													<span>График работы специалистов и отделений</span>
+												</a>										
+											</div>									
+										</li>
+									</ul>
+								</li>									
+							</ul>
+						</div>	
+						
 					</div>
 					
 					<div class="col-md-9 col-sm-12 col-xs-12">

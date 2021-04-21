@@ -298,6 +298,30 @@ def uslugi(request, city):
         "branches": branches,
     })
 
+def choose_doctor(request, city, id):
+    current_city = City.objects.filter(en_name=city).first()
+    if not current_city:
+        return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
+    branches = Branch.objects.filter(city=current_city)
+    cities = City.objects.all()
+    leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
+    services_types = ServiceType.objects.filter(is_top=True, branch__in=branches)
+    activities = DirectionOfActivity.objects.filter(branch__in=branches)
+    service = Service.objects.get(id=id)
+    service_type = ServiceType.objects.filter(services__in=[service]).first()
+    print(service.doctors.all())
+    return render(request, "choose_doctor.html", {
+        "path": [{"Услуги и цены": request.META.get('PATH_INFO', None)}, {service_type.name:"/"+current_city.en_name+"/sub_uslugi/"+str(service_type.id)}, {service.name: "/"+current_city.en_name+"/uslugi/"+str(service_type.id)+ "/choose_doctor"}],
+        "cities": cities,
+        "city": current_city,
+        "activities": activities,
+        "leaders": leaders,  
+        "current_lang": session_parameter(request,"lang"),
+        "services_types": services_types,
+        "branches": branches,
+        "doctors": service.doctors.all(),
+    })
+
 @csrf_exempt
 def setlang(request):
     if request.method=="POST":

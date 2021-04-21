@@ -73,15 +73,19 @@
 									</li>		
 								{%endfor%}					
 								{%for type in service_type.services.all%}
-									<li class="panel__item">
-										<div class="panel__item-top" style="position: relative;">
-											<a style="padding-right: 80px;">{{type.name}}</a>
-											{%if type.price != 0%}
-												<div class="price" style="position: absolute;right: 7%;">{{type.price}} тг</div>
-											{%endif%}
-											<i class="fas fa-arrow-right hover-icon"></i>
-										</div>
-									</li>
+									<a href="{%url 'main:choose_doctor' city.en_name type.id%}">
+										<li class="panel__item">
+											<div class="panel__item-top" style="position: relative;">
+												<div style="padding-right: 80px;">{{type.name}}</div>
+												{%if type.price != 0%}
+													<div class="price" style="position: absolute;right: 13%;">{{type.price}} тг</div>
+												{%endif%}
+												
+												<i class="fas fa-arrow-right hover-icon"></i>
+											</div>
+										</li>
+									</a>
+									
 								{%endfor%}
 							{%else%}
 								{%for type in services_types%}

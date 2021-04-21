@@ -33,7 +33,7 @@ urlpatterns = [
 
     path('uslugi', views.uslugi, name='uslugi'),
     path('sub_uslugi/<int:id>', views.sub_uslugi, name='sub_uslugi'),
-    
+    path('uslugi/<int:id>/choose_doctor', views.choose_doctor, name='choose_doctor'),
 
     path('search', views.search, name="search"),
     #url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',views.activate, name='activate'),    
