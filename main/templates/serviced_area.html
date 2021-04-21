@@ -116,81 +116,12 @@
 					</div>
 					
 					<div class="col-md-9 col-sm-12 col-xs-12 content-md">
-                        <table class="table-bordered">
-                            <thead>
-                                <tr class="title-green">
-                                    <th class="col5">
-                                        № участка
-                                    </th>
-                                    <th class="col10">
-                                        Наименование участка
-                                    </th>
-                                    <th class="col15">
-                                        Мкрорайон/ район
-                                    </th>
-                                    <th class="col15">
-                                        № улицы, дома
-                                    </th>
-                                    <th class="col20">
-                                        Участковый врач
-                                    </th>
-                                    <th class="col20">
-                                        Участковая медсестра
-                                    </th>
-                                    <th class="col15">
-                                        Корпус, № кабинета
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                                
-                                
-                                    {%for site in sites%}
-                                        {%for area in site.microdistricts.all%}
-                                            {%for hospital_building in area.hospital_buildings.all%}
-                                                {%for cabinet in hospital_building.cabinets.all%}                                                    
-                                                    <tr>
-                                                        <td>
-                                                            {{ iterator.inc }}
-                                                        </td>
-                                                        <td>
-                                                            {{site.name}}
-                                                        </td>
-                                                        <td>
-                                                            {{area.name}}
-                                                        </td>
-                                                        <td>
-                                                            {%for house in cabinet.houses.all%}
-                                                                {{house.name}},
-                                                            {%endfor%}
-                                                        </td>
-                                                        <td>
-                                                            {%if cabinet.district_doctor%}
-                                                                {{cabinet.district_doctor}}
-                                                            {%endif%}
-                                                        </td>
-                                                        <td>
-                                                            {%if cabinet.nurse%}
-                                                                {{cabinet.nurse}}
-                                                            {%endif%}
-                                                        </td>
-                                                        <td>
-                                                            {%if hospital_building.number > 0%}
-                                                                {{hospital_building.number}} корпус №{{cabinet.number}}
-                                                            {%else%}
-                                                                Нет
-                                                            {%endif%}
-                                                        </td>
-                                                    </tr>                                                                                                      
-                                                {%endfor%}
-                                            {%endfor%}
-                                        {%endfor%}
-                                    {%endfor%}
-                                
-                            </tbody>
-                        </table>
-                        
+                        {%if city.serviced_area_file%}                        
+                        <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.serviced_area_file.url}}' width='100%' height='565px' frameborder='0'> </iframe>
+
+                        {%else%}
+                            <h1>Здесь пока пусто</h1>
+                        {%endif%}                        
                     </div>                    
 				</div>							
 			</div>

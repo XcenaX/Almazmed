@@ -15,6 +15,7 @@ class QualificationDocument(models.Model):
 class City(models.Model):
     name = models.TextField(default="")
     en_name = models.TextField(default="")
+    serviced_area_file = models.FileField(upload_to='services_areas', blank=True, null=True)
     def __str__(self):
         return self.name
 
@@ -136,49 +137,6 @@ class New(models.Model):
     
     def __str__(self):
         return self.title
-
-class Nurse(models.Model):
-    name = models.TextField(default="")
-    def __str__(self):
-        return self.name
-
-class DistrictDoctor(models.Model):
-    name = models.TextField(default="")
-    def __str__(self):
-        return self.name
-
-class House(models.Model):
-    name = models.TextField(default="")
-    def __str__(self):
-        return self.name
-
-class Cabinet(models.Model):
-    number = models.IntegerField(default=0)
-    nurse = models.ForeignKey(Nurse, on_delete=models.CASCADE, blank=True, null=True)
-    district_doctor = models.ForeignKey(DistrictDoctor, on_delete=models.CASCADE, blank=True, null=True)
-    houses = models.ManyToManyField(House, null=True, blank=True)
-    def __str__(self):
-        return str(self.number)
-
-class HospitalBuilding(models.Model):
-    number = models.IntegerField(default=0)
-    cabinets = models.ManyToManyField(Cabinet, null=True, blank=True)
-    def __str__(self):
-        return str(self.number)
-
-class Microdistrict(models.Model):
-    name = models.TextField(default="")
-    hospital_buildings = models.ManyToManyField(HospitalBuilding, null=True, blank=True)
-    def __str__(self):
-        return self.name
-
-class HospitalSite(models.Model):
-    name = models.TextField(default="")
-    number = models.IntegerField(default=0)
-    microdistricts = models.ManyToManyField(Microdistrict, null=True, blank=True)
-    branch = models.ForeignKey(Branch, on_delete=models.CASCADE, blank=True, null=True)
-    def __str__(self):
-        return self.name
 
 class Service(models.Model):
     name = models.TextField(default="")

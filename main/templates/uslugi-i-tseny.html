@@ -65,12 +65,14 @@
 							</li> -->
 							{%if service_type%}
 								{%for type in service_type.services_types.all%}
+								<a href="{%url 'main:sub_uslugi' city.en_name type.id%}">
 									<li class="panel__item">
 										<div class="panel__item-top">
-											<a href="{%url 'main:sub_uslugi' city.en_name type.id%}">{{type.name}}</a>
+											<div>{{type.name}}</div>
 											<i class="fas fa-arrow-right hover-icon"></i>
 										</div>
-									</li>		
+									</li>	
+								</a>		
 								{%endfor%}					
 								{%for type in service_type.services.all%}
 									<a href="{%url 'main:choose_doctor' city.en_name type.id%}">
@@ -89,12 +91,15 @@
 								{%endfor%}
 							{%else%}
 								{%for type in services_types%}
-									<li class="panel__item">
-										<div class="panel__item-top">
-											<a href="{%url 'main:sub_uslugi' city.en_name type.id%}">{{type.name}}</a>
-											<i class="fas fa-arrow-right hover-icon"></i>
-										</div>
-									</li>		
+									<a href="{%url 'main:sub_uslugi' city.en_name type.id%}">
+										<li class="panel__item">
+											<div class="panel__item-top">
+												<div>{{type.name}}</div>
+												<i class="fas fa-arrow-right hover-icon"></i>
+											</div>
+										</li>
+									</a>
+											
 								{%endfor%}
 							{%endif%}
 						</ul>

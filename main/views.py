@@ -263,7 +263,16 @@ def sub_uslugi(request, city, id):
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     service_type = ServiceType.objects.filter(id=id).first()
-    services_types = ServiceType.objects.filter(is_top=True)
+    services_types = ServiceType.objects.filter(is_top=True, branch__in=branches)
+    parent_service_type = ServiceType.objects.filter(services_types=service_type).first()
+    if parent_service_type:
+        if not parent_service_type.is_top:
+            services_types = parent_service_type.services_types.all()
+        else:
+            services_types = ServiceType.objects.filter(is_top=True, branch__in=branches)
+        parent_service_type2 = ServiceType.objects.filter(services_types=parent_service_type).first()
+        if parent_service_type2:
+            services_types = parent_service_type2.services_types.all()
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "uslugi-i-tseny.html", {
         "cities": cities,
@@ -274,7 +283,6 @@ def sub_uslugi(request, city, id):
         "service_type": service_type,
         "services_types": services_types,
         "path": [{"Услуги и цены": "/"+current_city.en_name+"/uslugi"}, {service_type.name: request.META.get('PATH_INFO', None)}],
-        "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
         "branches": branches,
     })
 
@@ -305,10 +313,10 @@ def choose_doctor(request, city, id):
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
-    services_types = ServiceType.objects.filter(is_top=True, branch__in=branches)
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     service = Service.objects.get(id=id)
-    service_type = ServiceType.objects.filter(services__in=[service]).first()
+    service_type = ServiceType.objects.filter(services=service  ).first()
+    services_types = ServiceType.objects.filter(services_types=service_type).first().services_types.all()
     print(service.doctors.all())
     return render(request, "choose_doctor.html", {
         "path": [{"Услуги и цены": request.META.get('PATH_INFO', None)}, {service_type.name:"/"+current_city.en_name+"/sub_uslugi/"+str(service_type.id)}, {service.name: "/"+current_city.en_name+"/uslugi/"+str(service_type.id)+ "/choose_doctor"}],
@@ -495,7 +503,6 @@ def serviced_area(request, city):
     cities = City.objects.all()
     all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
-    sites = HospitalSite.objects.filter(branch__in=branches)
     iterator = make_incrementor(0)
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "serviced_area.html", {
@@ -503,7 +510,6 @@ def serviced_area(request, city):
         "cities": cities,
         "city": current_city,
         "leaders": leaders,
-        "sites": sites,
         "activities": activities,
         "iterator": iterator,
         "branches": branches,
