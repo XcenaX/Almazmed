@@ -78,10 +78,20 @@ WSGI_APPLICATION = 'almazmed.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cn26973_almazmed',
+        'USER': 'cn26973_almazmed',
+        'PASSWORD': 'Dagad582',
+        'HOST': 'localhost', # almazmed.kz
+        'PORT': '',        
     }
 }
 
