@@ -138,7 +138,7 @@ class DirectorBlog(models.Model):
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE, blank=True, null=True)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, blank=True, null=True)
     def __str__(self):
-        return self.name
+        return self.doctor.fullname
 
 class New(models.Model):
     title = models.TextField(default='')
