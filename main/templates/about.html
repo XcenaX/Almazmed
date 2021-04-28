@@ -87,7 +87,7 @@
 						{%if current_branch.image and current_branch.description %}	
 							<img src="{{current_branch.image.url}}" width="100%" height="512px" alt="">
 							<p style="line-height: 2em;">
-								{{current_branch.description}}
+								{{current_branch.description|linebreaks}}
 							</p>
 						{%else%}
 							<div style="text-align: center;font-size: 25px;font-weight: 700;">Здесь пока нет информации!</div>
