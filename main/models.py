@@ -7,6 +7,8 @@ import os
 from almazmed.settings import BASE_DIR
 from datetime import date
 
+
+
 class QualificationDocument(models.Model):
     name = models.TextField(default="")
     def __str__(self):
@@ -37,6 +39,8 @@ class Branch(models.Model):
         return self.address
     def get_tel(self):
         return self.phones.all()[0].phone.replace("-", "").replace("(","").replace(")","").replace(" ","")
+
+
     
 class Partner(models.Model):
     name = models.TextField(default="")
@@ -127,6 +131,14 @@ class Doctor(models.Model):
         if not self.start_date:
             return True
         return self.start_date <= date.today()
+
+class DirectorBlog(models.Model):
+    title = models.TextField(default="")
+    description = models.TextField(default="")
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE, blank=True, null=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, blank=True, null=True)
+    def __str__(self):
+        return self.name
 
 class New(models.Model):
     title = models.TextField(default='')

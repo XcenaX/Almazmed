@@ -394,7 +394,7 @@ def director_blog(request, city):
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
     position = Position.objects.filter(name__contains="Директор").first()
-    director = Doctor.objects.filter(id=6).first()
+    director = DirectorBlog.objects.filter(branch__in=branches).first()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "director_blog.html", {

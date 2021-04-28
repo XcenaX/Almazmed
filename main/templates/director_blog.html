@@ -77,23 +77,15 @@
                             <tbody>
                                 <tr>
                                     <td valign="top" style="padding-right: 20px;">
-                                        <img width="200" src="{%if director.image%}{{director.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%}" /> <br />
+                                        <img width="200" src="{%if director.doctor.image%}{{director.doctor.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%}" /> <br />
                                         <span style="font: 11px/20px PT Sans Caption, Arial, sans-serif;">
-                                            <b>{{director.fullname}}</b><br />
-                                            Директор Жамбылского филиала ТОО «Almaz Medical Group»
+                                            <b>{{director.doctor.fullname}}</b><br />
+                                            Директор филиала ТОО «Almaz Medical Group»
                                         </span>
                                     </td>
                                     <td valign="top">
-                                        <h3>Добро пожаловать в блог директора филиала</h3>
-                                        <p>
-                                            Мы рады приветствовать вас на нашем сайте! С нами для вас работают кандидаты медицинских наук, врачи высшей и первой квалификационной категории.
-                                        </p>
-                                        <p>
-                                            Мы уделяем большое внимание качеству предоставляемых медицинских услуг, постоянно совершенствуем и повышаем квалификацию медицинского персонала.
-                                        </p>
-                                        <p>
-                                            По всем интересующим вас вопросам можете всегда обращаться к нам.
-                                        </p>
+                                        <h3>{{director.title}}</h3>
+                                        <pre>{{director.description|linebreaks}}</pre>
                                     </td>
                                 </tr>
                             </tbody>
