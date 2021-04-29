@@ -665,7 +665,8 @@ def search(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
         return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
-    leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
+    branch = Branch.objects.filter(city=current_city)
+    leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branch).first()
 
     q = get_parameter(request, "q")
     if not q:

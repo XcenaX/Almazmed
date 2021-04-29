@@ -109,9 +109,9 @@
                             <br>
                             
                         </div>
-                        <div class="callback-block twosmallfont">
+                        <!-- <div class="callback-block twosmallfont">
                             <span>Заказать звонок</span>
-                        </div>
+                        </div> -->
                         
                     </div>
                     <div class="language-block" id="lang_block_mobile">
@@ -501,9 +501,9 @@
                                 {%endwith%}
                             {%endwith%}
                         </div>
-                        <div class="callback-block twosmallfont">
+                        <!-- <div class="callback-block twosmallfont">
                             <span>Заказать звонок</span>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="contact-block__item">
                         <i class="far fa-envelope"></i>
@@ -643,83 +643,7 @@
         </div>
     </div>
     <!-- ONLINE ORDER MODAL -->
-    <div id="online-order-modal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <div class="close-button"></div>
-            <div class="title">Запись онлайн</div>
-            <div class="description">
-                Администратор клиники с радостью ответит на ваши вопросы и запишет к
-                нужному специалисту.
-            </div>
-
-            <form class="form" action=" ">
-                <div class="form-group">
-                    <input
-                        type="text"
-                        id="order-modal__name"
-                        class="input-control"
-                        required
-                    />
-                    <label for="order-modal__name"
-                        >Ваше имя<span class="required-star">*</span></label
-                    >
-                </div>
-                <div class="form-group">
-                    <input
-                        type="text"
-                        id="order-modal__phone"
-                        class="input-control"
-                        required
-                    />
-                    <label for="order-modal__phone"
-                        >Телефон<span class="required-star">*</span></label
-                    >
-                </div>
-                <div class="form-group">
-                    <select id="order-modal__type" class="input-control" required>
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                    </select>
-                    <label for="order-modal__type"
-                        >Выбрать специализацию:<span class="required-star">*</span></label
-                    >
-                </div>
-                <div class="form-group">
-                    <input
-                        type="text"
-                        id="order-modal__date"
-                        class="input-control"
-                        required
-                    />
-                    <label for="order-modal__date"
-                        >Удобные дата и время<span class="required-star">*</span></label
-                    >
-                </div>
-                <div class="license-block control control-checkbox">
-                    <label for="order-licenses_popup">
-                        <input
-                            type="checkbox"
-                            id="order-licenses_popup"
-                            name="order-licenses_popup"
-                            required=""
-                            value="Y"
-                            aria-required="true"
-                        />
-                        <div class="control_indicator"></div>
-                        Я согласен на
-                        <a class="inverted-colors" src="" target="_blank"
-                            >обработку персональных данных</a
-                        >
-                    </label>
-                </div>
-                <button type="submit" class="button-lg button button-default">
-                    Отправить
-                </button>
-            </form>
-        </div>
-    </div>
+    
     <!-- RECEIPT ORDER MODAL -->
     <div id="receipt-modal" class="modal">
         <!-- Modal content -->
