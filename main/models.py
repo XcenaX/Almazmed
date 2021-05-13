@@ -14,10 +14,18 @@ class QualificationDocument(models.Model):
     def __str__(self):
         return self.name
     
+
+class GovermentService(models.Model):
+    name = models.TextField(default="")
+    file = models.FileField(upload_to='gov_services_files', blank=True, null=True)
+    def __str__(self):
+        return self.name
+        
 class City(models.Model):
     name = models.TextField(default="")
     en_name = models.TextField(default="")
     serviced_area_file = models.FileField(upload_to='services_areas', blank=True, null=True)
+    gos_services = models.ManyToManyField(GovermentService, null=True, blank=True)
     def __str__(self):
         return self.name
 

@@ -17,4 +17,5 @@ admin.site.register(Letter)
 admin.site.register(ServiceType)
 admin.site.register(Service)
 admin.site.register(DirectorBlog)
+admin.site.register(GovermentService)
 
