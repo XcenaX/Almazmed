@@ -116,7 +116,7 @@
                             <li>Утвердить:</li>
                         </ol>
                         {%for govservice in govservices%}
-                            <p>Правила государственной услуги <a href="{{govservice.file.url}}">«{{govservice.name}}»</a> <br /></p>
+                            <p>Правила государственной услуги {%if govservice.file%}<a href="{{govservice.file.url}}">«{{govservice.name}}»</a>{%endif%} <br /></p>
                         {%endfor%}
                         
                         
