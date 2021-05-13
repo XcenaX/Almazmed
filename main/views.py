@@ -595,7 +595,7 @@ def question_answer(request, city):
         "current_lang": session_parameter(request,"lang"),
         "services_types": ServiceType.objects.filter(is_top=True, branch__in=branches),
     })
-
+#
 def goverment_services(request, city):
     current_city = City.objects.filter(en_name=city).first()
     if not current_city:
