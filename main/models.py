@@ -25,7 +25,6 @@ class City(models.Model):
     name = models.TextField(default="")
     en_name = models.TextField(default="")
     serviced_area_file = models.FileField(upload_to='services_areas', blank=True, null=True)
-    gos_services = models.ManyToManyField(GovermentService, null=True, blank=True)
     def __str__(self):
         return self.name
 

@@ -610,7 +610,7 @@ def goverment_services(request, city):
         "path": [{"Пациенту": "/"+current_city.en_name+"/patients"},{"Государственные услуги": request.META.get('PATH_INFO', None)}],
         "cities": cities,
         "city": current_city,
-        "govservices": current_city.gos_services.all(),
+        "govservices": GovermentService.objects.all(),
         "leaders": leaders,
         "phone": phone,
         "branches": branches,
