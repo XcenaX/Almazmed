@@ -25,12 +25,12 @@ class City(models.Model):
     name = models.TextField(default="")
     en_name = models.TextField(default="")
     serviced_area_file = models.FileField(upload_to='services_areas', blank=True, null=True)
+    mail = models.TextField(default="")
     def __str__(self):
         return self.name
 
 class BranchPhone(models.Model):
     phone = models.TextField(default="")
-    mail = models.TextField(default="")
     name = models.TextField(default="", blank=True, null=True)
     def __str__(self):
         return self.phone
