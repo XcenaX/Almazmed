@@ -30,6 +30,7 @@ class City(models.Model):
 
 class BranchPhone(models.Model):
     phone = models.TextField(default="")
+    mail = models.TextField(default="")
     name = models.TextField(default="", blank=True, null=True)
     def __str__(self):
         return self.phone
