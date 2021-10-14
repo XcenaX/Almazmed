@@ -1506,9 +1506,14 @@ a.button:hover {
   padding: 40px;
 }
 
-.employers-wrapper .employers__list .employers__item .employer-image img {
-  max-width: 100%;
+.employers-wrapper .employers__list .employers__item .employer-image div {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
   border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media (max-width: 767px) {

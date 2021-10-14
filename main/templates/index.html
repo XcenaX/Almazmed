@@ -125,7 +125,7 @@
 							<li>
 								<div class="employers__item">
 									<div class="employer-image" style="width: 75%;">
-										<img src="{%if doctor.image%}{{doctor.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%}" style="width: 100%;"/>
+										<div style="background-image: url({%if doctor.image%}{{doctor.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%})"></div>
 									</div>
 									<a href="{%url 'main:specialist' city.en_name doctor.id%}" class="employer-name"
 										>{{doctor.fullname}}</a
