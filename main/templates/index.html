@@ -90,20 +90,27 @@
 					{%for service_type in free_services_types%}
 						<li class="units-cards__item">
 							<div class="units-cards__title">
-								<a href="{%url 'main:sub_uslugi' city.en_name service_type.id %}">{{service_type.name}}</a>
+								<!-- <a href="{%url 'main:sub_uslugi' city.en_name service_type.id %}">{{service_type.name}}</a> -->
+								<a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.prices_file.url}}">{{service_type.name}}</a>								
 							</div>
 							<ul class="units-list">
 								{%if service_type.services_types.all%}
 									{% for sub_service_type in service_type.services_types.all %}
-										<li>
+										<!-- <li>
 											<a href="{%url 'main:sub_uslugi' city.en_name sub_service_type.id %}"> {{sub_service_type.name}} </a>
-										</li>
+										</li> -->
+										<li>
+											<a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.prices_file.url}}"> {{sub_service_type.name}} </a>
+										</li>										
 									{%endfor%}
 								{%else%}
 									{% for service in service_type.services.all %}
-										<li>
+										<!-- <li>
 											<a href="{%url 'main:sub_uslugi' city.en_name service_type.id %}"> {{service.name}} </a>
-										</li>
+										</li> -->
+										<li>
+											<a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.prices_file.url}}"> {{sub_service_type.name}} </a>
+										</li>	
 									{%endfor%}
 								{%endif%}
 							</ul>
