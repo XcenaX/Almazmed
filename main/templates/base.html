@@ -167,7 +167,8 @@
 						</ul>
                     </div>
 					<div class="menu__item" >
-						<a href="{%url 'main:uslugi' city.en_name%}">Услуги и цены</a>
+						<!-- <a href="{%url 'main:uslugi' city.en_name%}">Услуги и цены</a> -->                        
+                        <a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.serviced_area_file.url}}">Услуги и цены</a>
 						<ul style="margin-top: 0px;">							
 							{%for type in services_types%}
                                 <li><a href="{%url 'main:sub_uslugi' city.en_name type.id%}">{{type.name}}</a></li>		

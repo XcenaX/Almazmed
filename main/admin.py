@@ -1,5 +1,9 @@
 from django.contrib import admin
 from .models import *
+from django.contrib import admin
+
+class ServiceAdmin(admin.ModelAdmin):    
+    search_fields = ['name', 'price']
 
 admin.site.register(Doctor)
 admin.site.register(New)
@@ -15,7 +19,7 @@ admin.site.register(Partner)
 admin.site.register(License)
 admin.site.register(Letter)
 admin.site.register(ServiceType)
-admin.site.register(Service)
+admin.site.register(Service, ServiceAdmin)
 admin.site.register(DirectorBlog)
 admin.site.register(GovermentService)
 
