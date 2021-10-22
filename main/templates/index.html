@@ -109,7 +109,7 @@
 											<a href="{%url 'main:sub_uslugi' city.en_name service_type.id %}"> {{service.name}} </a>
 										</li> -->
 										<li>
-											<a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.prices_file.url}}"> {{sub_service_type.name}} </a>
+											<a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.prices_file.url}}"> {{service.name}} </a>
 										</li>	
 									{%endfor%}
 								{%endif%}
