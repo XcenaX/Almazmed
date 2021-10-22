@@ -294,12 +294,15 @@
                             </li>
                             <li class="sidebar-menu__item dropdown-link">
                                 <div class="sidebar-menu__link dropdown-link">
-                                    <a href="{%url 'main:uslugi' city.en_name%}">
+                                    <!-- <a href="{%url 'main:uslugi' city.en_name%}">
+                                        <span>Услуги</span>
+                                    </a>                                     -->
+                                    <!-- <div class="fas fa-caret-down-div">
+                                        <i class="fas fa-caret-down"></i>
+                                    </div> -->
+                                    <a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.prices_file.url}}">
                                         <span>Услуги</span>
                                     </a>
-                                    <div class="fas fa-caret-down-div">
-                                        <i class="fas fa-caret-down"></i>
-                                    </div>
                                 </div>
                                 <ul class="dropdown-link__content">
                                     {%for type in services_types%}
