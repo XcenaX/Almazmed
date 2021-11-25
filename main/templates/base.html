@@ -167,18 +167,18 @@
 						</ul>
                     </div>
 					<div class="menu__item" >
-						<!-- <a href="{%url 'main:uslugi' city.en_name%}">Услуги и цены</a> -->  
-                        {%if city.prices_file%}                      
+						<a href="{%url 'main:uslugi' city.en_name%}">Услуги и цены</a>  
+                        <!-- {%if city.prices_file%}                      
                             <a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.prices_file.url}}">Услуги и цены</a>
                         {%else%}
                             <a href="#">Услуги и цены</a>
-                        {%endif%}
-						<!-- <ul style="margin-top: 0px;">							
+                        {%endif%} -->
+						<ul style="margin-top: 0px;">							
 							{%for type in services_types%}
                                 <li><a href="{%url 'main:sub_uslugi' city.en_name type.id%}">{{type.name}}</a></li>		
                             {%endfor%}		
                             <li><a href="https://www.kdlolymp.kz/pricelist/nur-sultan">лабораторные исследования в процедурном кабинете КДЛ «Олимп»</a></li>			
-						</ul> -->
+						</ul>
 					</div>
 					<a class="menu__item news-block" href="{%url 'main:news' city.en_name%}">Новости</a>
 					<div class="menu__item" >
@@ -294,15 +294,15 @@
                             </li>
                             <li class="sidebar-menu__item dropdown-link">
                                 <div class="sidebar-menu__link dropdown-link">
-                                    <!-- <a href="{%url 'main:uslugi' city.en_name%}">
+                                    <a href="{%url 'main:uslugi' city.en_name%}">
                                         <span>Услуги</span>
-                                    </a>                                     -->
-                                    <!-- <div class="fas fa-caret-down-div">
+                                    </a>                                     
+                                    <div class="fas fa-caret-down-div">
                                         <i class="fas fa-caret-down"></i>
-                                    </div> -->
-                                    <a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.prices_file.url}}">
+                                    </div>
+                                    <!-- <a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.prices_file.url}}">
                                         <span>Услуги</span>
-                                    </a>
+                                    </a> -->
                                 </div>
                                 <ul class="dropdown-link__content">
                                     {%for type in services_types%}
