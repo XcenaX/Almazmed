@@ -164,6 +164,7 @@ class Service(models.Model):
     price = models.IntegerField(blank=True, null=True)
     count = models.IntegerField(blank=True, null=True)
     doctors = models.ManyToManyField(Doctor, null=True, blank=True)
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE, blank=True, null=True)
     def __str__(self):
         return self.name
 

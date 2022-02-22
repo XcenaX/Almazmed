@@ -4,6 +4,8 @@ from django.contrib import admin
 
 class ServiceAdmin(admin.ModelAdmin):    
     search_fields = ['name', 'price']
+    list_filter = ["branch"]
+    
 
 class ServiceTypeAdmin(admin.ModelAdmin):    
     search_fields = ['name']
