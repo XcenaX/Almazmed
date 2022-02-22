@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': 'cn26973_almazmed',
         'USER': 'cn26973_almazmed',
         'PASSWORD': 'Dagad582',
-        'HOST': 'localhost', # almazmed.kz
+        'HOST': 'almazmed.kz', # almazmed.kz
         'PORT': '',        
     }
 }
