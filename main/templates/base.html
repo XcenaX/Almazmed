@@ -168,11 +168,7 @@
                     </div>
 					<div class="menu__item" >
 						<a href="{%url 'main:uslugi' city.en_name%}">Услуги и цены</a>  
-                        <!-- {%if city.prices_file%}                      
-                            <a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.prices_file.url}}">Услуги и цены</a>
-                        {%else%}
-                            <a href="#">Услуги и цены</a>
-                        {%endif%} -->
+                        
 						<ul style="margin-top: 0px;">							
 							{%for type in services_types%}
                                 <li><a href="{%url 'main:sub_uslugi' city.en_name type.id%}">{{type.name}}</a></li>		
@@ -300,9 +296,7 @@
                                     <div class="fas fa-caret-down-div">
                                         <i class="fas fa-caret-down"></i>
                                     </div>
-                                    <!-- <a href="https://view.officeapps.live.com/op/embed.aspx?src=https://{{request.get_host}}{{city.prices_file.url}}">
-                                        <span>Услуги</span>
-                                    </a> -->
+                                    
                                 </div>
                                 <ul class="dropdown-link__content">
                                     {%for type in services_types%}
