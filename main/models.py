@@ -18,6 +18,8 @@ class QualificationDocument(models.Model):
 class GovermentService(models.Model):
     name = models.TextField(default="")
     file = models.FileField(upload_to='gov_services_files', blank=True, null=True)
+    url = models.TextField(default="")
+
     def __str__(self):
         return self.name
         
