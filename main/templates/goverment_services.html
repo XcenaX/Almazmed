@@ -121,7 +121,7 @@
                             <p>Правила государственной услуги 
                                 {%if govservice.url%}
                                     <a href="{{govservice.url}}">«{{govservice.name}}»</a>
-                                {%else if govservice.file%}
+                                {%elif govservice.file%}
                                     <a href="{{govservice.file.url}}">«{{govservice.name}}»</a>
                                 {%else%}
                                     «{{govservice.name}}»
