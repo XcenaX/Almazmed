@@ -120,7 +120,7 @@
                         {%for govservice in govservices%}
                             <p>Правила государственной услуги 
                                 {%if govservice.url%}
-                                    <a href="{{govservice.url}}">«{{govservice.name}}»</a>
+                                    <a href="{{govservice.url}}?lang={{current_lang}}">«{{govservice.name}}»</a>
                                 {%elif govservice.file%}
                                     <a href="{{govservice.file.url}}">«{{govservice.name}}»</a>
                                 {%else%}
