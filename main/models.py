@@ -154,7 +154,7 @@ class DirectorBlog(models.Model):
 class New(models.Model):
     title = models.TextField(default='')
     date = models.DateField(default='')
-    description = models.TextField(default='')
+    description = models.TextField(default='',blank=True, null=True)
     image = models.ImageField(upload_to='news', blank=True, null=True)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE, blank=True, null=True)
     

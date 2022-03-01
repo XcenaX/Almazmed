@@ -17,8 +17,8 @@
 	<div class="main-section" id="html" style="margin-top: 56px;margin-bottom: 40px;">
 		<div class="wrapper">
 			<div class="row" style="margin-bottom: 40px;">
-				<div class="col-md-9">
-                    <div class="slideshow-container">
+				<div class="{%if not current_new.description%}col-md-12{%else%}col-md-9{%endif%}">
+                    <div class="slideshow-container {%if not current_new.description%}full{%endif%}">
 						<div class="mySlides fade">						  
 							<img src="{{current_new.image.url}}" style="width:100%">
 							<div class="text">{{current_new.name}}</div>						  
@@ -34,8 +34,10 @@
 							<a class="next" onclick="plusSlides(1)">&#10095;</a>
 						{%endif%}
 					</div>					
-                    <div class="new-date"> <span>{{current_new.date|date:"d F Y"}}</span></div>
-                    <span class="new-content">{{current_new.description}}</span>
+                    {%if current_new.description%}
+						<div class="new-date"> <span>{{current_new.date|date:"d F Y"}}</span></div>
+					{%endif%}
+                    <span class="new-content">{{current_new.description|linebreaks}}</span>
 				</div>
             </div>
             <a class="back-url back-block dark_link twosmallfont" href="{%url 'main:news' city.en_name%}"><i class="fa2 fa-angle-left"></i><span>Вернуться</span></a>

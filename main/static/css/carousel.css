@@ -2,13 +2,23 @@
 
 /* Slideshow container */
 .slideshow-container {
-    width: 40%;
+    width: 45%;
     float: left;
     padding-right: 2%;
     position: relative;
     margin: auto;
-    height: 30%;
-    margin-top: 5%;
+    height: 35%;
+    margin-top: 0%;
+    z-index: 1;
+  }
+
+  .slideshow-container.full{
+    width: 70%;
+    float: none;
+    margin: auto;
+    padding: 0%;
+    height: 70%;
+    margin-top: 0;
   }
   
   /* Hide the images by default */
@@ -42,6 +52,10 @@
   .next {
     right: 5%;
     border-radius: 3px 0 0 3px;
+  }
+
+  .slideshow-container.full .next{
+    right: 0%;
   }
   
   /* On hover, add a black background color with a little bit see-through */
