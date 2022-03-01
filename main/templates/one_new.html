@@ -19,15 +19,19 @@
 			<div class="row" style="margin-bottom: 40px;">
 				<div class="{%if not current_new.description%}col-md-12{%else%}col-md-9{%endif%}">
                     <div class="slideshow-container {%if not current_new.description%}full{%endif%}">
-						<div class="mySlides fade">						  
-							<img src="{{current_new.image.url}}" style="width:100%">
-							<div class="text">{{current_new.name}}</div>						  
-						</div>
-						{%for image in images%}
-							<div class="mySlides fade">						  
-								<img src="{{image.image.url}}" style="width:100%">	
-								<div class="text">{{image.name}}</div>					  
+						<a href="{{current_new.image.url}}" target="_blank">
+							<div class="mySlides fade">						  								
+								<img src="{{current_new.image.url}}" style="width:100%">							
+								<div class="text">{{current_new.name}}</div>						  
 							</div>
+						</a>							
+						{%for image in images%}
+							<a href="{{current_new.image.url}}" target="_blank"></a>
+								<div class="mySlides fade">						  
+									<img src="{{image.image.url}}" style="width:100%">	
+									<div class="text">{{image.name}}</div>					  
+								</div>
+							</a>
 					  	{%endfor%}											  
 						{%if images%}
 							<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
