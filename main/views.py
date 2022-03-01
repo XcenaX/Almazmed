@@ -374,9 +374,11 @@ def one_new(request, city, id):
     cities = City.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
+    images = NewsImage.objects.filter(new=current_new)
     return render(request, "one_new.html", {
         "path": [{"Новости":"/"+current_city.en_name+"/news"}, {current_new.title: request.META.get('PATH_INFO', None)}],
         "current_new": current_new,
+        "images": images,
         "cities": cities,
         "city": current_city,
         "current_lang": session_parameter(request,"lang"),

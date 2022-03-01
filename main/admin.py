@@ -12,6 +12,7 @@ class ServiceTypeAdmin(admin.ModelAdmin):
 
 admin.site.register(Doctor)
 admin.site.register(New)
+admin.site.register(NewsImage)
 admin.site.register(QualificationDocument)
 admin.site.register(Image)
 admin.site.register(DirectionOfActivity)

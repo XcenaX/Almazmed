@@ -161,6 +161,14 @@ class New(models.Model):
     def __str__(self):
         return self.title
 
+class NewsImage(models.Model):
+    name = models.TextField(default="", blank=True)
+    new = models.ForeignKey(New, on_delete=models.CASCADE, blank=True, null=True)
+    image = models.ImageField(upload_to='news')    
+    
+    def __str__(self):
+        return self.new.title + " | " + self.name
+
 class Service(models.Model):
     name = models.TextField(default="")
     price = models.IntegerField(blank=True, null=True)

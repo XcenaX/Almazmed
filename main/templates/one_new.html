@@ -3,6 +3,7 @@
 
 {%block styles %}
 	<link rel="stylesheet" href="{%static 'css/news.css'%}">
+	<link rel="stylesheet" href="{%static 'css/carousel.css'%}">
 	
 {% endblock %}
 
@@ -17,7 +18,22 @@
 		<div class="wrapper">
 			<div class="row" style="margin-bottom: 40px;">
 				<div class="col-md-9">
-                    <img src="{{current_new.image.url}}" alt="" class="new-img">
+                    <div class="slideshow-container">
+						<div class="mySlides fade">						  
+							<img src="{{current_new.image.url}}" style="width:100%">
+							<div class="text">{{current_new.name}}</div>						  
+						</div>
+						{%for image in images%}
+							<div class="mySlides fade">						  
+								<img src="{{image.image.url}}" style="width:100%">	
+								<div class="text">{{image.name}}</div>					  
+							</div>
+					  	{%endfor%}											  
+						{%if images%}
+							<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+							<a class="next" onclick="plusSlides(1)">&#10095;</a>
+						{%endif%}
+					</div>					
                     <div class="new-date"> <span>{{current_new.date|date:"d F Y"}}</span></div>
                     <span class="new-content">{{current_new.description}}</span>
 				</div>
@@ -39,5 +55,10 @@
 	<script src="{%static 'js/main.js'%}"></script>
 	
 	<script src="{%static 'js/uslugi.js'%}"></script>
+	<script src="{%static 'js/carousel.js'%}"></script>
+	<script>
+		showSlides(slideIndex);
+	</script>
+	
 	
 {%endblock%}
