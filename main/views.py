@@ -343,7 +343,7 @@ def news(request, city):
     if not current_city:
         return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
-    news = New.objects.filter(branch__in=branches)
+    news = New.objects.filter(branch__in=branches).order_by("-date")
     year = get_parameter(request, "year")
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     if(year):
