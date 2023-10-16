@@ -72,6 +72,11 @@ class Letter(models.Model):
     letter = models.FileField(upload_to='letters', blank=True, null=True)
     def __str__(self):
         return self.person
+    @property
+    def letter_url(self):
+        if self.letter and hasattr(self.letter, 'url'):
+            return self.letter.url
+        return None
 
 class Position(models.Model):
     name = models.TextField(default="")
