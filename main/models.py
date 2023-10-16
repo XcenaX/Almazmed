@@ -110,9 +110,9 @@ class License(models.Model):
         return None
     
     @property
-    def licence_url(self):
-        if self.licence and hasattr(self.licence, 'url'):
-            return self.licence.url
+    def lisence_url(self):
+        if self.lisence and hasattr(self.lisence, 'url'):
+            return self.lisence.url
         return None
 
 class Education(models.Model):
