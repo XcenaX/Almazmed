@@ -68,12 +68,13 @@
 										<div class="text-block-top">
 											<a href="{%url 'main:one_new' city.en_name new.id%}">{{new.title}}</a>
 										</div>
-										<div class="text-block-under">
-											{{new.date|date:"d F Y"}}
-										</div>
 										<div class="new-section__title">
 											<a src="">{{new.description|truncatechars:80}}</a>
 										</div>
+										<div class="text-block-under">
+											{{new.date|date:"d F Y"}}
+										</div>
+										
 									</div>
 								</div>
 							{%endfor%}
