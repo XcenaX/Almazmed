@@ -26,7 +26,7 @@ if len(sys.argv) < 2:
 
 CITY_NAME = sys.argv[1]
 
-workbook = xlrd.open_workbook('taraz_doctors.xls')
+workbook = xlrd.open_workbook('{0}_doctors.xls'.format(CITY_NAME))
 worksheet = workbook.sheet_by_index(0)
 #Тараз
 #CITY_NAME = "Тараз"
