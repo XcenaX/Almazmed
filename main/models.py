@@ -143,6 +143,11 @@ class Doctor(models.Model):
         if not self.start_date:
             return True
         return self.start_date <= date.today()
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+        return ''
 
 class DirectorBlog(models.Model):
     title = models.TextField(default="")
