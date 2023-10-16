@@ -30,7 +30,7 @@ workbook = xlrd.open_workbook('taraz_doctors.xls')
 worksheet = workbook.sheet_by_index(0)
 #Тараз
 #CITY_NAME = "Тараз"
-city = City.objects.filter(name__iexact=CITY_NAME).first()
+city = City.objects.filter(en_name__iexact=CITY_NAME).first()
 
 
 
