@@ -60,6 +60,11 @@ class Partner(models.Model):
     image = models.ImageField(upload_to='partners', blank=True, null=True)
     def __str__(self):
         return self.name
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+        return None
 
 class Letter(models.Model):
     person = models.TextField(default="")
@@ -147,7 +152,7 @@ class Doctor(models.Model):
     def image_url(self):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
-        return ''
+        return None
 
 class DirectorBlog(models.Model):
     title = models.TextField(default="")
@@ -166,6 +171,11 @@ class New(models.Model):
     
     def __str__(self):
         return self.title
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+        return None
 
 class NewsImage(models.Model):
     name = models.TextField(default="", blank=True)

@@ -130,7 +130,7 @@
 							<li>
 								<div class="employers__item">
 									<div class="employer-image" style="width: 75%;">
-										<div style="background-image: url({%if doctor.image%}{{doctor.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%})"></div>
+										<div style="background-image: url({%if doctor.image_url%}{{doctor.image_url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%})"></div>
 									</div>
 									<a href="{%url 'main:specialist' city.en_name doctor.id%}" class="employer-name"
 										>{{doctor.fullname}}</a
@@ -159,7 +159,7 @@
 					{%for new in news%}
 						<div class="col-md-4 col-sm-12 col-xs-12">
 							<div class="news-section__item">
-								<img src="{{new.image.url}}" alt="" />
+								<img src="{{new.image_url}}" alt="" />
 								<div class="news-text">
 									<p class="news-category twosmallfont">Новости</p>
 									<div class="new-section__title">
@@ -222,7 +222,7 @@
 					{%for partner in partners%}
 						<li>
 							<a href="https://{{partner.site}}" class="partner__item">
-								<img src="{{partner.image.url}}" alt="{{partner.name}}" />
+								<img src="{{partner.image_url}}" alt="{{partner.name}}" />
 								<div class="partner__src">{{partner.name}}</div>
 							</a>
 						</li>		
