@@ -28,7 +28,7 @@ handler404 = 'app.views.404_view'
 
 ALLOWED_HOSTS = ["*"]
 
-
+#SECURE_SSL_REDIRECT = True
 # Application definition
 
 INSTALLED_APPS = [

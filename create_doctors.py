@@ -36,16 +36,18 @@ else:
     #main_service_types = ServiceType.objects.filter(branch=branch, is_top=True)
     y = 0
     try:
-        while(True):
-            name = worksheet.cell(y,0).value
-            sub_services = []
-            j = 2
-            try:
-                while(True):
-                    sub_services.append(worksheet.cell(y,j).value)
-                    j+=1
-            except:
-                pass
+        while(True):       
+            activity_name = worksheet.cell(y,2).value
+            position_name = worksheet.cell(y,3).value
+            position = Position.objects.filter(name=position_name).first()
+            if not position:
+                position = Position.objects.create(name=position_name)
+                position.save()
+
+            activity = DirectionOfActivity.objects.filter(name=activity_name).first()
+            if not activity:
+                activity = DirectionOfActivity.objects.create(name=activity_name)
+                activity.save()
 
             doctors = []
             j = 4
@@ -53,27 +55,15 @@ else:
                 while(True):
                     doctor_name = worksheet.cell(y,j).value
                     doctor = Doctor.objects.filter(fullname=doctor_name, branch=branch).first()
-                    if doctor:
-                        doctors.append(doctor)
+                    if not doctor:
+                        doctor = Doctor.objects.create(fullname=doctor_name, branch=branch, position=position, direction_of_activity=activity)                
+                        doctor.save()
                     j+=1
             except:
                 pass
-            for main_service in main_service_types:
-                s1 = main_service.services_types.filter(name=sub_services[0]).first()
-                if not s1:
-                    print("Не найдено!" + " | " + sub_services[0])                    
-                    continue
-                s2 = s1.services_types.all().filter(name=sub_services[1]).first()
-                if not s2:
-                    print("Не найдено!" + " | " + sub_services[1])                    
-                    continue
-                service = s2.services.all().filter(name=name).first()
-                if not service:   
-                    continue
-                print(service.name + " | " + str(len(doctors)))
-                for doctor in doctors:
-                    service.doctors.add(doctor)
-                service.save()
+            
+            
+
             y += 1
     except Exception as error:
         print(error)

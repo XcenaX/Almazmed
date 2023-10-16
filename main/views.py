@@ -18,10 +18,6 @@ from django.utils import timezone
 import itertools
 from django.http import HttpResponse, JsonResponse, Http404
 
-from django.contrib.sites.shortcuts import get_current_site
-from django.utils.encoding import force_bytes, force_text
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.template.loader import render_to_string
 #from .tokens import account_activation_token
 #from django.core.mail import EmailMessage
 from django import template
@@ -295,6 +291,16 @@ def uslugi(request, city):
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     services_types = ServiceType.objects.filter(is_top=True, branch__in=branches)
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
+    
+    if not current_city.uslugi_file:
+        return redirect(reverse("main:index", kwargs={"city": current_city.en_name}))
+    
+    f = open(current_city.uslugi_file.path, 'rb')
+    file_data = f.read()
+    f.close()
+    response = HttpResponse(file_data, content_type='application/pdf')
+    return response
+    
     return render(request, "uslugi-i-tseny.html", {
         "path": [{"Услуги и цены": request.META.get('PATH_INFO', None)}],
         "cities": cities,

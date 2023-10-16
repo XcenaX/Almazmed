@@ -888,6 +888,7 @@
         <script>
             $(document).ready(function(){
                 var timer = setInterval(function() {
+                    if(!lang_block) return;
                 lang_block = $(".goog-te-combo")[0];
                 if(lang_block.children.length < 100){
                     return

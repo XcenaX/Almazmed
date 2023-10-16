@@ -28,6 +28,7 @@ class City(models.Model):
     en_name = models.TextField(default="")
     serviced_area_file = models.FileField(upload_to='services_areas', blank=True, null=True)
     prices_file = models.FileField(upload_to='prices', blank=True, null=True)
+    uslugi_file = models.FileField(upload_to='uslugi', blank=True, null=True)
     mail = models.TextField(default="")
     def __str__(self):
         return self.name
