@@ -74,7 +74,7 @@ class Position(models.Model):
         return self.name
 
 class License(models.Model):
-    lisence = models.FileField(upload_to='lisences')
+    lisence = models.FileField(upload_to='lisences', max_length=20000)
     preview = models.ImageField(blank=True, null=True, upload_to="previews")
 
     # def save(self, *args, **kwargs):
