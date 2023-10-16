@@ -20,12 +20,17 @@ import xlrd
 # for service in Service.objects.all():
 #     service.delete()
 
+if len(sys.argv) < 2:
+    print("Не передан аргумент: название города")
+    sys.exit()
+
+CITY_NAME = sys.argv[1]
 
 workbook = xlrd.open_workbook('taraz_doctors.xls')
 worksheet = workbook.sheet_by_index(0)
 #Тараз
-CITY_NAME = "Тараз"
-city = City.objects.filter(name=CITY_NAME).first()
+#CITY_NAME = "Тараз"
+city = City.objects.filter(name__iexact=CITY_NAME).first()
 
 
 
