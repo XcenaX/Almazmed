@@ -487,7 +487,7 @@ def patients(request, city):
         return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
-    all_lisences = License.objects.all()
+    #all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "patients.html", {
@@ -509,7 +509,7 @@ def serviced_area(request, city):
         return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
-    all_lisences = License.objects.all()
+    #all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     iterator = make_incrementor(0)
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
@@ -531,7 +531,7 @@ def drug_supply(request, city):
         return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
-    all_lisences = License.objects.all()
+    #all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "drug_supply.html", {
@@ -551,7 +551,7 @@ def gobmp(request, city):
         return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
-    all_lisences = License.objects.all()
+    #all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "gobmp.html", {
@@ -571,7 +571,7 @@ def osms(request, city):
         return redirect(reverse("main:index", kwargs={"city": City.objects.all().first().en_name}))
     branches = Branch.objects.filter(city=current_city)
     cities = City.objects.all()
-    all_lisences = License.objects.all()
+    #all_lisences = License.objects.all()
     leaders = DirectionOfActivity.objects.filter(name="Руководители", branch__in=branches).first()
     activities = DirectionOfActivity.objects.filter(branch__in=branches)
     return render(request, "osms.html", {
