@@ -102,6 +102,18 @@ class License(models.Model):
     
     def __str__(self):
         return str(self.id)
+    
+    @property
+    def preview_url(self):
+        if self.preview and hasattr(self.preview, 'url'):
+            return self.preview.url
+        return None
+    
+    @property
+    def licence_url(self):
+        if self.licence and hasattr(self.licence, 'url'):
+            return self.licence.url
+        return None
 
 class Education(models.Model):
     name = models.TextField(default="", blank=True)
