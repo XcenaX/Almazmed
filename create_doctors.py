@@ -51,7 +51,7 @@ else:
 
             activity = DirectionOfActivity.objects.filter(name=activity_name).first()
             if not activity:
-                activity = DirectionOfActivity.objects.create(name=activity_name)
+                activity = DirectionOfActivity.objects.create(name=activity_name, branch=branch)
                 activity.save()
 
             doctors = []
