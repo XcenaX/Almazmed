@@ -96,31 +96,33 @@
 								{%for element in doctor.doctors%}									
 									
 										<div class="col-md-4 col-sm-12 col-xs-12">
-											<div class="shadow1 {%if element.is_working%}has-address{%else%}spec-wrap{%endif%}">
-												<div class="spec-img-wrap">
-													<a href="{%url 'main:specialist' city.en_name element.id%}">
-														<img src="{%if element.image%}{{element.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%}" alt="" class="spec-img">
-													</a>
-													
-												</div>
-												<div class="spec-body">
-													<div class="spec-name">
-														<a href="{%url 'main:specialist' city.en_name element.id%}">{{element.fullname}}</a>
+											<a href="{%url 'main:specialist' city.en_name element.id%}"></a>
+												<div class="shadow1 {%if element.is_working%}has-address{%else%}spec-wrap{%endif%}">
+													<div class="spec-img-wrap">
+														
+															<img src="{%if element.image%}{{element.image.url}}{%else%}{%static 'img/photo-not-found.jpg'%}{%endif%}" alt="" class="spec-img">
+														
+														
 													</div>
-													<div class="spec-profession">
-														<span>{{element.position.name}}</span>
-													</div>
-												</div>
-												{%if element.is_working and element.has_appointment%}
-													<div class="bottom-block">
-														<div class="wrap">
-															<div class="button text-right no_address">
-																<span class="btn btn-default animate-load" data-event="jqm" data-param-id="18" data-name="record_online" data-autoload-specialist="15">Запись онлайн</span>
-															</div>
+													<div class="spec-body">
+														<div class="spec-name">
+															<a href="{%url 'main:specialist' city.en_name element.id%}">{{element.fullname}}</a>
+														</div>
+														<div class="spec-profession">
+															<span>{{element.position.name}}</span>
 														</div>
 													</div>
-												{%endif%}
-											</div>
+													{%if element.is_working and element.has_appointment%}
+														<div class="bottom-block">
+															<div class="wrap">
+																<div class="button text-right no_address">
+																	<span class="btn btn-default animate-load" data-event="jqm" data-param-id="18" data-name="record_online" data-autoload-specialist="15">Запись онлайн</span>
+																</div>
+															</div>
+														</div>
+													{%endif%}
+												</div>
+											</a>
 										</div>
 									
 								{%endfor%}
