@@ -130,7 +130,7 @@ class DirectionOfActivity(models.Model):
     description = models.TextField(default="", blank=True, null=True)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE, blank=True, null=True)
     def __str__(self):
-        return self.name
+        return self.name + "|" + self.branch
     
 
 class Image(models.Model):
