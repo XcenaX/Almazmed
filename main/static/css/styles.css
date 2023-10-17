@@ -66,7 +66,7 @@ input {
 
 .button {
   display: inline-block;
-  padding: 11px 17px 11px;
+  padding: 10px 17px 11px;
   font-size: 0.867em;
   font-weight: 400;
   line-height: 1.2em;
@@ -215,8 +215,9 @@ input {
 
 .callback-block {
   color: #0dbc91;
-  
   cursor: pointer;
+  padding-top: 3px;
+  float: none;
 }
 
 .callback-block:hover {
@@ -224,10 +225,9 @@ input {
 }
 
 .city_li{
-  background: #0da882 !important;
-  text-align: center !important;
+  background: #0da882;
+  text-align: center;
   font-weight: bold;
-  cursor: pointer !important;
 }
 
 .filials a:hover, .filials a:focus {
