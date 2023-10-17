@@ -94,9 +94,9 @@
 							{%endif%}
 							<div class="row" style="margin-bottom: 42px;">
 								{%for element in doctor.doctors%}									
-									
+									<a href="{%url 'main:specialist' city.en_name element.id%}">
 										<div class="col-md-4 col-sm-12 col-xs-12">
-											<a href="{%url 'main:specialist' city.en_name element.id%}">
+											
 												<div class="shadow1 {%if element.is_working%}has-address{%else%}spec-wrap{%endif%}">
 													<div class="spec-img-wrap">
 														
@@ -122,9 +122,9 @@
 														</div>
 													{%endif%}
 												</div>
-											</a>
+											
 										</div>
-									
+									</a>
 								{%endfor%}
 							</div>							
 						{%endfor%}

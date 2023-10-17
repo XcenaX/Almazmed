@@ -3,8 +3,6 @@
 }
 
 .breadcrumbs__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -12,7 +10,6 @@
   color: #bbb !important;
   font-size: 0.9em;
 }
-
 .breadcrumb__item:not(:last-child)::after {
   content: ">";
   margin: 0 10px;
@@ -23,8 +20,6 @@
   pointer-events: none;
   cursor: not-allowed;
 }
-
 .disabled-breadcrumb:hover {
   color: #bbb;
-}
-/*# sourceMappingURL=breadcrumbs.css.map */
+}/*# sourceMappingURL=breadcrumbs.css.map */
