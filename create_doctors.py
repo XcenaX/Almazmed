@@ -49,7 +49,7 @@ else:
                 position = Position.objects.create(name=position_name)
                 position.save()
 
-            activity = DirectionOfActivity.objects.filter(name=activity_name).first()
+            activity = DirectionOfActivity.objects.filter(name=activity_name, branch=branch).first()
             if not activity:
                 activity = DirectionOfActivity.objects.create(name=activity_name, branch=branch)
                 activity.save()
