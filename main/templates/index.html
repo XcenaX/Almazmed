@@ -179,7 +179,7 @@
 
 		<!-- CLINICS ADDRESSES -->
 		<div class="address-section">
-			<div class="wrapper" style="overflow-x: auto;">
+			<div class="wrapper" >
 				<div class="address__view-all">
 					<div class="address__view-all-left">
 						<h1>Адреса клиник</h1>
@@ -200,7 +200,7 @@
 					<a src="" class="inverted-colors">Все филиалы</a>
 				</div>
 
-				<div class="address-section__cards-list">
+				<div class="address-section__cards-list" style="overflow-x: auto;">
 					{%for branch in all_branches%}
 						<div class="address-section__card">
 							<h2>г. {{branch.city.name}}, {{branch.address}}</h2>
