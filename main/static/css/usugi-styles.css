@@ -2007,7 +2007,7 @@ footer .callback-block {
           flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between;
+          justify-content: space-evenly;
 }
 
 .social-block ul li {
